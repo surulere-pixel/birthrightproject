@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>birthright project — economic dignity is a human right</title>
+<meta name="description" content="birthright project is a 501(c)(3) nonprofit building social enterprises, programs, and shared infrastructure for wellbeing, digital opportunity, and financial autonomy across africa, latin america, the caribbean, and the diaspora.">
+<meta property="og:title" content="economic dignity is a human right">
+<meta property="og:description" content="a nonprofit venture studio building programs, social enterprises, and shared infrastructure across africa, latin america, the caribbean, and the diaspora.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.thebirthrightproject.org">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='3' fill='%23b8912a'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f0e0c;--panel:#171512;--bone:#faf8f4;--cream:#edeae3;
+  --ink:#f4efe6;--muted:#a9a094;--soft:#756d63;--gold:#b8912a;
+  --line:rgba(244,239,230,0.1);--line-s:rgba(244,239,230,0.18);
+  --green:#7fa66f;--yellow:#d4a72c;
+}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'IBM Plex Mono',monospace;font-weight:400;color:var(--ink);background:var(--bg);line-height:1.75;text-transform:lowercase;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ── nav ── */
+.nav{position:sticky;top:0;z-index:100;background:rgba(15,14,12,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 clamp(1rem,4vw,3rem)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{height:28px;width:auto;display:block}.nav-mark{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;letter-spacing:-0.02em;color:var(--ink)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-link{font-size:0.6rem;letter-spacing:0.08em;color:var(--muted);transition:color 0.2s}
+.nav-link:hover{color:var(--ink)}
+.nav-cta{font-size:0.58rem;letter-spacing:0.08em;padding:0.6rem 1.2rem;border:1px solid var(--line-s);border-radius:999px;color:var(--ink);transition:all 0.2s}
+.nav-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+
+/* ── layout ── */
+.sec{padding:clamp(4rem,8vw,7rem) clamp(1.2rem,4vw,3.5rem)}
+.sec-cream{background:var(--cream);color:#1e1c19}
+.sec-dark{background:var(--panel)}
+.sec-deep{background:#0a0908}
+.inner{max-width:1100px;margin:0 auto}
+.eyebrow{font-size:0.54rem;letter-spacing:0.16em;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem;text-transform:uppercase}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* ── type ── */
+.h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3.2rem,8vw,7.5rem);line-height:0.92;letter-spacing:-0.04em;color:var(--ink);margin-bottom:1.8rem}
+.h1 em{font-style:italic;color:var(--gold)}
+.h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,4.5vw,3.8rem);line-height:1.02;letter-spacing:-0.03em;margin-bottom:1.4rem}
+.h2 em{font-style:italic;color:var(--gold)}
+.h2-dark{color:var(--ink)}
+.h2-cream{color:#1e1c19}
+.h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.5rem;letter-spacing:-0.02em;margin-bottom:0.5rem}
+.body{font-size:0.88rem;color:var(--muted);max-width:56ch;line-height:1.9;font-weight:400}
+.body-cream{color:#6f665d}
+.body strong{color:var(--ink);font-weight:500}
+.body-cream strong{color:#1e1c19;font-weight:500}
+
+/* ── btns ── */
+.btns{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2.2rem}
+.btn{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;font-weight:500;letter-spacing:0.06em;padding:0.85rem 1.6rem;border-radius:999px;display:inline-block;transition:all 0.18s}
+.btn-s{background:var(--ink);color:var(--bg);border:1px solid var(--ink)}
+.btn-s:hover{background:var(--gold);border-color:var(--gold)}
+.btn-g{background:var(--gold);color:var(--ink);border:1px solid var(--gold)}
+.btn-g:hover{opacity:0.88}
+.btn-o{background:transparent;border:1px solid var(--line-s);color:var(--muted)}
+.btn-o:hover{border-color:var(--ink);color:var(--ink)}
+.btn-cream{background:#1e1c19;color:var(--cream);border:1px solid #1e1c19}
+.btn-cream:hover{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+
+/* ── stanza ── */
+.stanza{margin:2rem 0}
+.stanza span{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.25rem);line-height:1.75;color:var(--muted)}
+
+/* ── pipeline ── */
+.pipeline{display:flex;align-items:center;gap:0;margin-top:2.5rem;flex-wrap:wrap}
+.pip-step{font-size:0.72rem;letter-spacing:0.06em;color:var(--muted);white-space:nowrap}
+.pip-arrow{font-size:0.65rem;color:var(--gold);margin:0 12px;opacity:0.5}
+.pip-caption{font-size:0.66rem;color:var(--soft);margin-top:1rem;letter-spacing:0.04em}
+
+/* ── lanes ── */
+.lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:2.5rem}
+.lane{background:var(--cream);padding:2rem;transition:background 0.15s}
+.lane:hover{background:#e6e2d9}
+.lane-icon{width:28px;height:28px;color:var(--gold);margin-bottom:1.2rem}
+.lane-icon svg{width:100%;height:100%;display:block}
+.lane-name{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.45rem;color:#1e1c19;margin-bottom:0.5rem;letter-spacing:-0.01em}
+.lane p{font-size:0.74rem;color:#8a8278;line-height:1.75}
+.lane-dest{background:var(--cream);border-left:3px solid var(--gold);padding:2rem;margin-top:1px}
+
+/* ── portfolio ── */
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:2.5rem}
+.port-card{background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01)),var(--panel);border:1px solid var(--line);border-radius:16px;padding:1.8rem;display:flex;flex-direction:column;justify-content:space-between;min-height:280px;transition:transform 0.22s,border-color 0.22s}
+.port-card:hover{transform:translateY(-3px);border-color:var(--line-s)}
+.port-status{font-size:0.5rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;border-radius:999px;padding:0.2rem 0.6rem;display:inline-block;margin-bottom:1rem}
+.port-status-pilot{background:rgba(127,166,111,0.2);color:var(--green)}
+.port-status-proto{background:rgba(212,167,44,0.15);color:var(--yellow)}
+.port-lane{font-size:0.5rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);opacity:0.6;margin-top:1.2rem}
+.port-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--ink);margin-bottom:0.5rem;letter-spacing:-0.02em;line-height:1.1}
+.port-name em{color:var(--gold);font-style:italic}
+.port-desc{font-size:0.72rem;color:var(--muted);line-height:1.65;font-weight:400}
+
+/* ── infra ── */
+.infra-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);margin-top:2.5rem}
+.infra-step{background:var(--panel);padding:1.5rem;text-align:center}
+.infra-step-num{font-size:0.5rem;letter-spacing:0.14em;color:var(--gold);margin-bottom:0.6rem;text-transform:uppercase}
+.infra-step-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--ink);letter-spacing:-0.01em}
+.osmosis-tease{margin-top:3rem;padding:2rem;border:1px solid var(--line);border-radius:14px;background:radial-gradient(circle at top left,rgba(184,145,42,0.08),transparent 40%)}
+.osmosis-label{font-size:0.5rem;letter-spacing:0.14em;color:var(--gold);margin-bottom:0.7rem;text-transform:uppercase}
+
+/* ── regions ── */
+.region-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(30,28,25,0.08);margin-top:2.5rem;border:1px solid rgba(30,28,25,0.08)}
+.region-card{background:var(--cream);padding:1.6rem;transition:background 0.15s}
+.region-card:hover{background:#e6e2d9}
+.region-name{font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.region-cities{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;font-style:italic;color:#1e1c19;line-height:1.4;letter-spacing:-0.02em}
+.region-note{font-size:0.62rem;color:#8a8278;margin-top:2rem;max-width:60ch;letter-spacing:0.04em;line-height:1.6}
+
+/* ── impact loop ── */
+.loop{display:flex;align-items:center;justify-content:center;gap:0;margin:2.5rem 0;flex-wrap:wrap}
+.loop-step{font-size:0.68rem;color:var(--muted);white-space:nowrap}
+.loop-arrow{font-size:0.6rem;color:var(--gold);margin:0 10px;opacity:0.4}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
+.stat-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(2.5rem,5vw,4rem);color:var(--gold);line-height:1;letter-spacing:-0.02em}
+.stat-label{font-size:0.54rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:0.6rem}
+
+/* ── give ── */
+.give-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:2.5rem}
+.give-card{border:1px solid var(--line);border-radius:14px;padding:1.8rem;transition:border-color 0.2s}
+.give-card:hover{border-color:var(--line-s)}
+.give-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--ink);margin-bottom:0.5rem}
+.give-desc{font-size:0.72rem;color:var(--muted);line-height:1.65}
+
+/* ── footer ── */
+.footer{border-top:1px solid var(--line);padding:2.5rem clamp(1.2rem,4vw,3.5rem)}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;gap:2rem;font-size:0.56rem;color:var(--soft);letter-spacing:0.06em;line-height:1.7}
+
+/* ── reveal ── */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ── responsive ── */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .lanes{grid-template-columns:1fr}
+  .port-grid,.give-grid{grid-template-columns:repeat(2,1fr)}
+  .infra-steps{grid-template-columns:repeat(3,1fr)}
+  .region-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .port-grid,.give-grid,.stats-row{grid-template-columns:1fr}
+  .infra-steps{grid-template-columns:1fr}
+  .region-grid{grid-template-columns:1fr}
+  .btns{flex-direction:column}
+  .btn{width:100%;text-align:center}
+  .footer-inner{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-mark"><img src="/logo.png" alt="birthright" class="nav-logo"></a>
+    <div class="nav-links">
+      <a href="/about" class="nav-link">about</a>
+      <a href="/labs#platforms" class="nav-link">platforms</a>
+      <a href="/labs#experiments" class="nav-link">experiments</a>
+      <a href="/give" class="nav-link">support</a>
+      <a href="/give" class="nav-cta">build with us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="sec" id="mission">
+  <div class="inner reveal">
+    <div class="eyebrow"><div class="dot"></div>501(c)(3) nonprofit · building in public</div>
+    <h1 class="h1">economic dignity<br>is a <em>human right.</em></h1>
+    <p class="body">the birthright project builds social enterprises, programs, and shared infrastructure for wellbeing, digital opportunity, and financial autonomy across africa, latin america, the caribbean, and the diaspora.</p>
+    <p class="body" style="margin-top:0.5rem"><strong>100% of social enterprise profits are reinvested into the communities we serve.</strong></p>
+    <div class="btns">
+      <a href="/give" class="btn btn-s">build with us</a>
+      <a href="#support" class="btn btn-o">support the work</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BUILD -->
+<section class="sec sec-dark">
+  <div class="inner reveal">
+    <div class="eyebrow">how we work</div>
+    <h2 class="h2 h2-dark">we build many paths<br>toward one <em>mission.</em></h2>
+    <p class="body">some ideas become programs. some become social enterprises. some become tools, platforms, and blueprints that communities can own, operate, and scale.</p>
+    <div class="pipeline">
+      <span class="pip-step">idea</span><span class="pip-arrow">→</span>
+      <span class="pip-step">pilot</span><span class="pip-arrow">→</span>
+      <span class="pip-step">blueprint</span><span class="pip-arrow">→</span>
+      <span class="pip-step">share</span><span class="pip-arrow">→</span>
+      <span class="pip-step">scale</span>
+    </div>
+    <div class="pip-caption">every lesson becomes infrastructure.</div>
+  </div>
+</section>
+
+<!-- THREE LANES -->
+<section class="sec sec-cream">
+  <div class="inner reveal">
+    <div class="eyebrow" style="color:var(--gold)">impact lanes</div>
+    <h2 class="h2 h2-cream">three lanes toward<br><em>economic dignity.</em></h2>
+    <p class="body body-cream">we build in three lanes. what proves useful becomes shared infrastructure — models, tools, and systems communities can own, operate, and scale.</p>
+    <div class="lanes">
+      <div class="lane">
+        <div class="lane-icon"><svg viewBox="0 0 24 24"><path d="M12 20.5C12 20.5 4 16 4 9.8 4 7.4 5.9 5.5 8.2 5.5 9.8 5.5 11.2 6.4 12 7.7 12.8 6.4 14.2 5.5 15.8 5.5 18.1 5.5 20 7.4 20 9.8 20 16 12 20.5 12 20.5Z" fill="currentColor"/></svg></div>
+        <div class="lane-name">community wellbeing</div>
+        <p>programs and platforms that help people move, gather, and access everyday support.</p>
+      </div>
+      <div class="lane">
+        <div class="lane-icon"><svg viewBox="0 0 24 24"><path d="M11 2.5C11.6 7.6 12.4 8.4 17.5 9 12.4 9.6 11.6 10.4 11 15.5 10.4 10.4 9.6 9.6 4.5 9 9.6 8.4 10.4 7.6 11 2.5Z" fill="currentColor"/><path d="M17.5 14C17.7 16 17.9 16.3 20 16.5 17.9 16.7 17.7 17 17.5 19 17.3 17 17.1 16.7 15 16.5 17.1 16.3 17.3 16 17.5 14Z" fill="currentColor"/></svg></div>
+        <div class="lane-name">digital opportunity</div>
+        <p>creative, technical, and entrepreneurial pathways for young builders, artists, and emerging operators.</p>
+      </div>
+      <div class="lane">
+        <div class="lane-icon"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a9 9 0 100 18 9 9 0 000-18Zm0 5.5a3.5 3.5 0 110 7 3.5 3.5 0 010-7Z" fill="currentColor"/></svg></div>
+        <div class="lane-name">financial autonomy</div>
+        <p>tools, ventures, and support systems that help people turn skills, ideas, and community into income and ownership.</p>
+      </div>
+    </div>
+    <div class="lane-dest">
+      <div class="lane-icon"><svg viewBox="0 0 24 24"><path d="M12 6.6 6.3 17.4M12 6.6 17.7 17.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/><circle cx="12" cy="5" r="2.6" fill="currentColor"/><circle cx="5.6" cy="18.4" r="2.6" fill="currentColor"/><circle cx="18.4" cy="18.4" r="2.6" fill="currentColor"/></svg></div>
+      <div class="lane-name">→ shared infrastructure</div>
+      <p>what works becomes blueprints, models, tools, and systems that communities can reuse, adapt, and scale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section class="sec" id="portfolio">
+  <div class="inner reveal">
+    <div class="eyebrow">platforms</div>
+    <h2 class="h2 h2-dark">what we are <em>building.</em></h2>
+    <p class="body">birthright operates as a portfolio of experiments, programs, and social enterprises. each one tests a pathway toward economic dignity.</p>
+    <div class="port-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="port-card">
+        <div><div class="port-status port-status-pilot">pilot</div>
+        <div class="port-name">the mmaadd <em>institute</em></div>
+        <p class="port-desc">digital opportunity programs helping young builders and women learn through real creative and technical projects.</p></div>
+        <div class="port-lane">digital opportunity</div>
+      </div>
+      <div class="port-card">
+        <div><div class="port-status port-status-pilot">pilot</div>
+        <div class="port-name"><em>softer</em>bread cooperative</div>
+        <p class="port-desc">a nonprofit collective helping young builders turn skills, ideas, culture, and community into financial autonomy.</p></div>
+        <div class="port-lane">financial autonomy</div>
+      </div>
+      <div class="port-card">
+        <div><div class="port-status port-status-pilot">pilot</div>
+        <div class="port-name"><em>happy</em> sunday</div>
+        <p class="port-desc">wellbeing infrastructure for everyday community care, movement, and direct support.</p></div>
+        <div class="port-lane">community wellbeing</div>
+      </div>
+    </div>
+    <div class="btns"><a href="/labs" class="btn btn-s">visit labs</a></div>
+  </div>
+</section>
+
+<!-- SHARED INFRASTRUCTURE -->
+<section class="sec sec-dark">
+  <div class="inner reveal">
+    <div class="eyebrow">infrastructure</div>
+    <h2 class="h2 h2-dark">we are building engines,<br>not one-off <em>projects.</em></h2>
+    <p class="body">birthright tests ideas through real programs and ventures. when something works, we turn the operating model into reusable infrastructure: templates, tools, playbooks, platforms, and systems others can adapt.</p>
+    <div class="infra-steps">
+      <div class="infra-step"><div class="infra-step-num">01</div><div class="infra-step-name">build once</div></div>
+      <div class="infra-step"><div class="infra-step-num">02</div><div class="infra-step-name">test in public</div></div>
+      <div class="infra-step"><div class="infra-step-num">03</div><div class="infra-step-name">document what works</div></div>
+      <div class="infra-step"><div class="infra-step-num">04</div><div class="infra-step-name">share the model</div></div>
+      <div class="infra-step"><div class="infra-step-num">05</div><div class="infra-step-name">help communities operate it</div></div>
+    </div>
+    <div class="osmosis-tease">
+      <div class="osmosis-label">long-term infrastructure</div>
+      <div class="h3" style="color:var(--ink)">osmosis os</div>
+      <p class="body" style="margin-top:0.4rem">an intelligent operating system for helping communities organize projects, circulate value, preserve culture, and scale what works.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE WE WORK -->
+<section class="sec sec-cream" id="where">
+  <div class="inner reveal">
+    <div class="eyebrow" style="color:var(--gold)">where we work</div>
+    <h2 class="h2 h2-cream">africa. latin america.<br>the caribbean. <em>the diaspora.</em></h2>
+    <p class="body body-cream">we start where trusted relationships, committed partners, and practical pilots make real work possible.</p>
+    <div class="region-grid">
+      <div class="region-card"><div class="region-name">africa</div><div class="region-cities">nigeria · ghana · kenya</div></div>
+      <div class="region-card"><div class="region-name">the caribbean</div><div class="region-cities">jamaica · trinidad & tobago · haiti</div></div>
+      <div class="region-card"><div class="region-name">latin america</div><div class="region-cities">colombia · mexico · brazil</div></div>
+      <div class="region-card"><div class="region-name">the diaspora</div><div class="region-cities">atlanta · houston · new york · london</div></div>
+    </div>
+    <p class="region-note">locations represent active relationships, pilots, or priority corridors.</p>
+  </div>
+</section>
+
+<!-- IMPACT MODEL -->
+<section class="sec">
+  <div class="inner reveal">
+    <div class="eyebrow">impact model</div>
+    <h2 class="h2 h2-dark">how the work <em>circulates.</em></h2>
+    <p class="body">birthright uses enterprise activity to fund mission work. revenue from social enterprises supports pilots, fellowships, community tools, and the infrastructure needed to keep building.</p>
+    <div class="loop">
+      <span class="loop-step">social enterprise revenue</span><span class="loop-arrow">→</span>
+      <span class="loop-step">program funding</span><span class="loop-arrow">→</span>
+      <span class="loop-step">fellowships + tools</span><span class="loop-arrow">→</span>
+      <span class="loop-step">community pilots</span><span class="loop-arrow">→</span>
+      <span class="loop-step">reusable infrastructure</span><span class="loop-arrow">→</span>
+      <span class="loop-step">more local ownership</span>
+    </div>
+    <div class="stats-row">
+      <div><div class="stat-num">100%</div><div class="stat-label">social enterprise profits reinvested</div></div>
+      <div><div class="stat-num">501(c)(3)</div><div class="stat-label">nonprofit</div></div>
+      <div><div class="stat-num">active</div><div class="stat-label">pilots + programs</div></div>
+      <div><div class="stat-num">4</div><div class="stat-label">regions · af/lac/caribbean/diaspora</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section class="sec sec-dark" id="support">
+  <div class="inner reveal">
+    <div class="eyebrow">support</div>
+    <h2 class="h2 h2-dark">give. partner.<br><em>build with us.</em></h2>
+    <p class="body">support birthright by contributing money, time, art, technology, space, services, or partnership capacity.</p>
+    <div class="give-grid">
+      <div class="give-card"><div class="give-title">give money</div><p class="give-desc">support pilots, fellows, tools, and community infrastructure.</p></div>
+      <div class="give-card"><div class="give-title">give time</div><p class="give-desc">mentor, advise, teach, review, or help operate a pilot.</p></div>
+      <div class="give-card"><div class="give-title">give art</div><p class="give-desc">contribute creative work, cultural material, or storytelling.</p></div>
+      <div class="give-card"><div class="give-title">give tech</div><p class="give-desc">support websites, automations, tools, data systems, and platform builds.</p></div>
+      <div class="give-card"><div class="give-title">partner</div><p class="give-desc">bring a community, institution, funder, or local operator into the work.</p></div>
+      <div class="give-card"><div class="give-title">build with us</div><p class="give-desc">join the portfolio as a co-creator, operator, or venture partner.</p></div>
+    </div>
+    <div class="btns">
+      <a href="/give" class="btn btn-g">support the work</a>
+      <a href="/give" class="btn btn-o">partner with us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>birthright project inc. · 501(c)(3) nonprofit · ein 99-3166732 · incorporated 2025<br>serving communities across africa, latin america, the caribbean, and the diaspora.</div>
+    <div><a href="/give">hello@thebirthrightproject.org</a></div>
+  </div>
+</footer>
+
+<script>
+// scroll reveal
+if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+  var io=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target)}})},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+} else {
+  document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+}
+// active nav
+var links=document.querySelectorAll('.nav-link');
+var sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',function(){
+  var y=window.scrollY+100;
+  sections.forEach(function(s){
+    if(s.offsetTop<=y&&s.offsetTop+s.offsetHeight>y){
+      links.forEach(function(l){l.style.color=l.getAttribute('href')==='#'+s.id?'var(--ink)':''});
+    }
+  });
+});
+</script>
+</body>
+</html>
