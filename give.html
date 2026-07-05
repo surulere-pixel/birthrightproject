@@ -9,11 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#0f0e0c;--panel:#171512;--ink:#f4efe6;--muted:#a9a094;--soft:#756d63;--line:rgba(244,239,230,0.12);--line-s:rgba(244,239,230,0.22);--gold:#c9a84c}
+:root{--bg:#2a2520;--panel:#322c25;--ink:#f1ece3;--muted:#a9a094;--soft:#8a8278;--line:rgba(241,236,227,0.1);--line-s:rgba(241,236,227,0.18);--gold:#b8912a;--terra:#c67a4a}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{font-family:'IBM Plex Mono',monospace;font-weight:400;color:var(--ink);background:var(--bg);line-height:1.75;text-transform:lowercase;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.nav{position:sticky;top:0;z-index:100;background:rgba(15,14,12,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 clamp(1rem,4vw,3rem)}
+.nav{position:sticky;top:0;z-index:100;background:rgba(42,37,32,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 clamp(1rem,4vw,3rem)}
 .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
 .nav-logo{height:28px;width:auto;display:block}
 .nav-mark{display:flex;align-items:center}
@@ -21,12 +21,13 @@ a{color:inherit;text-decoration:none}
 .nav-link{font-size:0.6rem;letter-spacing:0.08em;color:var(--muted);transition:color 0.2s}
 .nav-link:hover{color:var(--ink)}
 .nav-cta{font-size:0.58rem;letter-spacing:0.08em;padding:0.6rem 1.2rem;border:1px solid var(--line-s);border-radius:999px;color:var(--ink);transition:all 0.2s}
-.nav-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.nav-cta:hover{background:var(--terra);border-color:var(--terra);color:var(--bg)}
 .wrap{max-width:960px;margin:0 auto;padding:28px clamp(18px,4vw,40px) 96px}
 .ways{display:flex;gap:14px;margin:2.5rem 0 3rem;flex-wrap:wrap}
 .way{background:transparent;border:1px solid var(--line);border-radius:14px;padding:20px;cursor:pointer;text-align:left;font-family:inherit;color:inherit;text-transform:lowercase;flex:1;min-width:140px;transition:border-color 0.2s;display:block}
-.way:hover{border-color:var(--line-s)}
-.way-num{font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.way:hover{border-color:rgba(198,122,74,0.5)}
+.way-ideas{background:linear-gradient(145deg,rgba(198,122,74,0.14),rgba(198,122,74,0.04)),transparent;border-color:rgba(198,122,74,0.4);border-left:3px solid var(--terra)}
+.way-num{font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
 .way-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;line-height:1.1;margin-bottom:4px}
 .way-name em{color:var(--gold);font-style:italic}
 .way-desc{font-size:0.6rem;color:var(--soft);line-height:1.5}
@@ -65,6 +66,8 @@ a{color:inherit;text-decoration:none}
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:500;letter-spacing:0.06em;padding:0.9rem 1.8rem;border-radius:999px;cursor:pointer;transition:all 0.2s;text-transform:lowercase;text-decoration:none;border:0}
 .btn-gold{background:var(--gold);color:var(--bg)}
 .btn-gold:hover{opacity:0.88}
+.btn-terra{background:var(--terra);color:var(--bg)}
+.btn-terra:hover{opacity:0.88}
 .btn-outline{background:transparent;color:var(--ink);border:1px solid var(--line-s)}
 .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
 .form-status{margin:12px 0 0;font-size:0.68rem;color:var(--muted);min-height:14px}
@@ -74,7 +77,7 @@ a{color:inherit;text-decoration:none}
 .dlinks{display:flex;flex-wrap:wrap;gap:0.4rem 1.4rem}
 .dlinks a{font-size:0.64rem;color:var(--muted);transition:color 0.2s}
 .dlinks a:hover{color:var(--gold)}
-.cta{margin-top:4rem;padding:clamp(30px,5vw,54px);border:1px solid var(--line-s);border-radius:24px;background:radial-gradient(circle at top left,rgba(201,168,76,0.13),transparent 35%),rgba(255,255,255,0.035)}
+.cta{margin-top:4rem;padding:clamp(30px,5vw,54px);border:1px solid var(--line-s);border-radius:24px;background:radial-gradient(circle at top left,rgba(198,122,74,0.14),transparent 35%),rgba(255,255,255,0.035)}
 .cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;line-height:0.96;letter-spacing:-0.03em;margin-bottom:14px}
 .cta p{font-size:0.72rem;color:var(--muted);line-height:1.7;max-width:52ch;margin-bottom:1.5rem}
 .footer{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line);font-size:0.54rem;color:var(--soft);letter-spacing:0.06em;line-height:1.8}
@@ -89,12 +92,11 @@ a{color:inherit;text-decoration:none}
 <nav class="nav"><div class="nav-inner">
   <a href="/" class="nav-mark"><img src="/logo.png" alt="birthright" class="nav-logo"></a>
   <div class="nav-links">
-    <a href="/about" class="nav-link">about</a>
-    <a href="/labs#platforms" class="nav-link">platforms</a>
-    <a href="/labs#experiments" class="nav-link">experiments</a>
-    <a href="/give" class="nav-link" style="color:var(--ink)">support</a>
-    <a href="/give" class="nav-cta">build with us</a>
-  </div>
+      <a href="/about" class="nav-link">about</a>
+      <a href="/labs" class="nav-link">labs</a>
+      <a href="/give" class="nav-link">give</a>
+      <a href="/give" class="nav-cta">build with us</a>
+    </div>
 </div></nav>
 
 <div class="wrap">
@@ -111,6 +113,7 @@ a{color:inherit;text-decoration:none}
     <a href="#tech" class="way"><div class="way-num">way 02</div><h3 class="way-name">give <em>tech</em></h3><p class="way-desc">cloud, compute, devices, licenses, and development time.</p></a>
     <a href="#time" class="way"><div class="way-num">way 03</div><h3 class="way-name">give <em>time</em></h3><p class="way-desc">mentor, coach, teach, advise, or operate a pilot.</p></a>
     <a href="#space" class="way"><div class="way-num">way 04</div><h3 class="way-name">give <em>space</em></h3><p class="way-desc">lots, land, and walls — underused ground becomes a greenhouse commons.</p></a>
+    <a href="#ideas" class="way way-ideas"><div class="way-num">way 05</div><h3 class="way-name">got other <em>ideas?</em></h3><p class="way-desc">partner, co-build, or bring an idea all your own.</p></a>
   </div>
 
   <!-- MONEY -->
@@ -152,7 +155,7 @@ a{color:inherit;text-decoration:none}
         <option value="cloud credits" data-impact="cloud credits power the tools fellows and ventures build and ship on." selected>cloud credits</option>
         <option value="compute + gpu" data-impact="gpu and compute time trains models and renders creative work.">compute + gpu time</option>
         <option value="computers + devices" data-impact="laptops and devices put working tools directly in fellows' and operators' hands.">computers + devices</option>
-        <option value="software licenses" data-impact="design, dev, and productivity licenses remove a real cost barrier.">software licenses</option>
+        <option value="software licenses" data-impact="design, dev, and productivity licenses open real creative headroom.">software licenses</option>
         <option value="api + model credits" data-impact="llm and api credits keep community tools and prototypes running.">api + model credits</option>
       </select>
     </span></label>
@@ -227,11 +230,28 @@ a{color:inherit;text-decoration:none}
     </form>
   </section>
 
+  <!-- IDEAS -->
+  <section class="method reveal" id="ideas">
+    <div class="method-label">way 05</div>
+    <div class="method-title">got other <em style="color:var(--terra);font-style:italic">ideas?</em></div>
+    <p class="method-sub">a partnership, a venture, a space, a skill, or an idea all your own — tell us what you're carrying and how you'd like to build together.</p>
+    <form data-gv-form>
+      <input type="hidden" name="_subject" value="got other ideas — birthright">
+      <input type="hidden" name="giving" value="ideas / partnership">
+      <input class="input" type="text" name="name" placeholder="your name" required>
+      <input class="input" type="email" name="email" placeholder="email" required>
+      <textarea class="textarea" name="message" placeholder="your idea or partnership — what you're imagining, and how you'd like to build together" style="min-height:120px" required></textarea>
+      <button class="btn btn-terra" type="submit">share your idea →</button>
+      <p class="form-status" aria-live="polite"></p>
+    </form>
+    <p class="note">we read every note. we'll follow up to explore fit and next steps.</p>
+  </section>
+
   <div class="cta">
     <h2>help build what communities can own.</h2>
     <p>birthright labs is part of the birthright project, a 501(c)(3) nonprofit. we test practical models, document what works, and turn useful ideas into infrastructure communities and partners can adapt locally.</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn btn-gold" href="/give">build with us →</a>
+      <a class="btn btn-terra" href="#ideas">build with us →</a>
       <a class="btn btn-outline" href="/labs">explore labs →</a>
     </div>
   </div>
@@ -250,12 +270,12 @@ a{color:inherit;text-decoration:none}
 
   /* money */
   var TIERS=[
-    {a:25,t:'wellbeing sessions',i:'a month of neighborhood wellbeing sessions for one person.',e:'movement, recovery, and community practice in shared spaces.'},
+    {a:25,t:'care access',i:'trusted, culturally grounded care connected for one person.',e:'vetted local practitioners, findable and reachable.'},
     {a:60,t:'a family pantry',i:'a family pantry — groceries sent to a household in kingston.',e:'essentials, groceries, and local fulfillment, delivered with care.'},
     {a:150,t:'tools + devices',i:'a month of devices, software, and cloud access for one youth-led venture.',e:'laptop time, design and dev tools, and cloud credits.'},
     {a:500,t:'seed an enterprise',i:'seed tools and first inventory for one woman-led enterprise in nairobi.',e:'starter equipment, first stock, and market setup.'},
     {a:1000,t:'sponsor a fellow',i:'one fellow through a full month at the institute.',e:'training, mentorship, production support, and a stipend.'},
-    {a:2500,t:'medical bill relief',i:'medical bill relief for families through clean bill direct.',e:'verified bills, provider-paid support, and clear relief routing.'},
+    {a:2500,t:'medical bills paid',i:'medical bills paid directly to providers through clean bill direct.',e:'verified bills, paid straight to the provider.'},
     {a:5000,t:'youth entrepreneurship',i:'a youth entrepreneurship cohort — training, tools, and launch support.',e:'workshops, devices, seed support, and mentorship.'},
     {a:10000,t:'activate a lot',i:'activates a vacant lot as a space\u0026co. greenhouse commons.',e:'garden beds, pods, gathering ground, and neighborhood programming.'},
     {a:25000,t:'a space\u0026co. site',i:'stands up one space\u0026co. site for a year.',e:'greenhouse, tea garden, maker pods, and community rooms.'}
