@@ -244,8 +244,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
 
 /* photo layer */
 .hero-photo{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 32%;
-  filter:sepia(0.28) saturate(0.86) contrast(1.04) brightness(0.82);opacity:1}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 36%;
+  filter:sepia(0.10) saturate(0.94) contrast(1.06) brightness(0.86);opacity:1}
 
 /* scrims: nav band · text column · bottom fade · brand tint */
 .hero-photo::after{content:"";position:absolute;inset:0;
@@ -259,7 +259,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
 .hero-grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0.16;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");background-size:180px}
 .hero-vignette{position:absolute;inset:0;z-index:2;pointer-events:none;
-  box-shadow:inset 0 0 clamp(80px,14vw,200px) rgba(31,27,22,0.85)}
+  box-shadow:inset 0 0 clamp(70px,12vw,170px) rgba(31,27,22,0.62)}
 
 .hero .container{position:relative;z-index:3}
 .hero .h1{text-shadow:0 2px 40px rgba(31,27,22,0.55)}
@@ -308,7 +308,7 @@ html.js .hero .container > .btns{animation-delay:3.85s}
 
 @media(max-width:860px){
   .hero{min-height:clamp(520px,80vh,700px);padding-top:132px;padding-bottom:52px}
-  .hero-photo img{object-position:center 28%}
+  .hero-photo img{object-position:58% 34%}
   .hero-photo::after{background:
     linear-gradient(180deg, rgba(31,27,22,0.92) 0%, rgba(31,27,22,0.62) 17%, rgba(31,27,22,0.30) 36%),
     linear-gradient(0deg, var(--bg) 4%, rgba(31,27,22,0.80) 30%, rgba(31,27,22,0.70) 62%, rgba(31,27,22,0.32) 100%),
@@ -373,7 +373,7 @@ html.intro-seen .hero .container > .btns{animation:none}
 /* ── hero photo ── */
 .hero{position:relative;overflow:hidden;isolation:isolate;min-height:clamp(560px,86vh,860px);display:flex;align-items:center}
 .hero-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 32%;display:block;
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 36%;display:block;
   filter:sepia(0.28) saturate(0.86) contrast(1.04) brightness(0.82);
   opacity:0;transform:scale(1.06);
   animation:heroIn 2.4s cubic-bezier(.16,1,.3,1) 0.15s forwards, heroDrift 30s ease-in-out 2.6s infinite alternate}
@@ -395,7 +395,7 @@ html.intro-seen .hero .container > .btns{animation:none}
   background-size:180px;animation:grainIn 1.4s ease 0.9s forwards}
 @keyframes grainIn{to{opacity:0.16}}
 .hero-vignette{position:absolute;inset:0;z-index:2;pointer-events:none;
-  box-shadow:inset 0 0 clamp(80px,14vw,200px) rgba(31,27,22,0.85);
+  box-shadow:inset 0 0 clamp(70px,12vw,170px) rgba(31,27,22,0.62);
   opacity:0;animation:washIn 1.6s ease 0.7s forwards}
 
 .hero .container{position:relative;z-index:3}
@@ -411,7 +411,7 @@ html.intro-seen .hero .container > .btns{animation:none}
 
 @media(max-width:860px){
   .hero{min-height:clamp(500px,78vh,680px)}
-  .hero-photo img{object-position:center 28%}
+  .hero-photo img{object-position:58% 34%}
   .hero-wash{background:
     linear-gradient(180deg, rgba(42,37,32,0.66) 0%, rgba(42,37,32,0.5) 30%, rgba(42,37,32,0.86) 72%, var(--bg) 100%),
     radial-gradient(140% 80% at 30% 40%, rgba(198,122,74,0.16), transparent 62%)}
@@ -455,7 +455,7 @@ html.intro-seen .hero .container > .btns{animation:none}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-photo" aria-hidden="true">
-    <svg class="hero-sketch" viewBox="0 0 1672 941" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <svg class="hero-sketch" viewBox="0 0 1469 979" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
       <!-- horizon -->
       <g class="sk sk-1">
         <path pathLength="1" d="M0 128 H1672"/>
@@ -534,8 +534,8 @@ html.intro-seen .hero .container > .btns{animation:none}
          srcset="/hero-mobile.jpg 900w, /hero.jpg 1672w"
          sizes="100vw"
          alt="" decoding="async" fetchpriority="high"
-         width="1672" height="941"
-         style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDGtBvYbQzFV3fKM5pXun8kHb82zOCP1zUFtLJF0PByD9KlVUkk34bYqqApPf8AwrKxqPkgM4eSZHRETIIHc9BRVe7vJJ1C4AQckDvRVJEM/9k=);background-size:cover;background-position:center 32%">
+         width="1469" height="979"
+         style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAPABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDItRvY7FY7VLDHrQ15L5Q4wxTNQQl4zkNgc5+lL+7aQFkwAoUDPesrI11LPlPclGnQiJV3MRgYBoqrczzONhIC5Ocd6KLCbP/Z);background-size:cover;background-position:center 36%">
   </div>
   <div class="hero-grain" aria-hidden="true"></div>
   <div class="hero-vignette" aria-hidden="true"></div>
