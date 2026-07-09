@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>(function(){var h=document.documentElement;h.className+=' js';
+try{if(sessionStorage.getItem('br-intro'))h.className+=' intro-seen';}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>birthright project — economic dignity is a human right</title>
@@ -158,17 +160,17 @@ section:first-of-type{border-top:0}
 .team-step-desc{font-size:0.72rem;color:var(--muted);line-height:1.6}
 
 /* ── hero sketch ── */
-.hero{position:relative;overflow:hidden}
-.hero-sketch{position:absolute;inset:-20px;width:calc(100% + 40px);height:calc(100% + 40px);z-index:0;pointer-events:none;opacity:0.4;animation:skDrift 22s ease-in-out infinite alternate}
-.sk-cream{stroke:rgba(241,236,227,0.16);stroke-width:1.2;fill:none;stroke-linecap:round}
-.sk-terra{stroke:rgba(198,122,74,0.18);stroke-width:1.2;fill:none;stroke-linecap:round}
-.sk-soft{stroke:rgba(241,236,227,0.08);stroke-width:0.8;fill:none;stroke-linecap:round}
-.sk-dot{fill:rgba(198,122,74,0.25)}.sk-dot-c{fill:rgba(241,236,227,0.12)}
-[data-sk]{stroke-dashoffset:var(--l);stroke-dasharray:var(--l);animation:skDraw var(--d,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}
-[data-blink]{animation:skBlink var(--d,3.5s) ease-in-out infinite;animation-delay:var(--dl,0s)}
-@keyframes skDraw{0%{stroke-dashoffset:var(--l);opacity:0}12%{opacity:.7}45%{stroke-dashoffset:0;opacity:.7}75%{stroke-dashoffset:0;opacity:.5}95%{stroke-dashoffset:calc(var(--l)*-1);opacity:0}100%{stroke-dashoffset:calc(var(--l)*-1);opacity:0}}
-@keyframes skBlink{0%,100%{opacity:.15}50%{opacity:.7}}
-@keyframes skDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-12px,7px,0)}}
+
+
+
+
+
+
+
+
+12%{opacity:.7}45%{stroke-dashoffset:0;opacity:.7}75%{stroke-dashoffset:0;opacity:.5}95%{stroke-dashoffset:calc(var(--l)*-1);opacity:0}100%{stroke-dashoffset:calc(var(--l)*-1);opacity:0}}
+50%{opacity:.7}}
+to{transform:translate3d(-12px,7px,0)}}
 
 /* ── grain ── */
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.028;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:200px}
@@ -193,12 +195,144 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
   .nav-drawer.open{display:block}
   .nav-drawer a{display:block;padding:10px 16px;font-size:12px;color:var(--muted);border-radius:10px;transition:background .15s}
   .nav-drawer a:hover{background:var(--panel-2);color:var(--ink)}
-  .hero-sketch{opacity:0.2}
 }
 @media(max-width:560px){
   .card-grid-3,.card-grid-4,.card-grid-5{grid-template-columns:1fr}
   body{font-size:15px}
   .body,.plat-desc,.lane-lead,.lane-need,.give-desc,.card-desc{font-size:0.92rem;line-height:1.65}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;scroll-behavior:auto!important}}
+
+/* ── declutter: mobile disclosure ── */
+.more-btn{display:none}
+@media(max-width:860px){
+  /* platform descriptions clamp to 3 lines until tapped */
+  .plat-desc{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .plat-tools{display:none}
+
+  /* lane pills hidden behind a tap */
+  .lane-card .pills{display:none}
+  .lane-card.expanded .pills{display:flex}
+
+  /* shared-infrastructure pills scroll instead of wrapping */
+  .infra-card .pills{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:4px;mask-image:linear-gradient(90deg,#000 88%,transparent)}
+  .infra-card .pills::-webkit-scrollbar{display:none}
+  .infra-card .pill{flex:0 0 auto}
+
+  /* give cards compact: description on tap */
+  .give-card{min-height:0;padding:16px 18px}
+  .give-desc{display:none}
+  .give-name{margin-bottom:0}
+  .give-grid{grid-template-columns:1fr 1fr}
+
+  /* the disclosure control */
+  .more-btn{display:inline-flex;align-items:center;gap:6px;background:none;border:0;cursor:pointer;
+    font-family:'IBM Plex Mono',monospace;font-size:0.5rem;font-weight:500;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--terra);padding:10px 0 0;min-height:36px}
+  .more-btn .more-plus{width:16px;height:16px;position:relative;border:1px solid rgba(198,122,74,0.45);border-radius:50%;transition:transform 260ms}
+  .more-btn .more-plus::before,.more-btn .more-plus::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--terra)}
+  .more-btn .more-plus::before{width:7px;height:1px}
+  .more-btn .more-plus::after{width:1px;height:7px}
+  .expanded > .more-btn .more-plus,.expanded .more-btn .more-plus{transform:rotate(45deg)}
+}
+@media(prefers-reduced-motion:reduce){.more-btn .more-plus{transition:none}}
+
+/* ── hero: the place is drawn, then it comes to life ── */
+.hero{position:relative;overflow:hidden;isolation:isolate;background:var(--bg);
+  min-height:clamp(580px,88vh,880px);display:flex;align-items:center;
+  padding:clamp(150px,20vh,220px) 0 clamp(56px,8vw,92px)}
+
+/* photo layer */
+.hero-photo{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 32%;
+  filter:sepia(0.28) saturate(0.86) contrast(1.04) brightness(0.82);opacity:1}
+
+/* scrims: nav band · text column · bottom fade · brand tint */
+.hero-photo::after{content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(31,27,22,0.86) 0%, rgba(31,27,22,0.50) 15%, rgba(31,27,22,0.14) 32%, transparent 48%),
+    linear-gradient(95deg, rgba(31,27,22,0.90) 0%, rgba(31,27,22,0.84) 38%, rgba(31,27,22,0.68) 54%, rgba(31,27,22,0.30) 68%, rgba(31,27,22,0.08) 84%, transparent 100%),
+    linear-gradient(0deg, var(--bg) 0%, rgba(31,27,22,0.24) 20%, transparent 46%),
+    linear-gradient(0deg, rgba(198,122,74,0.10), rgba(198,122,74,0.10));}
+
+/* grain + vignette sit above the photo */
+.hero-grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0.16;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");background-size:180px}
+.hero-vignette{position:absolute;inset:0;z-index:2;pointer-events:none;
+  box-shadow:inset 0 0 clamp(80px,14vw,200px) rgba(31,27,22,0.85)}
+
+.hero .container{position:relative;z-index:3}
+.hero .h1{text-shadow:0 2px 40px rgba(31,27,22,0.55)}
+.hero .body{color:rgba(241,236,227,0.86);text-shadow:0 1px 20px rgba(31,27,22,0.5)}
+
+/* ── the sketch: css-only. no js → no sketch, photo shown immediately ── */
+.hero-sketch{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:none;pointer-events:none}
+html.js .hero-sketch{display:block}
+.hero-sketch .sk path,.hero-sketch .sk circle,.hero-sketch .sk ellipse{
+  fill:none;stroke:var(--terra);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;opacity:.85}
+.hero-sketch .grid path{stroke:var(--ink);opacity:.14;stroke-width:1}
+.hero-sketch .paths path{stroke:var(--gold);opacity:.5;stroke-width:1.4}
+.hero-sketch .marks path,.hero-sketch .marks circle{stroke:var(--muted);opacity:.35;stroke-width:1}
+.hero-sketch .sk-t{fill:var(--terra);font-family:'IBM Plex Mono',monospace;font-size:17px;letter-spacing:2.4px;opacity:0}
+.hero-sketch .sk-t-s{fill:var(--muted);font-size:13px;opacity:0}
+
+/* the pen: each group draws in turn */
+html.js .hero-sketch .sk path,html.js .hero-sketch .sk circle,html.js .hero-sketch .sk ellipse{
+  animation:sk-draw 1.5s cubic-bezier(.33,0,.18,1) forwards;animation-delay:var(--d,0s)}
+@keyframes sk-draw{to{stroke-dashoffset:0}}
+html.js .hero-sketch .sk-1{--d:.10s} html.js .hero-sketch .sk-2{--d:.35s}
+html.js .hero-sketch .sk-3{--d:.72s} html.js .hero-sketch .sk-4{--d:.90s}
+html.js .hero-sketch .sk-5{--d:1.10s} html.js .hero-sketch .sk-6{--d:1.30s}
+html.js .hero-sketch .sk-7{--d:1.48s} html.js .hero-sketch .sk-8{--d:1.62s}
+html.js .hero-sketch .sk-9{--d:1.76s} html.js .hero-sketch .sk-10{--d:1.92s}
+html.js .hero-sketch .sk-t{animation:sk-label .9s ease forwards;animation-delay:2.45s}
+@keyframes sk-label{to{opacity:.9}}
+
+/* the drawing recedes as the photograph arrives */
+html.js .hero-sketch{animation:sk-fade 1.9s cubic-bezier(.4,0,.2,1) forwards;animation-delay:2.75s}
+@keyframes sk-fade{0%{opacity:1}35%{opacity:.66}70%{opacity:.24}100%{opacity:0}}
+
+/* the people come to life */
+html.js .hero-photo img{opacity:.10;transform:scale(1.06);
+  animation:sk-live 2.6s cubic-bezier(.28,.52,.24,1) forwards;animation-delay:2.10s}
+@keyframes sk-live{0%{opacity:.10}30%{opacity:.30}62%{opacity:.72}100%{opacity:1;transform:scale(1)}}
+
+/* the headline settles in behind the drawing */
+html.js .hero .container > *{opacity:0;animation:sk-rise 1.25s cubic-bezier(.22,.61,.36,1) forwards}
+html.js .hero .container > .eyebrow{animation-delay:3.05s}
+html.js .hero .container > .h1{animation-delay:3.30s}
+html.js .hero .container > .body{animation-delay:3.60s}
+html.js .hero .container > .btns{animation-delay:3.85s}
+@keyframes sk-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+@media(max-width:860px){
+  .hero{min-height:clamp(520px,80vh,700px);padding-top:132px;padding-bottom:52px}
+  .hero-photo img{object-position:center 28%}
+  .hero-photo::after{background:
+    linear-gradient(180deg, rgba(31,27,22,0.92) 0%, rgba(31,27,22,0.62) 17%, rgba(31,27,22,0.30) 36%),
+    linear-gradient(0deg, var(--bg) 4%, rgba(31,27,22,0.80) 30%, rgba(31,27,22,0.70) 62%, rgba(31,27,22,0.32) 100%),
+    linear-gradient(0deg, rgba(198,122,74,0.12), rgba(198,122,74,0.12))}
+  .hero-sketch .sk-t{font-size:22px} .hero-sketch .sk-t-s{font-size:17px}
+}
+
+/* the intro plays once a session; after that the work is simply there */
+html.intro-seen .hero-sketch{display:none;animation:none}
+html.intro-seen .hero-photo img{opacity:1;transform:none;animation:none}
+html.intro-seen .hero .container > *{opacity:1;transform:none;animation:none}
+html.intro-seen .hero .container > .eyebrow,
+html.intro-seen .hero .container > .h1,
+html.intro-seen .hero .container > .body,
+html.intro-seen .hero .container > .btns{animation:none}
+
+@media(prefers-reduced-motion:reduce){
+  html.js .hero-sketch{display:none;animation:none}
+  html.js .hero-photo img{opacity:1;transform:none;animation:none}
+  html.js .hero .container > *{opacity:1;transform:none;animation:none}
+  html.js .hero .container > .eyebrow,
+  html.js .hero .container > .h1,
+  html.js .hero .container > .body,
+  html.js .hero .container > .btns{animation:none}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;scroll-behavior:auto!important}}
 
@@ -320,17 +454,91 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-photo">
+  <div class="hero-photo" aria-hidden="true">
+    <svg class="hero-sketch" viewBox="0 0 1672 941" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <!-- horizon -->
+      <g class="sk sk-1">
+        <path pathLength="1" d="M0 128 H1672"/>
+        <path pathLength="1" d="M0 116 C 140 98, 280 124, 420 106 S 660 124, 800 104 S 1060 128, 1200 102 S 1460 126, 1672 108"/>
+      </g>
+      <!-- meridians + latitudes: the corridors -->
+      <g class="sk sk-2 grid">
+        <path pathLength="1" d="M836 132 L-160 941"/><path pathLength="1" d="M836 132 L180 941"/>
+        <path pathLength="1" d="M836 132 L500 941"/><path pathLength="1" d="M836 132 L836 941"/>
+        <path pathLength="1" d="M836 132 L1172 941"/><path pathLength="1" d="M836 132 L1492 941"/>
+        <path pathLength="1" d="M836 132 L1832 941"/>
+        <path pathLength="1" d="M0 246 H1672"/><path pathLength="1" d="M0 356 H1672"/>
+        <path pathLength="1" d="M0 496 H1672"/><path pathLength="1" d="M0 672 H1672"/>
+        <path pathLength="1" d="M0 872 H1672"/>
+      </g>
+      <!-- regenerative loop -->
+      <g class="sk sk-3">
+        <ellipse pathLength="1" cx="196" cy="560" rx="112" ry="76" transform="rotate(-12 196 560)"/>
+        <path pathLength="1" d="M132 522 L160 552 L120 592"/>
+        <path pathLength="1" d="M262 600 L232 570 L272 530"/>
+      </g>
+      <!-- the platform: three lanes rising -->
+      <g class="sk sk-4">
+        <path pathLength="1" d="M96 862 H612"/>
+        <path pathLength="1" d="M160 862 V712 h84 v150"/>
+        <path pathLength="1" d="M300 862 V636 h84 v226"/>
+        <path pathLength="1" d="M440 862 V548 h84 v314"/>
+        <path pathLength="1" d="M160 712 L202 676 L244 712 M300 636 L342 600 L384 636 M440 548 L482 512 L524 548"/>
+      </g>
+      <!-- shared infrastructure: the standing frame -->
+      <g class="sk sk-5">
+        <path pathLength="1" d="M636 318 L1044 296 L1044 344 L636 362 Z"/>
+        <path pathLength="1" d="M652 342 H1028 V466 H652 Z"/>
+        <path pathLength="1" d="M692 342 V466 M772 342 V466 M852 342 V466 M932 342 V466 M988 342 V466"/>
+        <path pathLength="1" d="M652 466 H1028"/>
+      </g>
+      <!-- the diaspora span -->
+      <g class="sk sk-6">
+        <path pathLength="1" d="M1210 384 L1672 336 L1672 398 L1210 446 Z"/>
+        <path pathLength="1" d="M1222 440 L1672 392 M1222 440 V692 M1672 392 V656"/>
+        <path pathLength="1" d="M1300 430 V682 M1392 421 V672 M1484 412 V662 M1580 402 V652"/>
+      </g>
+      <!-- the mast -->
+      <g class="sk sk-7">
+        <path pathLength="1" d="M1196 436 V60"/>
+        <path pathLength="1" d="M1180 436 V86 M1214 436 V86"/>
+        <path pathLength="1" d="M1180 400 L1214 368 M1214 400 L1180 368 M1180 336 L1214 304 M1214 336 L1180 304 M1180 272 L1214 240 M1214 272 L1180 240 M1180 208 L1214 176 M1214 208 L1180 176 M1180 144 L1214 112 M1214 144 L1180 112"/>
+        <path pathLength="1" d="M1168 60 H1226"/>
+      </g>
+      <!-- the pulse -->
+      <g class="sk sk-8">
+        <path pathLength="1" d="M60 402 L128 402 L156 348 L186 456 L214 380 L244 420 L336 420"/>
+        <path pathLength="1" d="M986 214 L1146 204 L1146 232 L986 242 Z"/>
+      </g>
+      <!-- corridors: where value moves -->
+      <g class="sk sk-9 paths">
+        <path pathLength="1" d="M836 150 C 812 336, 878 506, 838 676 S 762 862, 744 941"/>
+        <path pathLength="1" d="M838 506 C 950 544, 1060 596, 1150 696 S 1272 836, 1314 941"/>
+        <path pathLength="1" d="M838 596 C 692 632, 552 676, 432 756 S 232 886, 164 941"/>
+      </g>
+      <!-- survey marks -->
+      <g class="sk sk-10 marks">
+        <path pathLength="1" d="M636 496 H1044 M636 486 V506 M1044 486 V506"/>
+        <path pathLength="1" d="M152 906 L152 852 M136 872 L152 852 L168 872"/>
+        <path pathLength="1" d="M136 932 H228 M136 924 V940 M182 924 V940 M228 924 V940"/>
+      </g>
+      <g class="sk-label">
+        <text x="712" y="292" class="sk-t">SHARED INFRASTRUCTURE</text>
+        <text x="1290" y="500" class="sk-t">THE DIASPORA</text>
+        <text x="176" y="700" class="sk-t sk-t-s">THREE LANES</text>
+        <text x="136" y="962" class="sk-t sk-t-s">0    25m</text>
+        <text x="138" y="844" class="sk-t sk-t-s">N</text>
+      </g>
+    </svg>
     <img src="/hero.jpg"
          srcset="/hero-mobile.jpg 900w, /hero.jpg 1672w"
          sizes="100vw"
-         alt="a multigenerational gathering of the birthright collective"
-         width="1672" height="941" fetchpriority="high" decoding="async"
+         alt="" decoding="async" fetchpriority="high"
+         width="1672" height="941"
          style="background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDGtBvYbQzFV3fKM5pXun8kHb82zOCP1zUFtLJF0PByD9KlVUkk34bYqqApPf8AwrKxqPkgM4eSZHRETIIHc9BRVe7vJJ1C4AQckDvRVJEM/9k=);background-size:cover;background-position:center 32%">
   </div>
-  <div class="hero-wash"></div>
-  <div class="hero-grain"></div>
-  <div class="hero-vignette"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
   <div class="container">
     <div class="eyebrow"><div class="dot"></div>501(c)(3) nonprofit</div>
     <h1 class="h1">economic dignity<br>is a <em>human right.</em></h1>
@@ -531,6 +739,14 @@ function toggleExclusive(id){var el=document.getElementById(id);var group=el.get
     host.appendChild(b);
   }
   document.querySelectorAll('.lane-card').forEach(function(c){ addToggle(c,'interventions','hide'); });
+})();
+
+// remember that the introduction has been made
+(function(){
+  var h=document.documentElement;
+  if(h.classList.contains('intro-seen')) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  setTimeout(function(){ try{ sessionStorage.setItem('br-intro','1'); }catch(e){} }, 5200);
 })();
 </script>
 </body>
