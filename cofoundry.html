@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cofoundry — a birthright venture</title>
+<meta name="description" content="cofoundry gives institutions the organizational capability to repeatedly launch mission-driven technology programs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232a2520'/><text x='16' y='22' text-anchor='middle' font-size='18' fill='%23c67a4a'>c</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#2a2520;--panel:#322c25;--panel-2:#3a332b;--ink:#f1ece3;--muted:#a9a094;--soft:#8a8278;--clay:#c67a4a;--gold:#b8912a;--line:rgba(241,236,227,.12);--line-s:rgba(241,236,227,.18);--deep:#1f1b16}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'IBM Plex Mono',monospace;font-weight:400;color:var(--ink);background:var(--bg);line-height:1.75;text-transform:lowercase;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Cormorant Garamond',serif}.mono{font-family:'IBM Plex Mono',monospace}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92vw);margin:0 auto}
+.nav{position:sticky;top:12px;z-index:200;width:calc(100% - 24px);max-width:1120px;margin:12px auto 0;background:rgba(42,37,32,.88);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid rgba(241,236,227,.14);border-radius:100px;box-shadow:0 12px 40px rgba(0,0,0,.28)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 10px 0 22px}.nav-left{display:flex;align-items:center;gap:14px}.nav-brand{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;font-style:italic;letter-spacing:-.03em}.nav-tag{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}.nav-tag a{color:var(--clay)}.nav-links{display:flex;align-items:center;gap:8px}.nav-link{font-size:11px;letter-spacing:.04em;color:var(--muted);padding:8px 14px;border-radius:999px;border:1px solid transparent;transition:all .15s}.nav-link:hover{color:var(--ink);border-color:var(--line-s)}.nav-cta{font-size:11px;letter-spacing:.04em;color:var(--bg);background:var(--clay);padding:10px 18px;border-radius:999px;border:1px solid var(--clay);transition:all .15s;font-weight:500;cursor:pointer}.nav-cta:hover{opacity:.88}
+
+.section{padding:clamp(48px,8vw,72px) 0;border-top:1px solid var(--line)}.eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--clay);font-weight:500}.h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,5vw,52px);line-height:.96;letter-spacing:-.03em;margin-bottom:10px}.small{font-size:12px;color:var(--muted);line-height:1.7;max-width:680px}
+.btn{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;border:1px solid var(--line-s);background:transparent;border-radius:999px;padding:10px 16px;color:var(--muted);cursor:pointer;transition:all .15s;text-transform:lowercase;display:inline-flex;align-items:center;justify-content:center;min-height:40px;text-decoration:none}.btn:hover{color:var(--ink);border-color:var(--ink)}.btn-primary{background:var(--clay);color:var(--bg);border-color:var(--clay)}.btn-primary:hover{opacity:.88;color:var(--bg)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.pill{font-size:10px;letter-spacing:.02em;color:var(--muted);border:1px solid var(--line-s);border-radius:999px;padding:5px 11px;line-height:1.2;display:inline-block}.pill-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.hero{padding:clamp(52px,9vw,88px) 0 clamp(36px,5vw,56px)}.hero-grid{display:block;max-width:900px}.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,6.5vw,80px);font-weight:300;line-height:.9;letter-spacing:-.05em;margin:12px 0 18px}.hero p{font-size:12.5px;line-height:1.7;color:var(--muted);max-width:520px}
+.card{background:rgba(255,255,255,.035);border:1px solid var(--line-s);border-radius:20px;padding:clamp(18px,2.5vw,26px);box-shadow:0 16px 60px rgba(0,0,0,.16)}.card h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,36px);font-weight:300;line-height:1;margin:12px 0 14px;letter-spacing:-.03em}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:16px}.pillar{border:1px solid var(--line-s);border-radius:14px;padding:18px;background:var(--panel)}.pillar h3{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:0;align-items:start;margin-top:6px}.step{text-align:center;padding:clamp(18px,2.5vw,26px) 12px;border:1px solid var(--line-s);border-radius:16px;background:var(--panel)}.step-num{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,34px);color:var(--clay);line-height:1;margin-bottom:6px}.step-name{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--ink);margin-bottom:5px;text-transform:uppercase}.step-line{font-size:9.5px;color:var(--muted);line-height:1.5;max-width:18ch;margin:0 auto}.step-arrow{color:var(--clay);font-size:14px;opacity:.4;padding:0 3px;margin-top:24px}
+.acc-s{margin-top:18px;border-top:1px solid var(--line-s);padding-top:14px}.acc-btn{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:0;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;text-transform:lowercase;color:var(--clay);padding:0}.acc-btn:hover{color:var(--ink)}.acc-plus{width:18px;height:18px;position:relative;border:1px solid rgba(198,122,74,.4);border-radius:50%;flex-shrink:0;transition:transform .3s}.acc-plus::before,.acc-plus::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--clay)}.acc-plus::before{width:8px;height:1px}.acc-plus::after{width:1px;height:8px}.acc-s.open .acc-plus{transform:rotate(45deg)}.acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease}.acc-inner{padding-top:14px}
+/* blueprint library */
+.library{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-top:16px}.bp{border:1px solid var(--line-s);border-radius:16px;padding:18px;background:var(--panel);transition:all .15s;cursor:pointer}.bp:hover{border-color:var(--clay);transform:translateY(-2px)}.bp-lane{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:5px}.bp-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--ink);line-height:1.05;margin-bottom:8px}.bp-meta{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}.bp-meta span{font-size:9px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:4px 8px}.bp-best{font-size:9.5px;color:var(--muted);line-height:1.5;margin-bottom:10px}.bp-btn{font-size:9.5px;color:var(--clay);letter-spacing:.04em;cursor:pointer}
+/* what we enable */
+.lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:16px}.lane{border:1px solid var(--line-s);border-radius:16px;padding:clamp(16px,2vw,22px);background:var(--panel)}.lane-eyebrow{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:6px}.lane-title{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.2vw,24px);font-weight:400;color:var(--ink);margin-bottom:6px;line-height:1.05}.lane-desc{font-size:10px;color:var(--muted);line-height:1.6;margin-bottom:12px}.lane-list{display:flex;flex-direction:column;gap:4px}.lane-item{font-size:9px;color:var(--soft);border-top:1px solid var(--line);padding-top:4px}.lane-item.outcome{color:var(--clay)}
+/* structured prompts */
+
+/* builder */
+
+
+.quick button:hover{color:var(--ink);border-color:var(--ink)}
+
+/* workspace */
+
+
+
+
+
+
+
+
+/* export menu */
+
+/* toast */
+
+/* footer */
+.footer{padding:28px 0;color:var(--soft);border-top:1px solid var(--line)}.footer-brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--ink);letter-spacing:-.03em}.footer p{font-size:10px;margin-top:3px}
+/* modals */
+
+/* responsive */
+@media(max-width:880px){.hero-grid,.pillars,.lanes,.builder-grid,.steps,.library{grid-template-columns:1fr}.step-arrow{transform:rotate(90deg);padding:4px 0;margin:0}.nav-link{display:none}}
+@media(max-width:560px){.library{grid-template-columns:1fr}}
+@media print{.nav,.chat,.actions,.footer,.modal,.toast,.quick,.inputrow,.card{box-shadow:none}body{background:white;color:#1a1a1a}}
+@media(prefers-reduced-motion:reduce){.acc-body{transition:none}.acc-plus{transition:none}}
+
+/* ── shared nav (hamburger) ── */
+.nav-drawer{display:none}
+.nav-hamburger{display:none;background:none;border:0;color:var(--ink);padding:8px;cursor:pointer}
+.nav-hamburger svg{width:22px;height:22px;display:block}
+@media(max-width:860px){
+  .nav-links .nav-link{display:none}
+  .nav-hamburger{display:block}
+  .nav-drawer{position:absolute;top:64px;right:12px;background:var(--panel);border:1px solid var(--line-s);border-radius:16px;padding:8px;box-shadow:0 16px 48px rgba(0,0,0,0.4);min-width:180px;z-index:10}
+  .nav-drawer.open{display:block}
+  .nav-drawer a{display:block;padding:10px 16px;font-size:12px;color:var(--muted);border-radius:10px;transition:background .15s;text-decoration:none}
+  .nav-drawer a:hover{background:var(--panel-2);color:var(--ink)}
+}
+/* ── safe reveals ── */
+[data-reveal],.reveal{opacity:1;transform:none}
+.js [data-reveal],.js 
+.js [data-reveal].in,.js .reveal.in{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;scroll-behavior:auto!important}}
+
+@media(max-width:880px){
+  /* blueprint library: horizontal swipe instead of 10 stacked cards */
+  .library{display:flex;gap:11px;overflow-x:auto;max-width:100%;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:6px;mask-image:linear-gradient(90deg,#000 92%,transparent)}
+  .wrap{overflow-x:hidden}
+  body{overflow-x:hidden}
+  .library::-webkit-scrollbar{display:none}
+  .bp{flex:0 0 82%;scroll-snap-align:start}
+  .bp-best{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  /* lanes: clamp lists */
+  .lane-desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .lane-item:not(.outcome){display:none}
+  .lane-item.outcome{border-top:0;padding-top:0}
+  /* capability pills scroll */
+  .pillar .pill-wrap{flex-wrap:nowrap;overflow-x:auto;max-width:100%;scrollbar-width:none;mask-image:linear-gradient(90deg,#000 90%,transparent)}
+  .pillar .pill-wrap::-webkit-scrollbar{display:none}
+  .pillar .pill{flex:0 0 auto}
+  /* steps compact */
+  .step-line{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  /* workspace boxes */
+  
+}
+
+/* program proposal form */
+.form-wrap{background:var(--panel);border:1px solid var(--line-s);border-radius:20px;padding:clamp(20px,3.5vw,34px);margin-top:clamp(18px,3vw,26px)}
+.pform{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.pf-field{display:flex;flex-direction:column;gap:7px}
+.pf-full{grid-column:1 / -1}
+.pf-field label{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.pf-field input,.pf-field select,.pf-field textarea{width:100%;border:1px solid var(--line-s);border-radius:12px;background:rgba(0,0,0,.18);padding:13px 14px;color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:12.5px;transition:border-color 150ms}
+.pf-field input:focus,.pf-field select:focus,.pf-field textarea:focus{outline:none;border-color:var(--clay)}
+.pf-field input::placeholder,.pf-field textarea::placeholder{color:var(--soft)}
+.pf-field textarea{min-height:100px;resize:vertical}
+.pf-field select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a9a094' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:11px}
+.pf-status{grid-column:1 / -1;font-size:12px;color:var(--muted);min-height:1.4em;margin:0}
+/* blueprint cards are buttons now */
+.bp{text-align:left;font-family:inherit;color:inherit;width:100%}
+.bp.active{border-color:var(--clay);background:linear-gradient(145deg,rgba(198,122,74,.14),rgba(198,122,74,.03)),var(--panel)}
+@media(max-width:700px){.pform{grid-template-columns:1fr}}
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><div class="nav-left"><div class="nav-brand serif">cofoundry</div><div class="nav-tag mono"><a href="/">a birthright 501(c)(3) venture ↗</a></div></div><div class="nav-links"><a class="nav-link" href="#capability">your operating capability</a><a class="nav-link" href="#enable">what we enable</a><a class="nav-link" href="#blueprints">blueprint library</a><button class="nav-cta" onclick="document.getElementById('program').scrollIntoView({behavior:'smooth'})">design your program</button></div>
+  <button class="nav-hamburger" aria-label="menu" onclick="document.querySelector('.nav-drawer').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+  </button>
+  <div class="nav-drawer">
+    <a href="/about">about</a><a href="/labs">labs</a><a href="https://www.themmaadd.org" target="_blank" rel="noopener">the mmaadd</a><a href="/cofoundry">cofoundry</a><a href="/groundwork">groundwork</a><a href="/give">build with us</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap hero-grid"><div><div class="eyebrow mono">blueprints · boards · backbone</div><h1 class="serif">design, launch, and scale<br>mission-driven technology programs.</h1><div class="actions"><button class="btn btn-primary" onclick="document.getElementById('program').scrollIntoView({behavior:'smooth'})">design your program</button><a class="btn" href="#capability">explore blueprints</a></div></div></div></header>
+
+<section class="section" id="capability"><div class="wrap"><h2 class="h2 serif">your operating capability</h2><p class="small" style="margin-bottom:4px">three assets extend your institution's capacity to build and run mission-driven technology programs.</p><div class="pillars"><div class="pillar"><h3 class="mono">blueprints</h3><p class="small" style="margin:3px 0 6px">reusable institutional knowledge.</p><div class="pill-wrap"><span class="pill">proven models</span><span class="pill">curriculum</span><span class="pill">venture frameworks</span><span class="pill">diagnostics</span><span class="pill">playbooks</span><span class="pill">handover</span></div></div><div class="pillar"><h3 class="mono">boards</h3><p class="small" style="margin:3px 0 6px">execution capacity that extends yours.</p><div class="pill-wrap"><span class="pill">operators</span><span class="pill">technologists</span><span class="pill">advisors</span><span class="pill">local partners</span><span class="pill">groundwork teams</span><span class="pill">peer founders</span></div></div><div class="pillar"><h3 class="mono">backbone</h3><p class="small" style="margin:3px 0 6px">everything required to run the program.</p><div class="pill-wrap"><span class="pill">applications</span><span class="pill">communications</span><span class="pill">learning</span><span class="pill">reporting</span><span class="pill">automation</span><span class="pill">measurement</span><span class="pill">knowledge</span><span class="pill">operations</span></div></div></div></div></section>
+
+<section class="section"><div class="wrap"><h2 class="h2 serif">how it works</h2><p class="small" style="margin-bottom:16px">from mission to live program.</p><div class="steps"><div class="step"><div class="step-num serif">1</div><div class="step-name mono">discover</div><div class="step-line">define the mission, audience, geography, and outcomes.</div></div><div class="step-arrow">→</div><div class="step"><div class="step-num serif">2</div><div class="step-name mono">design</div><div class="step-line">configure proven blueprints, curriculum, staffing, and technology.</div></div><div class="step-arrow">→</div><div class="step"><div class="step-num serif">3</div><div class="step-name mono">launch</div><div class="step-line">deploy applications, communities, reporting, and implementation.</div></div><div class="step-arrow">→</div><div class="step"><div class="step-num serif">4</div><div class="step-name mono">grow</div><div class="step-line">measure outcomes, improve delivery, and scale into new regions.</div></div></div>
+<div class="acc-s" id="diff-acc"><button class="acc-btn" type="button" aria-expanded="false" onclick="toggleAcc('diff-acc')">what makes this different<span class="acc-plus"></span></button><div class="acc-body"><div class="acc-inner"><div class="pillars" style="margin-top:0"><div class="pillar"><h3 class="mono">hands-on implementation</h3><div class="pill-wrap"><span class="pill">co-founding alongside you</span><span class="pill">hands on the work</span><span class="pill">board seats for sponsor staff</span><span class="pill">leadership development</span></div></div><div class="pillar"><h3 class="mono">speed + reuse</h3><div class="pill-wrap"><span class="pill">launch in weeks</span><span class="pill">multinational from day one</span><span class="pill">learnings → assets</span><span class="pill">everything carries forward</span></div></div><div class="pillar"><h3 class="mono">compounding access</h3><div class="pill-wrap"><span class="pill">libraries stay open</span><span class="pill">blueprints free to alumni</span><span class="pill">sponsor staff access</span><span class="pill">continuous improvement</span></div></div></div><p class="small" style="margin-top:14px"><strong style="color:var(--ink)">the result:</strong> operating capability that compounds. every program builds on what came before.</p></div></div></div>
+<div class="acc-s" id="learn-acc"><button class="acc-btn" type="button" aria-expanded="false" onclick="toggleAcc('learn-acc')">every program makes the next one better<span class="acc-plus"></span></button><div class="acc-body"><div class="acc-inner"><div class="pillars" style="margin-top:0"><div class="pillar"><h3 class="mono">the moat</h3><div class="pill-wrap"><span class="pill">blueprints improve</span><span class="pill">curriculum improves</span><span class="pill">ai improves</span><span class="pill">local knowledge grows</span><span class="pill">partners expand</span></div></div><div class="pillar"><h3 class="mono">compounding</h3><p class="small" style="margin-top:3px">every engagement strengthens the capability. every launch becomes the starting point for the next.</p></div><div class="pillar"><h3 class="mono">alumni + sponsors</h3><div class="pill-wrap"><span class="pill">libraries stay open</span><span class="pill">blueprints free to alumni</span><span class="pill">sponsor staff access</span><span class="pill">board seats</span><span class="pill">leadership development</span></div></div></div></div></div></div>
+</div></section>
+
+<section class="section" id="enable"><div class="wrap"><h2 class="h2 serif">what we enable</h2><p class="small" style="margin-bottom:4px">three capability areas.</p><div class="lanes"><div class="lane"><div class="lane-eyebrow mono">create</div><div class="lane-title serif">mission venture creation</div><div class="lane-desc">for institutions creating new mission-driven technology ventures.</div><div class="lane-list"><div class="lane-item">impact studio as a service</div><div class="lane-item">accelerators</div><div class="lane-item">innovation labs</div><div class="lane-item">challenge prizes</div><div class="lane-item">entrepreneurs in residence</div><div class="lane-item outcome">→ ventures · pilots · products · investment-ready teams</div></div></div><div class="lane"><div class="lane-eyebrow mono">adopt</div><div class="lane-title serif">mission technology adoption</div><div class="lane-desc">for institutions accelerating practical technology adoption across communities and organizations.</div><div class="lane-list"><div class="lane-item">ai workforce initiatives</div><div class="lane-item">small business ai programs</div><div class="lane-item">nonprofit ai transformation</div><div class="lane-item">government technology adoption</div><div class="lane-item">digital literacy + inclusion</div><div class="lane-item outcome">→ adoption · operational improvement · community capability</div></div></div><div class="lane"><div class="lane-eyebrow mono">validate</div><div class="lane-title serif">mission product validation</div><div class="lane-desc">validating whether a technology can create measurable public benefit before responsible scale.</div><div class="lane-list"><div class="lane-item">ai tool adoption pilots</div><div class="lane-item">digital health validation</div><div class="lane-item">fintech access pilots</div><div class="lane-item">education technology pilots</div><div class="lane-item">climate resilience tools</div><div class="lane-item outcome">→ adoption signals · trust data · readiness for responsible scale</div></div></div></div></div></section>
+
+<section class="section" id="blueprints"><div class="wrap"><h2 class="h2 serif">blueprint library</h2><p class="small" style="margin-bottom:4px">proven program models. pick one, and we shape it to your mission.</p><div class="library" id="bp-library"></div></div></section>
+
+<section class="section" id="program">
+  <div class="wrap">
+    <div class="eyebrow mono">design your program</div>
+    <h2 class="h2 serif">tell us the mission.<br>we&rsquo;ll send a proposal.</h2>
+    <p class="small" style="margin-bottom:6px">share your mission, audience, and constraints. our team reviews every request and replies with a program proposal &mdash; scope, blueprint, timeline, and an indicative investment range.</p>
+
+    <div class="form-wrap">
+      <form id="program-form" class="pform">
+        <input type="hidden" name="_subject" value="cofoundry - program proposal request">
+        <input type="hidden" name="form_type" value="program proposal request">
+
+        <div class="pf-field"><label for="pf-name">name</label><input id="pf-name" name="name" type="text" placeholder="your name" required></div>
+        <div class="pf-field"><label for="pf-email">email</label><input id="pf-email" name="email" type="email" placeholder="you@organization.org" required></div>
+        <div class="pf-field"><label for="pf-org">organization</label><input id="pf-org" name="organization" type="text" placeholder="institution, foundation, agency, or company" required></div>
+        <div class="pf-field"><label for="pf-role">your role</label><input id="pf-role" name="role" type="text" placeholder="title or function"></div>
+
+        <div class="pf-field"><label for="pf-lane">what are you trying to do?</label>
+          <select id="pf-lane" name="capability_area" required>
+            <option value="">select one</option>
+            <option value="create">create mission ventures</option>
+            <option value="adopt">drive technology adoption</option>
+            <option value="validate">validate an impact product</option>
+            <option value="unsure">not sure yet</option>
+          </select>
+        </div>
+        <div class="pf-field"><label for="pf-blueprint">blueprint of interest</label>
+          <select id="pf-blueprint" name="blueprint"><option value="">select one</option></select>
+        </div>
+
+        <div class="pf-field"><label for="pf-geo">geography</label><input id="pf-geo" name="geography" type="text" placeholder="country, region, or city"></div>
+        <div class="pf-field"><label for="pf-aud">audience + scale</label><input id="pf-aud" name="audience" type="text" placeholder="who, and roughly how many"></div>
+
+        <div class="pf-field"><label for="pf-budget">indicative investment range</label>
+          <select id="pf-budget" name="budget_range">
+            <option value="">select one</option>
+            <option>under $50k</option><option>$50k&ndash;$150k</option><option>$150k&ndash;$400k</option>
+            <option>$400k&ndash;$1m</option><option>over $1m</option><option>exploring &mdash; needs scoping</option>
+          </select>
+        </div>
+        <div class="pf-field"><label for="pf-when">desired launch window</label><input id="pf-when" name="launch_window" type="text" placeholder="e.g. q3 2026"></div>
+
+        <div class="pf-field pf-full"><label for="pf-mission">your mission</label><textarea id="pf-mission" name="mission" placeholder="what change are you trying to create, and for whom?" required></textarea></div>
+        <div class="pf-field pf-full"><label for="pf-notes">constraints or context <span style="text-transform:none;color:var(--soft)">(optional)</span></label><textarea id="pf-notes" name="notes" placeholder="partners, compliance, procurement timelines, anything we should know" style="min-height:80px"></textarea></div>
+
+        <div class="pf-field pf-full"><button type="submit" class="btn btn-primary" style="width:100%">request a proposal</button></div>
+        <p class="pf-status" id="pf-status" aria-live="polite"></p>
+      </form>
+      <p class="small" style="margin-top:14px;color:var(--soft)">prefer email? write to <a href="mailto:cofoundry@thebirthrightproject.org" style="color:var(--clay)">cofoundry@thebirthrightproject.org</a>. we reply to every request.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="wrap"><div class="footer-brand serif">cofoundry</div>
+  <p style="font-size:9.5px;color:var(--soft);margin-top:2px">a birthright project initiative · <a href="/" style="color:var(--clay)">thebirthrightproject.org</a> · <a href="mailto:hello@thebirthrightproject.org" style="color:var(--clay)">hello@thebirthrightproject.org</a></p><p>turning missions into operating programs. permissionless prosperity.</p></div></footer>
+
+
+<script>
+function toggleAcc(id){var d=document.getElementById(id),b=d.querySelector('.acc-body'),btn=d.querySelector('.acc-btn');var open=d.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');b.style.maxHeight=open?'none':'0px'}
+
+var BLUEPRINTS=[
+{id:'ai_workforce',name:'ai workforce academy',lane:'adopt',dur:'12-32 weeks',scale:'500-5,000',invest:'$150k-$900k',best:'organizations training workers or communities in practical ai use'},
+{id:'chatgpt_traders',name:'chatgpt for small traders',lane:'adopt',dur:'6-12 weeks',scale:'100-2,000',invest:'$40k-$200k',best:'micro-entrepreneurs and small businesses adopting ai for daily operations'},
+{id:'community_ai',name:'community ai adoption',lane:'adopt',dur:'8-24 weeks',scale:'200-5,000',invest:'$60k-$400k',best:'community organizations and nonprofits adopting ai at scale'},
+{id:'nonprofit_ai',name:'nonprofit ai transformation',lane:'adopt',dur:'10-20 weeks',scale:'50-500',invest:'$80k-$350k',best:'nonprofit teams adopting ai for operations, funding, reporting, and service delivery'},
+{id:'impact_studio',name:'impact studio',lane:'create',dur:'16-40 weeks',scale:'12-48',invest:'$200k-$800k',best:'institutions assembling mission-driven ventures around a defined priority'},
+{id:'climate_lab',name:'climate innovation lab',lane:'create',dur:'20-40 weeks',scale:'20-100',invest:'$250k-$700k',best:'institutions creating climate technology ventures and pilots'},
+{id:'health_validation',name:'digital health validation pilot',lane:'validate',dur:'8-16 weeks',scale:'100-1,000',invest:'$60k-$250k',best:'validating whether a health technology is useful, trusted, and adoptable'},
+{id:'fintech_pilot',name:'fintech access pilot',lane:'validate',dur:'8-16 weeks',scale:'200-2,000',invest:'$50k-$200k',best:'testing fintech tools with underbanked workers or small traders'},
+{id:'uni_studio',name:'university innovation studio',lane:'create',dur:'16-32 weeks',scale:'30-200',invest:'$150k-$500k',best:'universities launching innovation labs or student ventures'},
+{id:'women_builders',name:'women builders program',lane:'create',dur:'12-24 weeks',scale:'50-500',invest:'$100k-$400k',best:'venture creation programs for women founders across markets'}
+];
+
+(function(){
+  var h='';
+  BLUEPRINTS.forEach(function(bp){
+    h+='<button type="button" class="bp" data-bp="'+bp.id+'" onclick="pickBlueprint(this.getAttribute(\'data-bp\'))">'
+      +'<div class="bp-lane mono">'+bp.lane+'</div>'
+      +'<div class="bp-name serif">'+bp.name+'</div>'
+      +'<div class="bp-meta"><span>'+bp.dur+'</span><span>'+bp.scale+' participants</span><span>'+bp.invest+'</span></div>'
+      +'<div class="bp-best">'+bp.best+'</div>'
+      +'<div class="bp-btn mono">request a proposal &rarr;</div></button>';
+  });
+  document.getElementById('bp-library').innerHTML=h;
+  var sel=document.getElementById('pf-blueprint');
+  BLUEPRINTS.forEach(function(bp){
+    var o=document.createElement('option'); o.value=bp.name; o.textContent=bp.name+' ('+bp.lane+')'; sel.appendChild(o);
+  });
+  var o=document.createElement('option'); o.value='not sure yet'; o.textContent='not sure yet - help me choose'; sel.appendChild(o);
+})();
+
+function pickBlueprint(id){
+  var bp=null;
+  BLUEPRINTS.forEach(function(b){ if(b.id===id) bp=b; });
+  if(!bp) return;
+  document.querySelectorAll('.bp').forEach(function(c){c.classList.toggle('active',c.getAttribute('data-bp')===id)});
+  document.getElementById('pf-blueprint').value=bp.name;
+  document.getElementById('pf-lane').value=bp.lane;
+  document.getElementById('program').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+var FORMSPREE='https://formspree.io/f/xrewdkyr';
+document.getElementById('program-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var form=e.target, status=document.getElementById('pf-status');
+  var btn=form.querySelector('button[type="submit"]');
+  var label=btn.textContent;
+  btn.disabled=true; btn.textContent='sending...'; status.textContent='';
+  fetch(FORMSPREE,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+  .then(function(r){
+    if(r.ok){status.textContent="received. we'll review and reply with a proposal.";form.reset();btn.textContent='sent';}
+    else{status.textContent='something went wrong. try again or email cofoundry@thebirthrightproject.org';btn.textContent=label;btn.disabled=false;}
+  })
+  .catch(function(){status.textContent='network error. try again or email us.';btn.textContent=label;btn.disabled=false;});
+});
+</script>
+</body>
+</html>

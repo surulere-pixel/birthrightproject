@@ -1,348 +1,321 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>birthright project — give</title>
-<meta name="description" content="support the birthright project — give money, tech, time, or space to build community infrastructure for economic dignity.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='3' fill='%23b8912a'/></svg>">
+<title>give — birthright project</title>
+<meta name="description" content="give money, tech, time, space, or ideas. every contribution builds infrastructure communities can own.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232a2520'/><text x='16' y='22' text-anchor='middle' font-size='18' fill='%23c67a4a'>b</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#2a2520;--panel:#322c25;--ink:#f1ece3;--muted:#a9a094;--soft:#8a8278;--line:rgba(241,236,227,0.1);--line-s:rgba(241,236,227,0.18);--gold:#b8912a;--terra:#c67a4a}
+:root{--bg:#2a2520;--panel:#322c25;--panel-2:#3a332b;--ink:#f1ece3;--muted:#a9a094;--soft:#8a8278;--terra:#c67a4a;--gold:#b8912a;--deep:#1f1b16;--line:rgba(241,236,227,0.1);--line-s:rgba(241,236,227,0.18)}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font-family:'IBM Plex Mono',monospace;font-weight:400;color:var(--ink);background:var(--bg);line-height:1.75;text-transform:lowercase;-webkit-font-smoothing:antialiased}
+body{font-family:'IBM Plex Mono',monospace;font-weight:400;color:var(--ink);background:var(--bg);line-height:1.75;text-transform:lowercase;-webkit-font-smoothing:antialiased;animation:pageIn 420ms ease both}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+.serif{font-family:'Cormorant Garamond',serif}
 a{color:inherit;text-decoration:none}
-.nav{position:sticky;top:12px;z-index:200;width:calc(100% - 24px);max-width:1120px;margin:12px auto 0;background:rgba(42,37,32,0.85);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid rgba(241,236,227,0.14);border-radius:100px;box-shadow:0 12px 40px rgba(0,0,0,0.28)}
-.nav-inner{max-width:none;margin:0;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 10px 0 22px}
+.container{width:min(1120px,calc(100% - 40px));margin:0 auto}
+.narrow{max-width:760px}
+section{padding:clamp(56px,8vw,110px) 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+
+/* nav */
+.nav{position:sticky;top:12px;z-index:200;width:calc(100% - 24px);max-width:1120px;margin:12px auto 0;background:rgba(42,37,32,0.88);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid rgba(241,236,227,0.14);border-radius:100px;box-shadow:0 12px 40px rgba(0,0,0,0.28)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 10px 0 22px}
 .nav-logo{height:40px;width:auto;display:block}
-.nav-mark{display:flex;align-items:center}
-.nav-links{display:flex;align-items:center;gap:2rem}
-.nav-link{font-size:0.6rem;letter-spacing:0.08em;color:var(--muted);transition:color 0.2s}
-.nav-link:hover{color:var(--ink)}
-.nav-cta{font-size:0.58rem;letter-spacing:0.08em;padding:0.6rem 1.2rem;border:1px solid var(--line-s);border-radius:999px;color:var(--ink);transition:all 0.2s}
-.nav-cta:hover{background:var(--terra);border-color:var(--terra);color:var(--bg)}
-.wrap{max-width:960px;margin:0 auto;padding:28px clamp(18px,4vw,40px) 96px}
-.ways{display:flex;gap:14px;margin:2.5rem 0 3rem;flex-wrap:wrap}
-.way{background:transparent;border:1px solid var(--line);border-radius:14px;padding:20px;cursor:pointer;text-align:left;font-family:inherit;color:inherit;text-transform:lowercase;flex:1;min-width:140px;transition:border-color 0.2s;display:block}
-.way:hover{border-color:rgba(198,122,74,0.5)}
-.way-ideas{background:linear-gradient(145deg,rgba(198,122,74,0.14),rgba(198,122,74,0.04)),transparent;border-color:rgba(198,122,74,0.4);border-left:3px solid var(--terra)}
-.way-num{font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
-.way-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;line-height:1.1;margin-bottom:4px}
-.way-name em{color:var(--gold);font-style:italic}
-.way-desc{font-size:0.6rem;color:var(--soft);line-height:1.5}
-.method{padding:4rem 0;border-top:1px solid var(--line)}
-.method-label{font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-.method-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.05;letter-spacing:-0.02em;margin-bottom:10px}
-.method-sub{font-size:0.78rem;color:var(--muted);max-width:52ch;line-height:1.7;margin-bottom:2.5rem}
-.range{-webkit-appearance:none;appearance:none;width:100%;height:3px;border-radius:999px;background:var(--line-s);outline:none;margin:8px 0 6px;cursor:pointer}
-.range::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--gold);border:3px solid var(--bg);box-shadow:0 0 0 1px var(--gold);cursor:pointer}
-.range::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--gold);border:3px solid var(--bg);cursor:pointer}
-.ticks{display:flex;justify-content:space-between;font-size:0.5rem;color:var(--soft);letter-spacing:0.06em;margin-bottom:18px}
-.cadence{display:flex;gap:0;margin-bottom:28px}
-.cad{font-family:'IBM Plex Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;padding:0.65rem 1.1rem;background:transparent;border:1px solid var(--line);color:var(--muted);cursor:pointer;transition:all 0.2s;text-transform:lowercase}
-.cad:first-child{border-radius:999px 0 0 999px}
-.cad:last-child{border-radius:0 999px 999px 0;border-left:0}
-.cad:nth-child(2){border-left:0}
-.cad.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.custom-wrap input{width:100%;font-family:'IBM Plex Mono',monospace;font-size:1rem;color:var(--ink);background:var(--panel);border:1px solid var(--line-s);border-radius:8px;padding:12px 16px;text-transform:lowercase;margin-bottom:18px}
-.custom-wrap input::placeholder{color:var(--soft)}
-.display{font-family:'Cormorant Garamond',serif;font-size:clamp(64px,12vw,100px);font-weight:300;line-height:0.9;letter-spacing:-0.04em;margin-bottom:4px}
-.display-per{font-size:0.58rem;color:var(--gold);letter-spacing:0.06em;min-height:1em;margin-bottom:14px}
-.display-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:300;margin-bottom:8px;min-height:1.2em}
-.display-impact{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:6px;min-height:1.4em}
-.display-ex{font-size:0.68rem;color:var(--soft);line-height:1.5;min-height:1.2em;margin-bottom:24px}
-.ink-display{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,6vw,64px);font-weight:300;line-height:1;letter-spacing:-0.03em;margin-bottom:10px;min-height:1.2em}
-.ink-impact{font-size:0.82rem;color:var(--muted);line-height:1.6;margin-bottom:24px;min-height:1.4em}
-.field{display:block;margin-bottom:1.4rem}
-.flab{display:block;font-size:0.5rem;letter-spacing:0.12em;color:var(--soft);margin-bottom:6px;text-transform:uppercase}
-.sel-wrap{position:relative}
-.sel-wrap select{width:100%;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--ink);background:var(--panel);border:1px solid var(--line-s);border-radius:8px;padding:12px 40px 12px 14px;appearance:none;-webkit-appearance:none;cursor:pointer;text-transform:lowercase}
-.sel-wrap::after{content:'▾';position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:0.65rem;pointer-events:none}
-.input{width:100%;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--ink);background:var(--panel);border:1px solid var(--line-s);border-radius:8px;padding:12px 14px;text-transform:lowercase;margin-bottom:8px}
-.input::placeholder{color:var(--soft)}
-.textarea{width:100%;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink);background:var(--panel);border:1px solid var(--line-s);border-radius:8px;padding:12px 14px;min-height:72px;resize:vertical;text-transform:lowercase;margin-bottom:8px}
-.textarea::placeholder{color:var(--soft)}
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:500;letter-spacing:0.06em;padding:0.9rem 1.8rem;border-radius:999px;cursor:pointer;transition:all 0.2s;text-transform:lowercase;text-decoration:none;border:0}
-.btn-gold{background:var(--gold);color:var(--bg)}
-.btn-gold:hover{opacity:0.88}
-.btn-terra{background:var(--terra);color:var(--bg)}
-.btn-terra:hover{opacity:0.88}
-.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--line-s)}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.form-status{margin:12px 0 0;font-size:0.68rem;color:var(--muted);min-height:14px}
-.note{font-size:0.6rem;color:var(--soft);margin-top:14px;line-height:1.5}
-.direct{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--line)}
-.direct p{font-size:0.68rem;color:var(--soft);margin-bottom:0.6rem}
-.dlinks{display:flex;flex-wrap:wrap;gap:0.4rem 1.4rem}
-.dlinks a{font-size:0.64rem;color:var(--muted);transition:color 0.2s}
-.dlinks a:hover{color:var(--gold)}
-.cta{margin-top:4rem;padding:clamp(30px,5vw,54px);border:1px solid var(--line-s);border-radius:24px;background:radial-gradient(circle at top left,rgba(198,122,74,0.14),transparent 35%),rgba(255,255,255,0.035)}
-.cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;line-height:0.96;letter-spacing:-0.03em;margin-bottom:14px}
-.cta p{font-size:0.72rem;color:var(--muted);line-height:1.7;max-width:52ch;margin-bottom:1.5rem}
-.footer{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line);font-size:0.54rem;color:var(--soft);letter-spacing:0.06em;line-height:1.8}
-.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.6s ease,transform 0.6s ease}
-.reveal.in{opacity:1;transform:none}
-@media(max-width:620px){.wrap{padding:22px 18px 72px}.ways{flex-direction:column}.nav-links{display:none}.cta{padding:24px}}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-link{font-size:11px;letter-spacing:.04em;color:var(--muted);padding:8px 14px;border-radius:999px;border:1px solid transparent;transition:all .15s}
+.nav-link:hover{color:var(--ink);border-color:var(--line-s)}
+.nav-cta{font-size:11px;letter-spacing:.04em;color:var(--bg);background:var(--terra);padding:10px 18px;border-radius:999px;border:1px solid var(--terra);transition:all .15s;font-weight:500}
+.nav-cta:hover{opacity:.88}
+.nav-drawer{display:none}
+.nav-hamburger{display:none;background:none;border:0;color:var(--ink);padding:8px;cursor:pointer}
+.nav-hamburger svg{width:22px;height:22px;display:block}
+
+/* type */
+.eyebrow{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--terra);display:flex;align-items:center;gap:8px;font-weight:500;margin-bottom:12px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--terra);flex-shrink:0;animation:dotPulse 2.4s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(198,122,74,0.35)}50%{opacity:0.4;box-shadow:0 0 0 6px rgba(198,122,74,0)}}
+.h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.8rem,8vw,5.2rem);line-height:0.92;letter-spacing:-0.045em;margin:14px 0 20px}
+.h1 em{background:linear-gradient(135deg,var(--terra),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic}
+.h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,5vw,3.2rem);line-height:0.96;letter-spacing:-0.025em;margin-bottom:14px}
+.h2 em{color:var(--terra);font-style:italic}
+.body{font-size:clamp(0.88rem,1.1vw,1rem);color:var(--muted);max-width:56ch;line-height:1.85;margin-bottom:14px}
+.body strong{color:var(--ink);font-weight:500}
+
+/* buttons */
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;font-weight:500;letter-spacing:0.06em;padding:12px 20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;min-height:44px;transition:transform 180ms ease,background 180ms ease;text-transform:lowercase;border:1px solid var(--line-s);color:var(--muted);background:transparent;cursor:pointer}
+.btn:hover{transform:translateY(-2px);color:var(--ink);border-color:var(--ink)}
+.btn:active{transform:translateY(0)}
+.btn-t{background:var(--terra);color:var(--bg);border-color:var(--terra)}
+.btn-t:hover{opacity:0.88;color:var(--bg)}
+.btn-t:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+
+/* give cards */
+.give-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,2vw,16px);margin-top:clamp(20px,3vw,30px)}
+.give-card{position:relative;display:flex;flex-direction:column;min-height:170px;padding:clamp(16px,2.2vw,22px);border:1px solid var(--line-s);border-radius:18px;background:var(--panel);cursor:pointer;text-align:left;color:inherit;font-family:inherit;transition:transform 200ms ease,border-color 200ms ease,background 200ms ease}
+.give-card:hover{transform:translateY(-4px);border-color:rgba(198,122,74,0.4)}
+.give-card.active{border-color:var(--terra);background:linear-gradient(145deg,rgba(198,122,74,0.14),rgba(198,122,74,0.03)),var(--panel)}
+.give-card.active::after{content:'✓';position:absolute;top:16px;right:16px;font-size:11px;color:var(--terra)}
+.give-num{font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--terra);margin-bottom:10px}
+.give-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;line-height:1.05;margin-bottom:8px;color:var(--ink)}
+.give-name em{color:var(--terra);font-style:italic}
+.give-desc{font-size:0.7rem;color:var(--muted);line-height:1.65}
+
+/* form */
+.form-wrap{background:var(--panel);border:1px solid var(--line-s);border-radius:20px;padding:clamp(22px,4vw,40px);margin-top:clamp(24px,4vw,36px)}
+.form-helper{font-size:0.74rem;color:var(--terra);line-height:1.7;margin-bottom:22px;min-height:2.4em}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field-full{grid-column:1 / -1}
+.field label{font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--soft)}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line-s);border-radius:12px;background:var(--deep);padding:13px 14px;color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:0.8rem;transition:border-color 150ms}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--terra)}
+.field input::placeholder,.field textarea::placeholder{color:var(--soft)}
+.field textarea{min-height:110px;resize:vertical}
+.field select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a9a094' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:11px}
+.form-status{grid-column:1 / -1;font-size:0.72rem;color:var(--muted);min-height:1.4em;margin:0}
+
+/* amounts */
+.amounts{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+.amount{font-family:'IBM Plex Mono',monospace;font-size:0.66rem;border:1px solid var(--line-s);background:var(--deep);color:var(--muted);border-radius:999px;padding:9px 14px;cursor:pointer;transition:all 150ms}
+.amount:hover{border-color:var(--terra);color:var(--ink)}
+.amount.active{background:var(--terra);border-color:var(--terra);color:var(--bg)}
+
+/* trust */
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.5vw,20px);margin-top:clamp(20px,3vw,28px)}
+.trust-item{border:1px solid var(--line-s);border-radius:14px;padding:clamp(16px,2.2vw,20px);background:var(--panel)}
+.trust-num{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--terra);line-height:1;margin-bottom:6px}
+.trust-label{font-size:0.62rem;color:var(--muted);line-height:1.6}
+
+/* footer */
+.footer{padding:clamp(32px,5vw,56px) 0;border-top:1px solid var(--line)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-brand{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--soft)}
+.footer-links{display:flex;gap:16px;font-size:0.6rem;color:var(--soft);flex-wrap:wrap}
+.footer-links a{color:var(--muted);transition:color .15s}
+.footer-links a:hover{color:var(--ink)}
+
+/* grain */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.028;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:200px}
+
+/* safe reveals */
+[data-reveal]{opacity:1;transform:none}
+.js [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity 720ms ease,transform 720ms ease;transition-delay:var(--rd,0ms)}
+.js [data-reveal].in{opacity:1;transform:translateY(0)}
+
+/* responsive */
+@media(max-width:860px){
+  .give-grid{grid-template-columns:1fr 1fr}
+  .trust{grid-template-columns:1fr}
+  .nav-links .nav-link{display:none}
+  .nav-hamburger{display:block}
+  .nav-drawer{position:absolute;top:64px;right:12px;background:var(--panel);border:1px solid var(--line-s);border-radius:16px;padding:8px;box-shadow:0 16px 48px rgba(0,0,0,0.4);min-width:180px;z-index:10}
+  .nav-drawer.open{display:block}
+  .nav-drawer a{display:block;padding:10px 16px;font-size:12px;color:var(--muted);border-radius:10px;transition:background .15s}
+  .nav-drawer a:hover{background:var(--panel-2);color:var(--ink)}
+}
+@media(max-width:560px){
+  .give-grid{grid-template-columns:1fr}
+  .form{grid-template-columns:1fr}
+  body{font-size:15px}
+  .body,.give-desc{font-size:0.92rem;line-height:1.65}
+  .btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;scroll-behavior:auto!important}}
+
+@media(max-width:860px){
+  .give-card{min-height:0;padding:16px 18px}
+  .give-desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .give-grid{grid-template-columns:1fr 1fr}
+  .trust-label{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+}
+@media(max-width:560px){.give-grid{grid-template-columns:1fr 1fr}}
 </style>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
 <nav class="nav"><div class="nav-inner">
-  <a href="/" class="nav-mark"><img src="/logo.png" alt="birthright" class="nav-logo"></a>
+  <a href="/"><img src="/logo.png" alt="birthright" class="nav-logo"></a>
   <div class="nav-links">
-      <a href="/about" class="nav-link">about</a>
-      <a href="/labs" class="nav-link">labs</a>
-      <a href="/give" class="nav-cta">build with us</a>
-    </div>
+    <a href="/about" class="nav-link">about</a>
+    <a href="/labs" class="nav-link">labs</a>
+    <a href="https://www.themmaadd.org" target="_blank" rel="noopener" class="nav-link">the mmaadd</a>
+    <a href="/groundwork" class="nav-link">groundwork</a>
+    <a href="/give" class="nav-cta">build with us</a>
+  </div>
+  <button class="nav-hamburger" aria-label="menu" onclick="document.querySelector('.nav-drawer').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+  </button>
+  <div class="nav-drawer">
+    <a href="/about">about</a><a href="/labs">labs</a><a href="https://www.themmaadd.org" target="_blank" rel="noopener">the mmaadd</a><a href="/groundwork">groundwork</a><a href="/give">build with us</a>
+  </div>
 </div></nav>
 
-<div class="wrap">
-
-  <header style="padding:44px 0 0">
-    <div style="font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:22px">support the work</div>
-    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(48px,10vw,100px);font-weight:300;line-height:0.9;letter-spacing:-0.04em;margin-bottom:14px">give what <em style="color:var(--gold);font-style:italic">you have.</em></h1>
-    <p style="font-size:0.82rem;color:var(--muted);max-width:52ch;line-height:1.8;margin-bottom:4px">the birthright project is a 501(c)(3) venture studio. give money, tech, time, or space — and back practical models that become infrastructure communities own, adapt, and scale.</p>
-    <p style="font-size:0.54rem;color:var(--soft);letter-spacing:0.06em">ein 99-3166732 · 100% of social enterprise profits reinvested</p>
-  </header>
-
-  <div class="ways">
-    <a href="#money" class="way"><div class="way-num">way 01</div><h3 class="way-name">give <em>money</em></h3><p class="way-desc">fund pilots, fellows, tools, and community infrastructure.</p></a>
-    <a href="#tech" class="way"><div class="way-num">way 02</div><h3 class="way-name">give <em>tech</em></h3><p class="way-desc">cloud, compute, devices, licenses, and development time.</p></a>
-    <a href="#time" class="way"><div class="way-num">way 03</div><h3 class="way-name">give <em>time</em></h3><p class="way-desc">mentor, coach, teach, advise, or operate a pilot.</p></a>
-    <a href="#space" class="way"><div class="way-num">way 04</div><h3 class="way-name">give <em>space</em></h3><p class="way-desc">lots, land, and walls — underused ground becomes a greenhouse commons.</p></a>
-    <a href="#ideas" class="way way-ideas"><div class="way-num">way 05</div><h3 class="way-name">got other <em>ideas?</em></h3><p class="way-desc">partner, co-build, or bring an idea all your own.</p></a>
+<!-- HERO -->
+<section>
+  <div class="container" data-reveal>
+    <div class="eyebrow"><div class="dot"></div>the oxygen fund</div>
+    <h1 class="h1">give what<br><em>you have.</em></h1>
+    <p class="body">money, tech, time, space, and ideas all move the work. every contribution builds infrastructure communities can own.</p>
   </div>
+</section>
 
-  <!-- MONEY -->
-  <section class="method reveal" id="money">
-    <div class="method-label">way 01</div>
-    <div class="method-title">give <em style="color:var(--gold);font-style:italic">money.</em></div>
-    <p class="method-sub">fund the infrastructure that makes everything else possible — from neighborhood wellbeing sessions to full fellowship cycles.</p>
-    <input class="range" id="moneyRange" type="range" min="0" max="8" step="1" value="4" aria-label="donation amount">
-    <div class="ticks"><span>$25</span><span>$25k</span></div>
-    <div class="cadence">
-      <button class="cad on" data-cad="once">one-time</button>
-      <button class="cad" data-cad="monthly">monthly</button>
-      <button class="cad" data-cad="quarterly">quarterly</button>
+<!-- WAYS + FORM -->
+<section id="ways" data-reveal>
+  <div class="container">
+    <div class="eyebrow"><div class="dot"></div>choose a way to give</div>
+    <h2 class="h2">five ways to <em>move the work.</em></h2>
+
+    <div class="give-grid" role="group" aria-label="ways to give">
+      <button type="button" class="give-card active" data-give="money" data-reveal style="--rd:0ms"><div class="give-num">way 01</div><div class="give-name">give <em>money</em></div><p class="give-desc">fund pilots, fellowships, tools, and local infrastructure.</p></button>
+      <button type="button" class="give-card" data-give="tech" data-reveal style="--rd:60ms"><div class="give-num">way 02</div><div class="give-name">give <em>tech</em></div><p class="give-desc">contribute devices, software access, credits, or technical support.</p></button>
+      <button type="button" class="give-card" data-give="time" data-reveal style="--rd:120ms"><div class="give-num">way 03</div><div class="give-name">give <em>time</em></div><p class="give-desc">mentor, advise, teach, review, or help build.</p></button>
+      <button type="button" class="give-card" data-give="space" data-reveal style="--rd:180ms"><div class="give-num">way 04</div><div class="give-name">give <em>space</em></div><p class="give-desc">offer rooms, studios, land, venues, or workspace.</p></button>
+      <button type="button" class="give-card" data-give="ideas" data-reveal style="--rd:240ms"><div class="give-num">way 05</div><div class="give-name">give <em>ideas</em></div><p class="give-desc">bring partnerships, local opportunities, or models we should explore.</p></button>
     </div>
-    <div class="custom-wrap"><input type="number" inputmode="numeric" min="1" placeholder="or enter a custom amount" id="moneyCustom"></div>
-    <div class="display" id="moneyDisplay">$1,000</div>
-    <div class="display-per" id="moneyPer"></div>
-    <div class="display-title" id="moneyTitle">sponsor a fellow</div>
-    <p class="display-impact" id="moneyImpact">one fellow through a full month at the institute.</p>
-    <p class="display-ex" id="moneyEx">training, mentorship, production support, and a stipend.</p>
-    <a class="btn btn-gold" id="moneyBtn" href="https://www.thebirthrightproject.org/give" target="_blank" rel="noopener">give $1,000 once →</a>
-    <div class="direct">
-      <p>prefer to back one venture?</p>
-      <div class="dlinks">
-        <a href="https://www.themmaadd.org" target="_blank" rel="noopener">the mmaadd institute →</a>
-        <a href="https://www.wearehappysunday.org" target="_blank" rel="noopener">happy sunday coop →</a>
-        <a href="https://www.softerbread.org" target="_blank" rel="noopener">softerbread coop →</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- TECH -->
-  <section class="method reveal" id="tech">
-    <div class="method-label">way 02</div>
-    <div class="method-title">give <em style="color:var(--gold);font-style:italic">tech.</em></div>
-    <p class="method-sub">the tools and infrastructure that let community ventures build, ship, and operate.</p>
-    <label class="field"><span class="flab">what can you offer?</span><span class="sel-wrap">
-      <select id="techSelect">
-        <option value="cloud credits" data-impact="cloud credits power the tools fellows and ventures build and ship on." selected>cloud credits</option>
-        <option value="compute + gpu" data-impact="gpu and compute time trains models and renders creative work.">compute + gpu time</option>
-        <option value="computers + devices" data-impact="laptops and devices put working tools directly in fellows' and operators' hands.">computers + devices</option>
-        <option value="software licenses" data-impact="design, dev, and productivity licenses open real creative headroom.">software licenses</option>
-        <option value="api + model credits" data-impact="llm and api credits keep community tools and prototypes running.">api + model credits</option>
-      </select>
-    </span></label>
-    <div class="ink-display" id="techDisplay">cloud credits</div>
-    <p class="ink-impact" id="techImpact">cloud credits power the tools fellows and ventures build and ship on.</p>
-    <form data-gv-form>
-      <input type="hidden" name="_subject" value="give tech — birthright">
-      <input type="hidden" name="giving" value="tech">
-      <input type="hidden" name="offering" id="techOffering" value="cloud credits">
-      <input class="input" type="text" name="name" placeholder="your name" required>
-      <input class="input" type="email" name="email" placeholder="email" required>
-      <textarea class="textarea" name="message" placeholder="what you can offer, amount, timeline (optional)"></textarea>
-      <button class="btn btn-outline" type="submit" id="techBtn">offer cloud credits →</button>
-      <p class="form-status" aria-live="polite"></p>
-    </form>
-    <p class="note">in-kind tech gifts may be tax-deductible. we'll confirm fit and routing.</p>
-  </section>
+    <div class="form-wrap" data-reveal>
+      <p class="form-helper" id="helper">tell us what you'd like to fund — pilots, fellowships, tools, or community infrastructure.</p>
+      <form id="give-form" class="form">
+        <div class="field field-full">
+          <label for="gt">what would you like to give?</label>
+          <select id="gt" name="giving_type">
+            <option value="money">i want to give money</option>
+            <option value="tech">i want to give tech</option>
+            <option value="time">i want to give time</option>
+            <option value="space">i want to give space</option>
+            <option value="ideas">i want to share an idea</option>
+            <option value="partnership">i want to discuss a partnership</option>
+          </select>
+        </div>
 
-  <!-- TIME -->
-  <section class="method reveal" id="time">
-    <div class="method-label">way 03</div>
-    <div class="method-title">give <em style="color:var(--gold);font-style:italic">time.</em></div>
-    <p class="method-sub">the most valuable resource. guide a fellow, coach a founder, lead a workshop.</p>
-    <label class="field"><span class="flab">how would you like to contribute?</span><span class="sel-wrap">
-      <select id="timeSelect">
-        <option value="mentor" data-impact="guide a fellow or founder through a real project, one session at a time." selected>mentor</option>
-        <option value="coach" data-impact="coach on craft, business, or career across a cohort.">coach</option>
-        <option value="workshop lead" data-impact="lead a workshop or masterclass for a cohort of fellows.">workshop lead</option>
-        <option value="office hours" data-impact="hold open office hours for founders and creators.">office hours</option>
-        <option value="volunteer" data-impact="lend hands on events, programs, and community days.">volunteer</option>
-      </select>
-    </span></label>
-    <div class="ink-display" id="timeDisplay">mentor</div>
-    <p class="ink-impact" id="timeImpact">guide a fellow or founder through a real project, one session at a time.</p>
-    <form data-gv-form>
-      <input type="hidden" name="_subject" value="give time — birthright">
-      <input type="hidden" name="giving" value="time">
-      <input type="hidden" name="offering" id="timeOffering" value="mentor">
-      <input class="input" type="text" name="name" placeholder="your name" required>
-      <input class="input" type="email" name="email" placeholder="email" required>
-      <textarea class="textarea" name="message" placeholder="your background, availability, preferred format (optional)"></textarea>
-      <button class="btn btn-outline" type="submit" id="timeBtn">offer to mentor →</button>
-      <p class="form-status" aria-live="polite"></p>
-    </form>
-  </section>
+        <div class="field field-full" id="amount-field">
+          <label>amount</label>
+          <div class="amounts" id="amounts">
+            <button type="button" class="amount" data-amt="25">$25</button>
+            <button type="button" class="amount" data-amt="60">$60</button>
+            <button type="button" class="amount" data-amt="150">$150</button>
+            <button type="button" class="amount" data-amt="500">$500</button>
+            <button type="button" class="amount" data-amt="1000">$1,000</button>
+            <button type="button" class="amount" data-amt="2500">$2,500</button>
+            <button type="button" class="amount" data-amt="5000">$5,000</button>
+            <button type="button" class="amount" data-amt="other">other</button>
+          </div>
+          <input type="hidden" name="amount" id="amount-input">
+        </div>
 
-  <!-- SPACE -->
-  <section class="method reveal" id="space">
-    <div class="method-label">way 04</div>
-    <div class="method-title">give <em style="color:var(--gold);font-style:italic">space.</em></div>
-    <p class="method-sub">underused ground becomes a greenhouse commons — through space&co. by happy sunday, a lot, plot, or wall turns into gardens, gathering, making, and local programming.</p>
-    <label class="field"><span class="flab">what type of space?</span><span class="sel-wrap">
-      <select id="spaceSelect">
-        <option value="a vacant lot" data-impact="a vacant lot becomes a greenhouse commons — garden beds, pods, and gathering ground." selected>a vacant lot</option>
-        <option value="a plot or yard" data-impact="a plot or yard becomes a tea and herb garden that feeds sunday goods.">a plot or yard</option>
-        <option value="campus grounds" data-impact="underused campus grounds host movement, making, and neighborhood programming.">campus grounds</option>
-        <option value="a land bank parcel" data-impact="a land bank parcel is activated as a greenhouse commons pilot.">a land bank parcel</option>
-        <option value="indoor or rooftop space" data-impact="indoor or rooftop space hosts a tea room, maker pods, and community sessions.">indoor or rooftop space</option>
-      </select>
-    </span></label>
-    <div class="ink-display" id="spaceDisplay">a vacant lot</div>
-    <p class="ink-impact" id="spaceImpact">a vacant lot becomes a greenhouse commons — garden beds, pods, and gathering ground.</p>
-    <form data-gv-form>
-      <input type="hidden" name="_subject" value="give space — birthright">
-      <input type="hidden" name="giving" value="space">
-      <input type="hidden" name="offering" id="spaceOffering" value="a vacant lot">
-      <input class="input" type="text" name="name" placeholder="your name" required>
-      <input class="input" type="email" name="email" placeholder="email" required>
-      <textarea class="textarea" name="message" placeholder="location, size, availability, condition (optional)"></textarea>
-      <button class="btn btn-outline" type="submit" id="spaceBtn">offer a vacant lot →</button>
-      <p class="form-status" aria-live="polite"></p>
-    </form>
-  </section>
+        <div class="field"><label for="gn">name</label><input id="gn" name="name" type="text" placeholder="your name" required></div>
+        <div class="field"><label for="ge">email</label><input id="ge" name="email" type="email" placeholder="you@email.com" required></div>
+        <div class="field"><label for="gl">location</label><input id="gl" name="location" type="text" placeholder="city, country"></div>
+        <div class="field"><label for="go">organization <span style="text-transform:none;color:var(--soft)">(optional)</span></label><input id="go" name="organization" type="text" placeholder="company or org"></div>
+        <div class="field field-full"><label for="gw">website or social <span style="text-transform:none;color:var(--soft)">(optional)</span></label><input id="gw" name="link" type="text" placeholder="https://"></div>
+        <div class="field field-full"><label for="gm">message</label><textarea id="gm" name="message" placeholder="tell us more about what you'd like to contribute" required></textarea></div>
 
-  <!-- IDEAS -->
-  <section class="method reveal" id="ideas">
-    <div class="method-label">way 05</div>
-    <div class="method-title">got other <em style="color:var(--terra);font-style:italic">ideas?</em></div>
-    <p class="method-sub">a partnership, a venture, a space, a skill, or an idea all your own — tell us what you're carrying and how you'd like to build together.</p>
-    <form data-gv-form>
-      <input type="hidden" name="_subject" value="got other ideas — birthright">
-      <input type="hidden" name="giving" value="ideas / partnership">
-      <input class="input" type="text" name="name" placeholder="your name" required>
-      <input class="input" type="email" name="email" placeholder="email" required>
-      <textarea class="textarea" name="message" placeholder="your idea or partnership — what you're imagining, and how you'd like to build together" style="min-height:120px" required></textarea>
-      <button class="btn btn-terra" type="submit">share your idea →</button>
-      <p class="form-status" aria-live="polite"></p>
-    </form>
-    <p class="note">we read every note. we'll follow up to explore fit and next steps.</p>
-  </section>
-
-  <div class="cta">
-    <h2>help build what communities can own.</h2>
-    <p>birthright labs is part of the birthright project, a 501(c)(3) nonprofit. we test practical models, document what works, and turn useful ideas into infrastructure communities and partners can adapt locally.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn btn-terra" href="#ideas">build with us →</a>
-      <a class="btn btn-outline" href="/labs">explore labs →</a>
+        <input type="hidden" name="_subject" value="birthright — contribution">
+        <div class="field field-full"><button type="submit" class="btn btn-t" style="width:100%">send contribution</button></div>
+        <p class="form-status" id="status" aria-live="polite"></p>
+      </form>
     </div>
   </div>
+</section>
 
-  <div class="footer">
-    birthright project inc. · 501(c)(3) nonprofit · ein 99-3166732<br>
-    africa · latin america · the caribbean · the diaspora<br>
-    <a href="/give" style="color:var(--gold)">hello@thebirthrightproject.org</a>
+<!-- TRUST -->
+<section data-reveal>
+  <div class="container">
+    <div class="eyebrow"><div class="dot"></div>where it goes</div>
+    <h2 class="h2">enterprise revenue funds<br><em>mission work.</em></h2>
+    <p class="body">contributions flow into the oxygen fund — supporting pilots, fellowships, tools, and community infrastructure across our ventures.</p>
+    <div class="trust">
+      <div class="trust-item"><div class="trust-num serif">100%</div><div class="trust-label">of social enterprise profits reinvested into the communities we serve.</div></div>
+      <div class="trust-item"><div class="trust-num serif">501(c)(3)</div><div class="trust-label">registered nonprofit · ein 99-3166732 · contributions are tax-deductible.</div></div>
+      <div class="trust-item"><div class="trust-num serif">15+</div><div class="trust-label">ventures in motion across africa, latin america, the caribbean, and the diaspora.</div></div>
+    </div>
   </div>
+</section>
 
-</div>
+<!-- CTA -->
+<section data-reveal>
+  <div class="container">
+    <h2 class="h2">help build what<br>communities can <em>own.</em></h2>
+    <p class="body">explore the ventures, or reach us directly.</p>
+    <div class="btns">
+      <a href="/labs" class="btn btn-t">explore labs</a>
+      <a href="mailto:hello@thebirthrightproject.org" class="btn">email us</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container footer-inner">
+  <div class="footer-brand">© birthright project · 501(c)(3)</div>
+  <div class="footer-links">
+    <a href="mailto:hello@thebirthrightproject.org">hello@thebirthrightproject.org</a>
+    <a href="/about">about</a><a href="/labs">labs</a><a href="/give">give</a>
+  </div>
+</div></footer>
 
 <script>
-(function(){
-  var FORMSPREE='https://formspree.io/f/mwvdyplz';
+var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('[data-reveal]').forEach(function(el){ro.observe(el)});
 
-  /* money */
-  var TIERS=[
-    {a:25,t:'care access',i:'trusted, culturally grounded care connected for one person.',e:'vetted local practitioners, findable and reachable.'},
-    {a:60,t:'a family pantry',i:'a family pantry — groceries sent to a household in kingston.',e:'essentials, groceries, and local fulfillment, delivered with care.'},
-    {a:150,t:'tools + devices',i:'a month of devices, software, and cloud access for one youth-led venture.',e:'laptop time, design and dev tools, and cloud credits.'},
-    {a:500,t:'seed an enterprise',i:'seed tools and first inventory for one woman-led enterprise in nairobi.',e:'starter equipment, first stock, and market setup.'},
-    {a:1000,t:'sponsor a fellow',i:'one fellow through a full month at the institute.',e:'training, mentorship, production support, and a stipend.'},
-    {a:2500,t:'medical bills paid',i:'medical bills paid directly to providers through clean bill direct.',e:'verified bills, paid straight to the provider.'},
-    {a:5000,t:'youth entrepreneurship',i:'a youth entrepreneurship cohort — training, tools, and launch support.',e:'workshops, devices, seed support, and mentorship.'},
-    {a:10000,t:'activate a lot',i:'activates a vacant lot as a space\u0026co. greenhouse commons.',e:'garden beds, pods, gathering ground, and neighborhood programming.'},
-    {a:25000,t:'a space\u0026co. site',i:'stands up one space\u0026co. site for a year.',e:'greenhouse, tea garden, maker pods, and community rooms.'}
-  ];
-  var range=document.getElementById('moneyRange');
-  var custom=document.getElementById('moneyCustom');
-  var disp=document.getElementById('moneyDisplay');
-  var per=document.getElementById('moneyPer');
-  var title=document.getElementById('moneyTitle');
-  var imp=document.getElementById('moneyImpact');
-  var ex=document.getElementById('moneyEx');
-  var btn=document.getElementById('moneyBtn');
-  var cadence='once';
-  var cadLabels={once:'once',monthly:'monthly',quarterly:'quarterly'};
-  function fmt(n){return'$'+n.toLocaleString()}
-  function renderMoney(){
-    var cv=custom.value?parseInt(custom.value,10):null;
-    if(cv&&cv>0){disp.textContent=fmt(cv);title.textContent='custom amount';imp.textContent='every dollar builds infrastructure for economic dignity.';ex.textContent='';btn.textContent='give '+fmt(cv)+' '+cadLabels[cadence]+' \u2192'}
-    else{var t=TIERS[parseInt(range.value,10)];disp.textContent=fmt(t.a);title.textContent=t.t;imp.textContent=t.i;ex.textContent=t.e;btn.textContent='give '+fmt(t.a)+' '+cadLabels[cadence]+' \u2192'}
-    per.textContent=cadence!=='once'?'per '+cadence.replace('ly',''):'';
-  }
-  range.addEventListener('input',function(){custom.value='';renderMoney()});
-  custom.addEventListener('input',renderMoney);
-  document.querySelectorAll('.cad').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.cad').forEach(function(x){x.classList.remove('on')});b.classList.add('on');cadence=b.getAttribute('data-cad');renderMoney()})});
-  renderMoney();
+var HELPERS={
+  money:"tell us what you'd like to fund — pilots, fellowships, tools, or community infrastructure.",
+  tech:"tell us what tools, credits, devices, or technical support you can contribute.",
+  time:"tell us how you'd like to help — mentoring, advising, teaching, reviewing, or building.",
+  space:"tell us about the rooms, studios, land, venues, or workspace you can offer.",
+  ideas:"tell us about the partnership, local opportunity, or model we should explore.",
+  partnership:"tell us about your organization and what you'd like to build together."
+};
 
-  /* in-kind pickers */
-  function wireSelect(selId,dispId,impId,btnId,offId,prefix){
-    var sel=document.getElementById(selId);
-    var d=document.getElementById(dispId);
-    var im=document.getElementById(impId);
-    var bt=document.getElementById(btnId);
-    var off=document.getElementById(offId);
-    sel.addEventListener('change',function(){
-      var opt=sel.options[sel.selectedIndex];
-      d.textContent=opt.value;
-      im.textContent=opt.getAttribute('data-impact');
-      bt.textContent=prefix+opt.value+' \u2192';
-      if(off) off.value=opt.value;
-    });
-  }
-  wireSelect('techSelect','techDisplay','techImpact','techBtn','techOffering','offer ');
-  wireSelect('timeSelect','timeDisplay','timeImpact','timeBtn','timeOffering','offer to ');
-  wireSelect('spaceSelect','spaceDisplay','spaceImpact','spaceBtn','spaceOffering','offer ');
+var cards=document.querySelectorAll('.give-card');
+var select=document.getElementById('gt');
+var helper=document.getElementById('helper');
+var amountField=document.getElementById('amount-field');
 
-  /* formspree submit */
-  document.querySelectorAll('[data-gv-form]').forEach(function(form){
-    form.addEventListener('submit',function(e){
-      e.preventDefault();
-      var status=form.querySelector('.form-status');
-      var btn=form.querySelector('button[type="submit"]');
-      btn.disabled=true;
-      btn.textContent='sending...';
-      fetch(FORMSPREE,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
-      .then(function(r){
-        if(r.ok){status.textContent='sent — we\'ll be in touch.';form.reset()}
-        else{status.textContent='something went wrong. try again or email us.';btn.disabled=false}
-      })
-      .catch(function(){status.textContent='network error. try again.';btn.disabled=false});
-    });
+function setType(type,scroll){
+  cards.forEach(function(c){c.classList.toggle('active',c.getAttribute('data-give')===type)});
+  if(select.value!==type && HELPERS[type]) select.value=type;
+  helper.textContent=HELPERS[type]||HELPERS.money;
+  amountField.style.display = (type==='money') ? 'flex' : 'none';
+  if(scroll) document.querySelector('.form-wrap').scrollIntoView({behavior:'smooth',block:'center'});
+}
+cards.forEach(function(c){c.addEventListener('click',function(){setType(c.getAttribute('data-give'),true)})});
+select.addEventListener('change',function(){setType(select.value,false)});
+
+// amounts
+var amtInput=document.getElementById('amount-input');
+document.querySelectorAll('.amount').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.querySelectorAll('.amount').forEach(function(x){x.classList.remove('active')});
+    a.classList.add('active');
+    var v=a.getAttribute('data-amt');
+    if(v==='other'){var c=prompt('enter an amount (usd)');amtInput.value=c||'';}
+    else amtInput.value=v;
   });
+});
 
-  /* reveal */
-  if('IntersectionObserver' in window&&!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
-    var io=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:0.1});
-    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
-  }else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')})}
-})();
+// deep links: /give#tech etc
+(function(){var h=(location.hash||'').replace('#','');if(HELPERS[h])setType(h,false);})();
+
+// form
+var FORMSPREE='https://formspree.io/f/mwvdyplz';
+document.getElementById('give-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var form=e.target, status=document.getElementById('status');
+  var btn=form.querySelector('button[type="submit"]');
+  var label=btn.textContent;
+  btn.disabled=true; btn.textContent='sending...'; status.textContent='';
+  fetch(FORMSPREE,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+  .then(function(r){
+    if(r.ok){status.textContent="sent — we'll be in touch.";form.reset();setType('money',false);btn.textContent='sent ✓';}
+    else{status.textContent='something went wrong. try again or email hello@thebirthrightproject.org';btn.textContent=label;btn.disabled=false;}
+  })
+  .catch(function(){status.textContent='network error. try again or email us.';btn.textContent=label;btn.disabled=false;});
+});
 </script>
 </body>
 </html>

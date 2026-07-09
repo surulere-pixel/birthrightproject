@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>groundwork — a birthright project program</title>
+<meta name="description" content="groundwork works with trusted local partners to support essentials, care, and local enterprise — round by round.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23322c25'/><text x='16' y='22' text-anchor='middle' font-size='18' fill='%23c67a4a'>g</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* lighter surface variant of the birthright system */
+:root{--bg:#3a332b;--panel:#443c33;--panel-2:#4d443a;--ink:#f4efe6;--muted:#c3b9ab;--soft:#9d9384;--terra:#d08a56;--gold:#c9a13a;--deep:#2a2520;--line:rgba(244,239,230,0.12);--line-s:rgba(244,239,230,0.2)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'IBM Plex Mono',monospace;font-weight:400;color:var(--ink);background:var(--bg);line-height:1.75;text-transform:lowercase;-webkit-font-smoothing:antialiased;animation:pageIn 420ms ease both}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+.serif{font-family:'Cormorant Garamond',serif}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,calc(100% - 40px));margin:0 auto}
+section{padding:clamp(52px,7.5vw,100px) 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+
+/* nav */
+.nav{position:sticky;top:12px;z-index:200;width:calc(100% - 24px);max-width:1120px;margin:12px auto 0;background:rgba(58,51,43,0.9);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid rgba(244,239,230,0.16);border-radius:100px;box-shadow:0 12px 40px rgba(0,0,0,0.26)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 10px 0 20px}
+.nav-left{display:flex;align-items:center;gap:14px;min-width:0}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;font-style:italic;letter-spacing:-0.03em;color:var(--ink)}
+.nav-tag{font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--soft);white-space:nowrap}
+.nav-tag a{color:var(--terra)}
+.nav-tag a:hover{color:var(--ink)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-link{font-size:11px;letter-spacing:.04em;color:var(--muted);padding:8px 13px;border-radius:999px;border:1px solid transparent;transition:all .15s}
+.nav-link:hover{color:var(--ink);border-color:var(--line-s)}
+.nav-cta{font-size:11px;letter-spacing:.04em;color:var(--deep);background:var(--terra);padding:10px 17px;border-radius:999px;border:1px solid var(--terra);transition:all .15s;font-weight:500}
+.nav-cta:hover{opacity:.88}
+.nav-drawer{display:none}
+.nav-hamburger{display:none;background:none;border:0;color:var(--ink);padding:8px;cursor:pointer}
+.nav-hamburger svg{width:22px;height:22px;display:block}
+
+/* type */
+.eyebrow{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--terra);display:flex;align-items:center;gap:8px;font-weight:500;margin-bottom:12px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--terra);flex-shrink:0;animation:dotPulse 2.4s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(208,138,86,0.35)}50%{opacity:0.4;box-shadow:0 0 0 6px rgba(208,138,86,0)}}
+.h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.6rem,7vw,5rem);line-height:0.94;letter-spacing:-0.04em;margin:14px 0 20px}
+.h1 em{background:linear-gradient(135deg,var(--terra),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic}
+.h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.9rem,4.6vw,3rem);line-height:0.98;letter-spacing:-0.025em;margin-bottom:14px}
+.h2 em{color:var(--terra);font-style:italic}
+.body{font-size:clamp(0.88rem,1.1vw,1rem);color:var(--muted);max-width:60ch;line-height:1.85;margin-bottom:14px}
+.body strong{color:var(--ink);font-weight:500}
+
+/* buttons */
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;font-weight:500;letter-spacing:0.06em;padding:12px 20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;min-height:44px;transition:transform 180ms ease,background 180ms ease;text-transform:lowercase;border:1px solid var(--line-s);color:var(--muted);background:transparent;cursor:pointer}
+.btn:hover{transform:translateY(-2px);color:var(--ink);border-color:var(--ink)}
+.btn:active{transform:translateY(0)}
+.btn-t{background:var(--terra);color:var(--deep);border-color:var(--terra)}
+.btn-t:hover{opacity:0.88;color:var(--deep)}
+.btn-t:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+
+/* cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.5vw,20px);margin-top:clamp(20px,3vw,30px)}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2.5vw,20px);margin-top:clamp(20px,3vw,30px)}
+.card{background:linear-gradient(145deg,rgba(255,255,255,0.045),rgba(255,255,255,0.012)),var(--panel);border:1px solid var(--line-s);border-radius:18px;padding:clamp(20px,3vw,28px);transition:transform 220ms ease,border-color 220ms ease,box-shadow 220ms ease}
+.card:hover{transform:translateY(-4px);border-color:rgba(208,138,86,0.4);box-shadow:0 16px 44px rgba(0,0,0,0.18)}
+.card-num{font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);margin-bottom:10px}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.6vw,1.7rem);font-weight:400;line-height:1.05;margin-bottom:10px;color:var(--ink)}
+.card-name em{color:var(--terra);font-style:italic}
+.card-desc{font-size:0.76rem;color:var(--muted);line-height:1.75}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-s);border:1px solid var(--line-s);border-radius:16px;overflow:hidden;margin-top:clamp(20px,3vw,30px)}
+.step{background:var(--panel);padding:20px 16px;transition:background 180ms}
+.step:hover{background:var(--panel-2)}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--terra);line-height:1;margin-bottom:8px}
+.step-name{font-size:0.68rem;font-weight:500;letter-spacing:0.04em;color:var(--ink);margin-bottom:6px}
+.step-desc{font-size:0.64rem;color:var(--soft);line-height:1.6}
+
+/* where */
+.where-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:clamp(20px,4vw,36px);margin-top:clamp(20px,3vw,30px);align-items:start}
+.map-shell{background:var(--panel);border:1px solid var(--line-s);border-radius:18px;padding:clamp(16px,2.5vw,24px);position:relative;overflow:hidden}
+.map-shell svg{width:100%;height:auto;display:block}
+.wm-land{fill:rgba(244,239,230,0.06);stroke:rgba(244,239,230,0.18);stroke-width:0.5}
+.wm-dot{fill:var(--terra)}
+.wm-halo{fill:var(--terra);transform-box:fill-box;transform-origin:center;animation:pulseDot 2.8s ease-out infinite}
+@keyframes pulseDot{0%{transform:scale(0.6);opacity:0.5}80%,100%{transform:scale(4);opacity:0}}
+.wm-label{fill:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.04em}
+.facts{display:flex;flex-direction:column;gap:12px}
+.fact{background:var(--panel);border:1px solid var(--line-s);border-radius:14px;padding:16px 18px}
+.fact-label{font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--terra);margin-bottom:6px}
+.fact-text{font-size:0.74rem;color:var(--muted);line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{font-size:0.6rem;color:var(--muted);border:1px solid var(--line-s);border-radius:999px;padding:6px 12px;transition:transform 180ms,background 180ms}
+.chip:hover{transform:translateY(-3px);background:var(--panel-2)}
+
+/* bring lists */
+.bring{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.5vw,20px);margin-top:clamp(18px,3vw,26px)}
+.bring-col{background:var(--panel);border:1px solid var(--line-s);border-radius:16px;padding:clamp(18px,2.5vw,24px)}
+.bring-col.you{border-left:3px solid var(--gold)}
+.bring-col.us{border-left:3px solid var(--terra)}
+.bring-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ink);margin-bottom:12px}
+.bring-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.bring-list li{font-size:0.74rem;color:var(--muted);line-height:1.6;padding-left:18px;position:relative}
+.bring-list li::before{content:'→';position:absolute;left:0;color:var(--terra);font-size:0.7rem}
+
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:clamp(18px,3vw,26px)}
+.tab{font-family:'IBM Plex Mono',monospace;font-size:0.66rem;letter-spacing:0.04em;border:1px solid var(--line-s);background:transparent;color:var(--muted);border-radius:999px;padding:11px 18px;cursor:pointer;transition:all 160ms;min-height:44px}
+.tab:hover{color:var(--ink);border-color:var(--ink)}
+.tab.active{background:var(--terra);border-color:var(--terra);color:var(--deep);font-weight:500}
+
+/* forms */
+.form-wrap{background:var(--panel);border:1px solid var(--line-s);border-radius:20px;padding:clamp(22px,4vw,38px);margin-top:clamp(16px,2.5vw,22px)}
+.form-intro{font-size:0.78rem;color:var(--muted);line-height:1.8;margin-bottom:22px;max-width:64ch}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field-full{grid-column:1 / -1}
+.field label{font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--soft)}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line-s);border-radius:12px;background:var(--deep);padding:13px 14px;color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:0.8rem;transition:border-color 150ms}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--terra)}
+.field input::placeholder,.field textarea::placeholder{color:var(--soft)}
+.field textarea{min-height:100px;resize:vertical}
+.field select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c3b9ab' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:11px}
+.form-status{grid-column:1 / -1;font-size:0.72rem;color:var(--muted);min-height:1.4em;margin:0}
+.form-panel{display:none}
+.form-panel.active{display:block}
+
+/* roles */
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,16px);margin-top:clamp(18px,3vw,24px)}
+.role{background:var(--panel);border:1px solid var(--line-s);border-radius:16px;padding:clamp(16px,2.2vw,22px)}
+.role-badge{font-size:0.46rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;background:var(--gold);color:var(--deep);padding:4px 9px;border-radius:999px;display:inline-block;margin-bottom:10px}
+.role-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--ink);margin-bottom:8px}
+.role-desc{font-size:0.72rem;color:var(--muted);line-height:1.7}
+
+/* footer */
+.footer{padding:clamp(32px,5vw,56px) 0;border-top:1px solid var(--line)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--ink);letter-spacing:-0.03em}
+.footer-note{font-size:0.62rem;color:var(--soft);margin-top:3px}
+.footer-links{display:flex;gap:16px;font-size:0.6rem;color:var(--soft);flex-wrap:wrap}
+.footer-links a{color:var(--muted);transition:color .15s}
+.footer-links a:hover{color:var(--ink)}
+
+/* grain */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.026;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:200px}
+
+/* safe reveals */
+[data-reveal]{opacity:1;transform:none}
+.js [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity 720ms ease,transform 720ms ease;transition-delay:var(--rd,0ms)}
+.js [data-reveal].in{opacity:1;transform:translateY(0)}
+
+/* responsive */
+@media(max-width:860px){
+  .grid-3,.grid-2,.bring,.roles{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .where-grid{grid-template-columns:1fr}
+  .nav-tag{display:none}
+  .nav-links .nav-link{display:none}
+  .nav-hamburger{display:block}
+  .nav-drawer{position:absolute;top:64px;right:12px;background:var(--panel);border:1px solid var(--line-s);border-radius:16px;padding:8px;box-shadow:0 16px 48px rgba(0,0,0,0.4);min-width:190px;z-index:10}
+  .nav-drawer.open{display:block}
+  .nav-drawer a{display:block;padding:10px 16px;font-size:12px;color:var(--muted);border-radius:10px;transition:background .15s}
+  .nav-drawer a:hover{background:var(--panel-2);color:var(--ink)}
+}
+@media(max-width:560px){
+  .steps{grid-template-columns:1fr}
+  .form{grid-template-columns:1fr}
+  body{font-size:15px}
+  .body,.card-desc,.role-desc{font-size:0.92rem;line-height:1.65}
+  .btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;scroll-behavior:auto!important}}
+
+@media(max-width:860px){
+  .card-desc{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .step-desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .role-desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .form-intro{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .steps{grid-template-columns:1fr 1fr}
+  .step{padding:14px 12px}
+  .step-num{font-size:1.5rem}
+}
+@media(max-width:560px){.steps{grid-template-columns:1fr 1fr}}
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-inner">
+  <div class="nav-left">
+    <div class="nav-brand serif">groundwork</div>
+    <div class="nav-tag"><a href="/">a birthright project program ↗</a></div>
+  </div>
+  <div class="nav-links">
+    <a href="#what" class="nav-link">what this is</a>
+    <a href="#help" class="nav-link">how we help</a>
+    <a href="#where" class="nav-link">where</a>
+    <a href="#signup" class="nav-cta">sign up</a>
+  </div>
+  <button class="nav-hamburger" aria-label="menu" onclick="document.querySelector('.nav-drawer').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+  </button>
+  <div class="nav-drawer">
+    <a href="/about">about</a><a href="/labs">labs</a><a href="https://www.themmaadd.org" target="_blank" rel="noopener">the mmaadd</a><a href="/groundwork">groundwork</a><a href="/give">build with us</a>
+  </div>
+</div></nav>
+
+<!-- HERO -->
+<section id="top">
+  <div class="container" data-reveal>
+    <div class="eyebrow"><div class="dot"></div>groundwork · a birthright project program</div>
+    <h1 class="h1">community wellbeing,<br>built with people<br><em>on the ground.</em></h1>
+    <p class="body">groundwork works with trusted local partners to support essentials, care, and local enterprise — round by round.</p>
+    <div class="btns">
+      <a href="#signup" class="btn btn-t" onclick="setTab('nonprofit')">nonprofit signup</a>
+      <a href="#signup" class="btn" onclick="setTab('team')">join our team</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THIS IS -->
+<section id="what" data-reveal>
+  <div class="container">
+    <div class="eyebrow"><div class="dot"></div>what this is</div>
+    <h2 class="h2">local partners guide<br>the <em>work.</em></h2>
+    <p class="body">groundwork moves support toward the needs that place the most pressure on a community. local partners guide the work because they know the people, the pressure points, and what is already working.</p>
+    <p class="body"><strong>the goal is simple:</strong> cover basic needs, respond to urgent care needs, and help local people, groups, and businesses grow.</p>
+  </div>
+</section>
+
+<!-- THREE WAYS WE HELP -->
+<section id="help" data-reveal>
+  <div class="container">
+    <div class="eyebrow"><div class="dot"></div>how we help</div>
+    <h2 class="h2">three ways we <em>help.</em></h2>
+    <div class="grid-3">
+      <div class="card" data-reveal style="--rd:0ms">
+        <div class="card-num">01</div>
+        <div class="card-name"><em>essentials</em></div>
+        <p class="card-desc">food, household goods, school items, hygiene products, supplies, and everyday costs that affect many people at once.</p>
+      </div>
+      <div class="card" data-reveal style="--rd:80ms">
+        <div class="card-num">02</div>
+        <div class="card-name"><em>care</em></div>
+        <p class="card-desc">health, family, and emergency needs that steady a household when they are met quickly.</p>
+      </div>
+      <div class="card" data-reveal style="--rd:160ms">
+        <div class="card-num">03</div>
+        <div class="card-name"><em>enterprise</em></div>
+        <p class="card-desc">support for small businesses, women's groups, youth skills groups, cooperatives, local producers, and community projects ready to grow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK TOGETHER -->
+<section data-reveal>
+  <div class="container">
+    <div class="eyebrow"><div class="dot"></div>how we work together</div>
+    <h2 class="h2">one priority,<br><em>round by round.</em></h2>
+    <p class="body">we build a simple community plan, choose one priority per round, support it, learn what changed, and return again.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num serif">1</div><div class="step-name">name the needs</div><div class="step-desc">local partners tell us the top needs in essentials, care, and enterprise.</div></div>
+      <div class="step"><div class="step-num serif">2</div><div class="step-name">choose one round</div><div class="step-desc">together, we select one clear priority to support first.</div></div>
+      <div class="step"><div class="step-num serif">3</div><div class="step-name">buy locally</div><div class="step-desc">we work through local suppliers so support moves through the community.</div></div>
+      <div class="step"><div class="step-num serif">4</div><div class="step-name">track what changed</div><div class="step-desc">partners keep simple records, photos where appropriate, and notes on the result.</div></div>
+      <div class="step"><div class="step-num serif">5</div><div class="step-name">return and grow</div><div class="step-desc">each round teaches us what to do next.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE -->
+<section id="where" data-reveal>
+  <div class="container">
+    <div class="eyebrow"><div class="dot"></div>where we're focused</div>
+    <h2 class="h2">starting where trust<br>already <em>exists.</em></h2>
+    <p class="body">we are starting with select cities across africa, latin america, and the caribbean — with early focus on trusted local networks in west africa, east africa, and haitian communities in the caribbean.</p>
+    <div class="where-grid">
+      <div class="map-shell" data-reveal>
+        <svg viewBox="0 0 640 420" role="img" aria-label="focus regions across africa, latin america, and the caribbean, with dots for addis ababa, abuja, lagos, monrovia, kampala, accra, and haitian communities">
+          <!-- africa mass -->
+          <path class="wm-land" d="M340 80 Q400 70 430 110 Q455 150 445 200 Q435 255 400 300 Q375 340 350 375 Q330 400 312 375 Q295 340 280 300 Q262 250 268 200 Q272 145 300 105 Q318 82 340 80Z"/>
+          <!-- south america -->
+          <path class="wm-land" d="M150 200 Q182 190 198 220 Q208 255 196 300 Q184 348 162 385 Q148 405 138 382 Q126 340 122 300 Q118 252 132 222 Q138 205 150 200Z"/>
+          <!-- caribbean arc -->
+          <path class="wm-land" d="M150 150 Q180 138 205 148 Q222 156 214 168 Q190 176 166 170 Q148 164 150 150Z"/>
+          <!-- dots -->
+          <g><circle class="wm-halo" cx="322" cy="196" r="3.4" style="animation-delay:0s"/><circle class="wm-dot" cx="322" cy="196" r="3.4"/><text class="wm-label" x="331" y="199">lagos</text></g>
+          <g><circle class="wm-halo" cx="335" cy="184" r="3.2" style="animation-delay:.4s"/><circle class="wm-dot" cx="335" cy="184" r="3.2"/><text class="wm-label" x="344" y="180">abuja</text></g>
+          <g><circle class="wm-halo" cx="305" cy="192" r="3" style="animation-delay:.8s"/><circle class="wm-dot" cx="305" cy="192" r="3"/><text class="wm-label" x="252" y="188">accra</text></g>
+          <g><circle class="wm-halo" cx="288" cy="188" r="3" style="animation-delay:1.2s"/><circle class="wm-dot" cx="288" cy="188" r="3"/><text class="wm-label" x="222" y="205">monrovia</text></g>
+          <g><circle class="wm-halo" cx="412" cy="170" r="3.2" style="animation-delay:1.6s"/><circle class="wm-dot" cx="412" cy="170" r="3.2"/><text class="wm-label" x="421" y="166">addis ababa</text></g>
+          <g><circle class="wm-halo" cx="398" cy="212" r="3" style="animation-delay:2s"/><circle class="wm-dot" cx="398" cy="212" r="3"/><text class="wm-label" x="407" y="222">kampala</text></g>
+          <g><circle class="wm-halo" cx="186" cy="158" r="3.2" style="animation-delay:2.4s"/><circle class="wm-dot" cx="186" cy="158" r="3.2"/><text class="wm-label" x="150" y="140">haitian communities</text></g>
+          <text class="wm-label" x="352" y="330" opacity="0.5">africa</text>
+          <text class="wm-label" x="132" y="330" opacity="0.5">latin america</text>
+          <text class="wm-label" x="150" y="196" opacity="0.5">caribbean</text>
+        </svg>
+      </div>
+      <div class="facts">
+        <div class="fact" data-reveal style="--rd:0ms">
+          <div class="fact-label">initial cities</div>
+          <p class="fact-text">addis ababa, abuja, lagos, monrovia, kampala, accra, and haitian communities in the caribbean.</p>
+        </div>
+        <div class="fact" data-reveal style="--rd:80ms">
+          <div class="fact-label">initial countries</div>
+          <p class="fact-text">ethiopia, ghana, liberia, nigeria, uganda, and haiti / haitian communities in the caribbean.</p>
+        </div>
+        <div class="fact" data-reveal style="--rd:160ms">
+          <div class="fact-label">target regions</div>
+          <p class="fact-text">africa, latin america, the caribbean, and diaspora communities connected to those regions.</p>
+          <div class="chips"><span class="chip">africa</span><span class="chip">latin america</span><span class="chip">caribbean</span><span class="chip">diaspora</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO SHOULD SIGN UP -->
+<section data-reveal>
+  <div class="container">
+    <div class="eyebrow"><div class="dot"></div>who should sign up</div>
+    <h2 class="h2">partners working<br>close to the <em>people.</em></h2>
+    <p class="body">this is for local nonprofits, community groups, women-led groups, cooperatives, youth programs, faith-based groups, neighborhood organizers, and trusted local partners.</p>
+    <div class="bring">
+      <div class="bring-col you" data-reveal style="--rd:0ms">
+        <div class="bring-title serif">you bring</div>
+        <ul class="bring-list">
+          <li>local knowledge</li>
+          <li>trusted community relationships</li>
+          <li>clear needs and priorities</li>
+          <li>help with delivery and records</li>
+        </ul>
+      </div>
+      <div class="bring-col us" data-reveal style="--rd:80ms">
+        <div class="bring-title serif">we bring</div>
+        <ul class="bring-list">
+          <li>support for selected rounds</li>
+          <li>planning and tracking help</li>
+          <li>direct supplier payments where useful</li>
+          <li>a long-term partnership rhythm</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP (tabbed forms) -->
+<section id="signup" data-reveal>
+  <div class="container">
+    <div class="eyebrow"><div class="dot"></div>get involved</div>
+    <h2 class="h2">start a <em>conversation.</em></h2>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" id="tab-nonprofit" role="tab" aria-selected="true" onclick="setTab('nonprofit')">nonprofit signup</button>
+      <button class="tab" id="tab-team" role="tab" aria-selected="false" onclick="setTab('team')">join our team</button>
+    </div>
+
+    <!-- NONPROFIT -->
+    <div class="form-panel active" id="panel-nonprofit">
+      <div class="form-wrap">
+        <p class="form-intro">tell us who you are, where you work, and the first community needs you want to discuss. we'll use this to start a simple community plan with you.</p>
+        <form class="form" data-gw-form>
+          <input type="hidden" name="_subject" value="groundwork — nonprofit signup">
+          <input type="hidden" name="form_type" value="nonprofit signup">
+          <div class="field field-full"><label for="np-org">organization / group name</label><input id="np-org" name="organization" type="text" placeholder="your organization" required></div>
+          <div class="field"><label for="np-country">country / focus location</label>
+            <select id="np-country" name="country" required>
+              <option value="">select one</option>
+              <option>ethiopia</option><option>ghana</option><option>liberia</option><option>nigeria</option><option>uganda</option>
+              <option>haiti / haitian communities in the caribbean</option>
+              <option>other country in africa</option><option>other country in latin america</option><option>other country in the caribbean</option>
+              <option>diaspora community connected to africa, latin america, or the caribbean</option>
+            </select>
+          </div>
+          <div class="field"><label for="np-city">city</label><input id="np-city" name="city" type="text" placeholder="city or area"></div>
+          <div class="field"><label for="np-type">type of group</label>
+            <select id="np-type" name="group_type" required>
+              <option value="">select one</option>
+              <option>nonprofit / ngo</option><option>community group</option><option>cooperative</option><option>faith-based group</option>
+              <option>school / youth program</option><option>women-led group</option><option>small business network</option><option>creative studio / collective</option><option>other</option>
+            </select>
+          </div>
+          <div class="field"><label for="np-contact">contact person</label><input id="np-contact" name="contact_person" type="text" placeholder="full name" required></div>
+          <div class="field"><label for="np-phone">phone / whatsapp</label><input id="np-phone" name="phone" type="tel" placeholder="+000 000 0000"></div>
+          <div class="field"><label for="np-email">email</label><input id="np-email" name="email" type="email" placeholder="you@email.com" required></div>
+          <div class="field field-full"><label for="np-web">website / social media <span style="text-transform:none;color:var(--soft)">(optional)</span></label><input id="np-web" name="link" type="text" placeholder="https://"></div>
+          <div class="field field-full"><label for="np-need">what is the main need in your community right now?</label><textarea id="np-need" name="main_need" placeholder="essentials, care, or enterprise — tell us what's most pressing" required></textarea></div>
+          <div class="field field-full"><label for="np-grow">who or what is ready to grow?</label><textarea id="np-grow" name="ready_to_grow" placeholder="a business, cooperative, youth group, or project" style="min-height:80px"></textarea></div>
+          <div class="field field-full"><button type="submit" class="btn btn-t" style="width:100%">send nonprofit signup</button></div>
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- TEAM -->
+    <div class="form-panel" id="panel-team">
+      <div class="form-wrap">
+        <p class="form-intro">we're inviting a few thoughtful, community-rooted people to help grow groundwork in select cities. we're looking for people who know their city well — organizers, creatives, small businesses, cooperatives, schools, faith groups, studios, and community leaders already doing meaningful work. the work is simple and human: listen, reach out, build trust, find the right local partners, and help support move where it can do the most good.</p>
+
+        <div class="roles">
+          <div class="role"><div class="role-badge">paid · part-time</div><div class="role-name serif">groundwork interns</div><p class="role-desc">self-driven. good for students, recent graduates, creatives, organizers, and early-career builders.</p></div>
+          <div class="role"><div class="role-badge">paid · part or full</div><div class="role-name serif">groundwork associates</div><p class="role-desc">for people with strong local networks and experience moving community work forward.</p></div>
+          <div class="role"><div class="role-badge">what we provide</div><div class="role-name serif">materials + rhythm</div><p class="role-desc">guidance, outreach language, and a clear rhythm for learning the city and surfacing strong local partners.</p></div>
+        </div>
+
+        <form class="form" data-gw-form style="margin-top:clamp(18px,3vw,26px)">
+          <input type="hidden" name="_subject" value="groundwork — team interest">
+          <input type="hidden" name="form_type" value="team interest">
+          <div class="field"><label for="tm-name">your name</label><input id="tm-name" name="name" type="text" placeholder="full name" required></div>
+          <div class="field"><label for="tm-role">role interest</label>
+            <select id="tm-role" name="role_interest" required>
+              <option value="">select one</option>
+              <option>groundwork intern</option><option>groundwork associate</option><option>open to either</option>
+            </select>
+          </div>
+          <div class="field"><label for="tm-country">country / community</label>
+            <select id="tm-country" name="country" required>
+              <option value="">select one</option>
+              <option>ethiopia</option><option>ghana</option><option>liberia</option><option>nigeria</option><option>uganda</option>
+              <option>haiti / haitian communities in the caribbean</option>
+              <option>other country in africa</option><option>other country in latin america</option><option>other country in the caribbean</option>
+              <option>diaspora community connected to africa, latin america, or the caribbean</option>
+            </select>
+          </div>
+          <div class="field"><label for="tm-city">city</label><input id="tm-city" name="city" type="text" placeholder="city or area" required></div>
+          <div class="field"><label for="tm-wa">whatsapp</label><input id="tm-wa" name="whatsapp" type="tel" placeholder="+000 000 0000"></div>
+          <div class="field"><label for="tm-email">email</label><input id="tm-email" name="email" type="email" placeholder="you@email.com" required></div>
+          <div class="field field-full"><label for="tm-know">what community or market do you know best?</label><textarea id="tm-know" name="community_knowledge" placeholder="tell us about the place and people you know well" required></textarea></div>
+          <div class="field field-full"><label for="tm-links">links, social media, or relevant experience <span style="text-transform:none;color:var(--soft)">(optional)</span></label><input id="tm-links" name="links" type="text" placeholder="https://"></div>
+          <div class="field field-full"><button type="submit" class="btn btn-t" style="width:100%">send team interest</button></div>
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container footer-inner">
+  <div>
+    <div class="footer-brand serif">groundwork</div>
+    <div class="footer-note">by the birthright project — building community wellbeing and economic dignity, round by round.</div>
+  </div>
+  <div class="footer-links">
+    <a href="mailto:hello@thebirthrightproject.org">hello@thebirthrightproject.org</a>
+    <a href="/">birthright</a><a href="/labs">labs</a><a href="/give">give</a>
+  </div>
+</div></footer>
+
+<script>
+var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+document.querySelectorAll('[data-reveal]').forEach(function(el){ro.observe(el)});
+
+function setTab(which){
+  ['nonprofit','team'].forEach(function(k){
+    var t=document.getElementById('tab-'+k), p=document.getElementById('panel-'+k);
+    var on = (k===which);
+    t.classList.toggle('active',on);
+    t.setAttribute('aria-selected',on?'true':'false');
+    p.classList.toggle('active',on);
+  });
+}
+(function(){var h=(location.hash||'').replace('#','');if(h==='team')setTab('team');})();
+
+var FORMSPREE='https://formspree.io/f/mwvdpjea';
+document.querySelectorAll('[data-gw-form]').forEach(function(form){
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var status=form.querySelector('.form-status');
+    var btn=form.querySelector('button[type="submit"]');
+    var label=btn.textContent;
+    btn.disabled=true; btn.textContent='sending...'; status.textContent='';
+    fetch(FORMSPREE,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+    .then(function(r){
+      if(r.ok){status.textContent="sent — we'll be in touch soon.";form.reset();btn.textContent='sent ✓';}
+      else{status.textContent='something went wrong. try again or email hello@thebirthrightproject.org';btn.textContent=label;btn.disabled=false;}
+    })
+    .catch(function(){status.textContent='network error. try again or email us.';btn.textContent=label;btn.disabled=false;});
+  });
+});
+</script>
+</body>
+</html>

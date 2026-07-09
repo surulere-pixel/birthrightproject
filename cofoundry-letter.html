@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+@page{size:letter;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Mono',monospace;color:#f1ece3;background:#2a2520;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:8.5in;height:11in;padding:0.9in 1in;position:relative;page-break-after:always;overflow:hidden}
+.page:last-child{page-break-after:auto}
+.serif{font-family:'Cormorant Garamond',serif}
+.mono{font-family:'IBM Plex Mono',monospace}
+
+/* tokens */
+:root{--bg:#2a2520;--ink:#f1ece3;--terra:#c67a4a;--gold:#b8912a;--muted:#a9a094;--soft:#8a8278;--deep:#1f1b16;--panel:#322c25}
+
+/* cover */
+.cover{display:flex;flex-direction:column;justify-content:space-between;background:var(--bg)}
+.cover-top{display:flex;justify-content:space-between;align-items:flex-start}
+.cover-tag{font-size:8.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--terra)}
+.cover-mark{display:flex;gap:2.5px}
+.cover-mark span{width:2.5px;height:18px;background:var(--terra);border-radius:1px}
+.cover-mark span:nth-child(2){height:14px;margin-top:4px}
+.cover-mark span:nth-child(3){height:10px;margin-top:8px}
+.cover-center{margin-top:auto;margin-bottom:auto}
+.cover-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:82px;line-height:0.88;letter-spacing:-0.04em;color:var(--ink)}
+.cover-sub{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:22px;line-height:1.35;color:var(--muted);margin-top:18px;max-width:420px}
+.cover-pills{display:flex;gap:16px;margin-top:22px;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold)}
+.cover-for{font-size:11px;color:var(--terra);letter-spacing:0.08em;text-transform:uppercase;margin-top:28px}
+.cover-bottom{display:flex;justify-content:space-between;align-items:flex-end}
+.cover-foot{font-size:8px;letter-spacing:0.16em;text-transform:uppercase;color:var(--soft)}
+.cover-foot em{color:var(--terra);font-style:normal}
+
+/* letter page */
+.letter{background:var(--bg)}
+.letter-date{font-size:9px;color:var(--soft);letter-spacing:0.06em;margin-bottom:32px}
+.letter-salutation{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--ink);margin-bottom:24px}
+.letter-body{font-size:10.5px;line-height:1.95;color:var(--muted);max-width:5.6in}
+.letter-body p{margin-bottom:14px}
+.letter-body strong{color:var(--ink);font-weight:500}
+.letter-sign{margin-top:36px;font-size:10.5px;color:var(--muted);line-height:1.8}
+.letter-sign strong{color:var(--ink);font-weight:500}
+
+/* platform page */
+.sec-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:38px;line-height:0.96;letter-spacing:-0.02em;color:var(--ink);margin-bottom:10px}
+.sec-sub{font-size:9.5px;color:var(--muted);line-height:1.85;max-width:5.2in;margin-bottom:28px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pillar{border:1px solid rgba(241,236,227,0.14);border-radius:12px;padding:18px;background:var(--panel)}
+.pillar h3{font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.pillar p{font-size:9.2px;color:var(--muted);line-height:1.75}
+
+/* lanes page */
+.lanes-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.lane-card{border:1px solid rgba(241,236,227,0.14);border-radius:12px;padding:20px;background:var(--panel)}
+.lane-eyebrow{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
+.lane-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:8px;letter-spacing:-0.01em}
+.lane-desc{font-size:9.2px;color:var(--muted);line-height:1.75;margin-bottom:12px}
+.lane-list{display:flex;flex-direction:column;gap:6px}
+.lane-item{font-size:8.5px;color:var(--soft);border-top:1px solid rgba(241,236,227,0.1);padding-top:6px}
+
+/* reach page */
+.reach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.reach-card{border:1px solid rgba(241,236,227,0.1);border-radius:10px;padding:14px;background:var(--panel)}
+.reach-card h4{font-size:8px;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);margin-bottom:6px}
+.reach-card p{font-size:9px;color:var(--muted);line-height:1.7}
+
+/* close page */
+.close{display:flex;flex-direction:column;justify-content:center;background:var(--bg)}
+.close-statement{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:42px;line-height:1.04;letter-spacing:-0.02em;color:var(--ink);max-width:5.8in}
+.close-statement em{color:var(--terra);font-style:italic}
+.close-body{font-size:10.5px;line-height:1.9;color:var(--muted);max-width:5in;margin-top:24px}
+.close-cta{display:flex;gap:14px;margin-top:28px}
+.close-btn{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--terra);color:var(--terra);padding:10px 18px;border-radius:999px}
+.close-btn-fill{background:var(--terra);color:var(--bg);border-color:var(--terra)}
+
+/* page number */
+.pnum{position:absolute;bottom:0.7in;right:1in;font-size:8px;letter-spacing:0.12em;color:var(--soft)}
+.pfoot{position:absolute;bottom:0.7in;left:1in;font-size:7.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--soft)}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="cover-tag">a birthright venture</div>
+    <div class="cover-mark"><span></span><span></span><span></span></div>
+  </div>
+  <div class="cover-center">
+    <div class="cover-title serif">cofoundry</div>
+    <div class="cover-sub serif">building the next generation of mission-driven technology ventures.</div>
+    <div class="cover-pills mono">blueprints · boards · backbone</div>
+    <div class="cover-for" id="cover-for"></div>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-foot mono">partnership invitation</div>
+    <div class="cover-foot mono">permissionless <em>prosperity</em></div>
+  </div>
+</div>
+
+<!-- PAGE 2: THE LETTER -->
+<div class="page letter">
+  <div class="letter-date" id="letter-date"></div>
+  <div class="letter-salutation serif" id="letter-salutation"></div>
+  <div class="letter-body">
+    <p>every institution has a mission. cofoundry provides the venture-building capability to carry it into the world.</p>
+    <p>we are reaching out because we believe there is a meaningful alignment between what you are building and what cofoundry makes possible — a practical way to stand up <strong>accelerators, venture studios, ai adoption programs, innovation labs, and community technology initiatives</strong> through proven architecture, experienced operators, and a digital backbone that holds it together.</p>
+    <p>cofoundry is a venture infrastructure platform built by the <strong>birthright project</strong>, a 501(c)(3) nonprofit operating across africa, latin america, the caribbean, and the diaspora. every program we run is powered by three assets: <strong>blueprints</strong> (proven models), <strong>boards</strong> (experienced operators and global teams), and <strong>backbone</strong> (engineering, design, and ai systems).</p>
+    <p>this is an invitation to explore what a cofoundry-powered program could look like for your institution — whether that is creating new mission-driven ventures or helping communities adopt useful technologies at scale.</p>
+    <p>the pages that follow outline the platform, the programs, and the reach. if anything resonates, we would welcome the conversation.</p>
+  </div>
+  <div class="letter-sign">
+    with respect,<br><br>
+    <strong>the cofoundry team</strong><br>
+    the birthright project · 501(c)(3)<br>
+    cofoundry@thebirthrightproject.org
+  </div>
+  <div class="pfoot mono">cofoundry — a birthright venture</div>
+  <div class="pnum mono">01</div>
+</div>
+
+<!-- PAGE 3: HOW IT WORKS -->
+<div class="page" style="background:var(--bg)">
+  <div class="sec-title serif">how it works</div>
+  <div class="sec-sub">cofounding teams carry ventures further. cofoundry matches every venture with the right team, the right model, and the right tools — so every founder starts with company and a roadmap.</div>
+  <div class="pillars">
+    <div class="pillar">
+      <h3 class="mono">proven blueprints</h3>
+      <p>business models, business plans, and program architectures drawn from ventures already in motion — adapted to your mission. what took years to learn is available on day one.</p>
+    </div>
+    <div class="pillar">
+      <h3 class="mono">matched teams</h3>
+      <p>deep market knowledge, experienced operators, and a technical + ai bench matched to every venture. we co-found alongside you, hands on the work. sponsor organizations also gain early leadership development for their mid-level staff through board seats and startup mentorship roles.</p>
+    </div>
+    <div class="pillar">
+      <h3 class="mono">speed + reuse</h3>
+      <p>with the full stack — blueprints, tools, teams, and infrastructure — a venture can launch as a distributed multinational brand in as little as one month. experiments that deliver learnings become reusable assets for the next class, carried forward with every cohort. libraries and blueprints stay open and free to program alumni and staff of sponsor organizations — the value compounds long after the cohort ends.</p>
+    </div>
+  </div>
+  <div style="margin-top:28px">
+    <div class="sec-sub" style="margin-bottom:0"><strong style="color:var(--ink)">the result:</strong> overall success rates go up — because every venture builds on what came before, with a team that's been matched to the mission.</div>
+  </div>
+  <div class="pfoot mono">cofoundry — a birthright venture</div>
+  <div class="pnum mono">03</div>
+</div>
+
+<!-- PAGE 3: THE PLATFORM -->
+<div class="page" style="background:var(--bg)">
+  <div class="sec-title serif">the platform</div>
+  <div class="sec-sub">three assets carry the work and allow programs to move from idea to launch.</div>
+  <div class="pillars">
+    <div class="pillar">
+      <h3 class="mono">blueprints</h3>
+      <p>proven program models, curriculum, venture templates, cohort structures, diagnostics, and handover frameworks — the reusable architecture behind every cofoundry deployment.</p>
+    </div>
+    <div class="pillar">
+      <h3 class="mono">boards</h3>
+      <p>experienced operators and advisors from the birthright bench, dispersed groundwork teams across corridors, and peer founder networks building in adjacent markets — the judgment, reach, and pattern recognition behind execution.</p>
+    </div>
+    <div class="pillar">
+      <h3 class="mono">backbone</h3>
+      <p>labs engineering, mmaadd studio design and production, ai agents, application portals, dashboards, reporting, and workflow automation — the technical and operational infrastructure that makes cofoundry a platform.</p>
+    </div>
+  </div>
+  <div style="margin-top:32px">
+    <div class="sec-sub" style="margin-bottom:0"><strong style="color:var(--ink)">why this matters:</strong> cofoundry brings execution capacity — operators who build alongside you, with the tools and teams to carry a program from brief to launch.</div>
+  </div>
+  <div class="pfoot mono">cofoundry — a birthright venture</div>
+  <div class="pnum mono">03</div>
+</div>
+
+<!-- PAGE 4: WHAT WE BUILD -->
+<div class="page" style="background:var(--bg)">
+  <div class="sec-title serif">what we build</div>
+  <div class="sec-sub">one platform. two paths.</div>
+  <div class="lanes-grid">
+    <div class="lane-card">
+      <div class="lane-eyebrow mono">create</div>
+      <div class="lane-title serif">mission venture creation</div>
+      <div class="lane-desc">for institutions that want to create new mission-driven technology ventures.</div>
+      <div class="lane-list">
+        <div class="lane-item mono">venture studio as a service</div>
+        <div class="lane-item mono">accelerators and innovation labs</div>
+        <div class="lane-item mono">challenge prizes and eir programs</div>
+        <div class="lane-item mono" style="color:var(--terra)">outcome: ventures, pilots, investable teams</div>
+      </div>
+    </div>
+    <div class="lane-card">
+      <div class="lane-eyebrow mono">adopt</div>
+      <div class="lane-title serif">mission technology adoption</div>
+      <div class="lane-desc">for institutions that want useful technologies adopted at scale.</div>
+      <div class="lane-list">
+        <div class="lane-item mono">ai training for small businesses</div>
+        <div class="lane-item mono">nonprofit ai transformation</div>
+        <div class="lane-item mono">community technology programs</div>
+        <div class="lane-item mono" style="color:var(--terra)">outcome: people using technology daily</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:28px">
+    <div class="sec-sub"><strong style="color:var(--ink)">focus areas:</strong> ai for social impact · workforce + mobility · health + wellbeing · education · climate resilience · civic technology · creative economy · financial inclusion · diaspora connectivity</div>
+  </div>
+  <div class="pfoot mono">cofoundry — a birthright venture</div>
+  <div class="pnum mono">04</div>
+</div>
+
+<!-- PAGE 5: REACH -->
+<div class="page" style="background:var(--bg)">
+  <div class="sec-title serif">reach + buyers</div>
+  <div class="sec-sub">through groundwork, birthright's on-the-ground partner network, we run programs across africa, latin america, the caribbean, and the diaspora. a program can reach adamawa through partners who already live and work there.</div>
+  <div style="margin-top:4px">
+    <div class="lane-eyebrow mono" style="margin-bottom:12px">who this is for</div>
+    <div class="reach-grid">
+      <div class="reach-card"><h4 class="mono">corporations</h4><p>corporate foundations, csr + esg teams, innovation offices</p></div>
+      <div class="reach-card"><h4 class="mono">governments</h4><p>national and municipal innovation offices, workforce agencies</p></div>
+      <div class="reach-card"><h4 class="mono">development</h4><p>multilateral organizations, development agencies, bilateral funders</p></div>
+      <div class="reach-card"><h4 class="mono">foundations</h4><p>private and family foundations with mission-driven portfolios</p></div>
+      <div class="reach-card"><h4 class="mono">universities</h4><p>commercialization offices, entrepreneurship centers, research labs</p></div>
+      <div class="reach-card"><h4 class="mono">institutions</h4><p>any institution with a mission and a desire to build ventures around it</p></div>
+    </div>
+  </div>
+  <div class="pfoot mono">cofoundry — a birthright venture</div>
+  <div class="pnum mono">05</div>
+</div>
+
+<!-- PAGE 6: CLOSE -->
+<div class="page close">
+  <div class="close-statement serif">every institution has a mission.<br>cofoundry becomes the <em>capability.</em></div>
+  <div class="close-body">
+    we would welcome the opportunity to explore what a cofoundry-powered program could look like for your institution. whether you are looking to create new ventures, adopt technologies at community scale, or build lasting innovation infrastructure — the platform is ready.
+  </div>
+  <div class="close-cta">
+    <div class="close-btn close-btn-fill mono">cofoundry@thebirthrightproject.org</div>
+    <div class="close-btn mono">thebirthrightproject.org/cofoundry</div>
+  </div>
+  <div style="margin-top:auto"></div>
+  <div class="cover-bottom">
+    <div class="cover-foot mono">partnership invitation</div>
+    <div class="cover-foot mono">permissionless <em style="color:var(--terra);font-style:normal">prosperity</em></div>
+  </div>
+</div>
+
+<script>
+const params=new URLSearchParams(window.location.search);
+const name=params.get('name')||'';
+const company=params.get('company')||'';
+const forLine=company?(name?name+' · '+company:company):(name||'');
+document.getElementById('cover-for').textContent=forLine?'prepared for '+forLine:'';
+document.getElementById('letter-date').textContent=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+document.getElementById('letter-salutation').textContent=name?'dear '+name+',':'dear partner,';
+</script>
+</body>
+</html>
