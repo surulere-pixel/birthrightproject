@@ -78,17 +78,17 @@ section:first-of-type{border-top:0}
 .stat-label{font-size:0.56rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--soft);margin-top:6px}
 
 /* people */
-.people-group{margin-top:clamp(20px,3vw,32px)}
-.people-group-label{font-size:0.52rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
-.people-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-s);border:1px solid var(--line-s);border-radius:14px;overflow:hidden}
-.person{background:var(--panel);padding:16px 18px;min-height:96px;position:relative;overflow:hidden;transition:background 150ms}
-.person:hover{background:var(--panel-2)}
-.person-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:4px}
-.person-role{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);line-height:1.4}
-.person-hover{position:absolute;inset:0;background:var(--deep);padding:16px 18px;opacity:0;transition:opacity 180ms;display:flex;flex-direction:column;justify-content:center}
-.person:hover .person-hover,.person:focus-within .person-hover{opacity:1}
-.person-quote{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-style:italic;line-height:1.4;color:var(--ink)}
-.person-sign{margin-top:8px;font-size:0.5rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft)}
+
+
+
+
+
+
+
+
+.person:hover .person-hover,.person:focus-within 
+
+
 
 /* geo */
 .geo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,40px);margin-top:clamp(20px,3vw,28px);align-items:start}
@@ -131,7 +131,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
 /* responsive */
 @media(max-width:860px){
   .card-grid-3{grid-template-columns:1fr}
-  .people-grid{grid-template-columns:1fr 1fr}
+  
   .geo{grid-template-columns:1fr}
   .geo-panel{position:static}
   .nav-links .nav-link{display:none}
@@ -140,11 +140,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
   .nav-drawer.open{display:block}
   .nav-drawer a{display:block;padding:10px 16px;font-size:12px;color:var(--muted);border-radius:10px;transition:background .15s}
   .nav-drawer a:hover{background:var(--panel-2);color:var(--ink)}
-  .person-hover{display:none}
-  .person{min-height:auto;padding:14px}
+  
+  
 }
 @media(max-width:560px){
-  .people-grid{grid-template-columns:1fr 1fr}
+  
   body{font-size:15px}
   .body,.lane-lead{font-size:0.92rem;line-height:1.65}
   .btn{width:100%}
@@ -153,13 +153,34 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
 
 @media(max-width:860px){
   .lane-lead{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .person{padding:12px 14px;min-height:0}
-  .person-name{font-size:1rem}
-  .person-role{font-size:0.5rem}
+  
+  
+  
   .geo-note{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-  .people-grid{grid-template-columns:1fr 1fr}
+  
 }
-@media(max-width:560px){.people-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){}
+
+/* ── the collective: flip cards ── */
+.people-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:clamp(20px,3vw,32px)}
+.flip{perspective:900px;cursor:pointer;outline:none;min-height:132px}
+.flip-inner{position:relative;width:100%;height:100%;min-height:132px;
+  transition:transform 620ms cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.flip:hover .flip-inner,.flip:focus-visible .flip-inner,.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip:focus-visible{border-radius:14px;box-shadow:0 0 0 2px var(--terra)}
+.flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border:1px solid var(--line-s);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;justify-content:center}
+.flip-front{background:var(--panel)}
+.flip-back{background:var(--deep);transform:rotateY(180deg);border-color:rgba(198,122,74,0.3)}
+.flip-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:5px}
+.flip-title{font-size:0.54rem;letter-spacing:0.11em;text-transform:uppercase;color:var(--terra);line-height:1.45}
+.flip-quote{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-style:italic;line-height:1.4;color:var(--ink);margin:0}
+.flip-role{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;line-height:1.2;color:var(--ink)}
+.flip-sign{margin-top:9px;font-size:0.48rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--soft);line-height:1.5}
+@media(max-width:1000px){.people-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:860px){.people-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.people-grid{grid-template-columns:1fr 1fr;gap:8px}.flip,.flip-inner{min-height:118px}.flip-name{font-size:1.05rem}}
+@media(prefers-reduced-motion:reduce){.flip-inner{transition:none}}
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -274,58 +295,37 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
       <a href="/give#ideas" class="btn">partner with us</a>
     </div>
 
-    <div class="people-group" data-reveal>
-      <div class="people-group-label">founders + directors</div>
-      <div class="people-grid">
-        <div class="person" tabindex="0"><div class="person-name">fẹ́mi munis</div><div class="person-role">co-founder + director</div><div class="person-hover"><p class="person-quote">"across industries and markets, the difference is regenerative leadership and shared infrastructure."</p><div class="person-sign">cofounder + board director</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">kalu balogun</div><div class="person-role">cofounder</div><div class="person-hover"><p class="person-quote">"founders are human before they are businesses."</p><div class="person-sign">cofounder · birthright project</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">tolu odunuga</div><div class="person-role">director</div><div class="person-hover"><p class="person-quote">"talent should open every door — that's the world we're building."</p><div class="person-sign">cofounder + director</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">earl osuagwu</div><div class="person-role">chief wellbeing officer</div><div class="person-hover"><p class="person-quote">"community wellbeing is a form of freedom."</p><div class="person-sign">happy sunday</div></div></div>
-      </div>
-    </div>
-
-    <div class="people-group" data-reveal>
-      <div class="people-group-label">venture + program leads</div>
-      <div class="people-grid">
-        <div class="person" tabindex="0"><div class="person-name">funso finnih</div><div class="person-role">dean · the mmaadd</div><div class="person-hover"><p class="person-quote">"a new generation is building their dreams on their own terms."</p><div class="person-sign">mmaadd institute</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">shereka evans</div><div class="person-role">creative director · the mmaadd</div><div class="person-hover"><p class="person-quote">designer · co-creator · creative director</p><div class="person-sign">mmaadd institute</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">gbenga sanni</div><div class="person-role">africa ventures</div><div class="person-hover"><p class="person-quote">"african founders are ready for real capital and real ownership."</p><div class="person-sign">africa growth · birthright labs</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">krista smitten</div><div class="person-role">wellbeing engineer</div><div class="person-hover"><p class="person-quote">"wellbeing is rarely just physical."</p><div class="person-sign">happy sunday</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">jesse owens ii</div><div class="person-role">technology + product</div><div class="person-hover"><p class="person-quote">tech, product, design</p><div class="person-sign">birthright labs</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">aliyya suraleigh</div><div class="person-role">research + development</div><div class="person-hover"><p class="person-quote">"support should feel familiar before it feels impressive."</p><div class="person-sign">happy sunday</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">yinka omolade</div><div class="person-role">global programs</div><div class="person-hover"><p class="person-quote">global programs</p><div class="person-sign">birthright labs</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">karem coronel</div><div class="person-role">foundation</div><div class="person-hover"><p class="person-quote">foundations + community engagement</p><div class="person-sign">birthright foundation</div></div></div>
-      </div>
-    </div>
-
-    <div class="people-group" data-reveal>
-      <div class="people-group-label">global partners + operations</div>
-      <div class="people-grid">
-        <div class="person" tabindex="0"><div class="person-name">ola heavens</div><div class="person-role">global partner / africa</div><div class="person-hover"><p class="person-quote">"deliver meaningful gains in livelihood. that's the work."</p><div class="person-sign">founder / awipa ng</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">max banjo</div><div class="person-role">global partner / latam</div><div class="person-hover"><p class="person-quote">"talent is everywhere; here, support meets it."</p><div class="person-sign">founder / puente nova</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">bawo ebigbeyi</div><div class="person-role">global operations</div><div class="person-hover"><p class="person-quote">"we need more businesses that employ entire communities."</p><div class="person-sign">birthright</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">ade ajay</div><div class="person-role">global partnerships</div><div class="person-hover"><p class="person-quote">"do good; do well; then go big."</p><div class="person-sign">birthright project</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">ekeke adovor</div><div class="person-role">global partnerships</div><div class="person-hover"><p class="person-quote">global partnerships</p><div class="person-sign">distant cousins</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">janet etienne</div><div class="person-role">market development</div><div class="person-hover"><p class="person-quote">market development</p><div class="person-sign">birthright labs</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">sheila diba</div><div class="person-role">co-creator</div><div class="person-hover"><p class="person-quote">co-creator</p><div class="person-sign">54siblings · mmaadd</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">tosin salami</div><div class="person-role">co-creator</div><div class="person-hover"><p class="person-quote">co-creator</p><div class="person-sign">birthright project</div></div></div>
-      </div>
-    </div>
-
-    <div class="people-group" data-reveal>
-      <div class="people-group-label">board + advisors</div>
-      <div class="people-grid">
-        <div class="person" tabindex="0"><div class="person-name">alysha english</div><div class="person-role">board advisor</div><div class="person-hover"><p class="person-quote">"brilliant people deserve the chance to become visible."</p><div class="person-sign">birthright labs</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">bimpe ayeni</div><div class="person-role">board advisor</div><div class="person-hover"><p class="person-quote">"women hold extraordinary strength — here it builds something that lasts."</p><div class="person-sign">happy sunday</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">abi odunuga</div><div class="person-role">people advisor</div><div class="person-hover"><p class="person-quote">board advisor</p><div class="person-sign">birthright labs</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">jay soon</div><div class="person-role">technology advisor</div><div class="person-hover"><p class="person-quote">board advisor</p><div class="person-sign">birthright labs</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">eric yeh</div><div class="person-role">board</div><div class="person-hover"><p class="person-quote">board advisor</p><div class="person-sign">birthright labs</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">melanie nasser</div><div class="person-role">board advisor</div><div class="person-hover"><p class="person-quote">board advisor</p><div class="person-sign">birthright labs</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">sherry seetram</div><div class="person-role">board advisor</div><div class="person-hover"><p class="person-quote">board advisor</p><div class="person-sign">birthright labs</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">bexx chevalier</div><div class="person-role">advocacy advisor</div><div class="person-hover"><p class="person-quote">advocacy advisor</p><div class="person-sign">birthright project</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">u / y edebiri</div><div class="person-role">ventures</div><div class="person-hover"><p class="person-quote">venture advisor</p><div class="person-sign">birthright labs</div></div></div>
-        <div class="person" tabindex="0"><div class="person-name">john mwangi</div><div class="person-role">advisor</div><div class="person-hover"><p class="person-quote">advisor</p><div class="person-sign">birthright project</div></div></div>
-      </div>
+    <div class="people-grid">
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">abi odunuga</div><div class="flip-title">people advisor</div></div><div class="flip-back"><div class="flip-role">board advisor</div><div class="flip-sign">birthright labs</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">ade ajay</div><div class="flip-title">global partnerships</div></div><div class="flip-back"><p class="flip-quote">"do good; do well; then go big."</p><div class="flip-sign">birthright project</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">aliyya suraleigh</div><div class="flip-title">research + development</div></div><div class="flip-back"><p class="flip-quote">"support should feel familiar before it feels impressive."</p><div class="flip-sign">happy sunday</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">alysha english</div><div class="flip-title">board advisor</div></div><div class="flip-back"><p class="flip-quote">"brilliant people deserve the chance to become visible."</p><div class="flip-sign">birthright labs</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">bawo ebigbeyi</div><div class="flip-title">global operations</div></div><div class="flip-back"><p class="flip-quote">"we need more businesses that employ entire communities."</p><div class="flip-sign">birthright</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">bexx chevalier</div><div class="flip-title">advocacy advisor</div></div><div class="flip-back"><div class="flip-role">advocacy advisor</div><div class="flip-sign">birthright project</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">bimpe ayeni</div><div class="flip-title">board advisor</div></div><div class="flip-back"><p class="flip-quote">"women hold extraordinary strength — here it builds something that lasts."</p><div class="flip-sign">happy sunday</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">earl osuagwu</div><div class="flip-title">chief wellbeing officer</div></div><div class="flip-back"><p class="flip-quote">"community wellbeing is a form of freedom."</p><div class="flip-sign">happy sunday</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">ekeke adovor</div><div class="flip-title">global partnerships</div></div><div class="flip-back"><div class="flip-role">global partnerships</div><div class="flip-sign">distant cousins</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">eric yeh</div><div class="flip-title">board</div></div><div class="flip-back"><div class="flip-role">board advisor</div><div class="flip-sign">birthright labs</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">fẹ́mi munis</div><div class="flip-title">co-founder + director</div></div><div class="flip-back"><p class="flip-quote">"across industries and markets, the difference is regenerative leadership and shared infrastructure."</p><div class="flip-sign">cofounder + board director</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">funso finnih</div><div class="flip-title">dean · the mmaadd</div></div><div class="flip-back"><p class="flip-quote">"a new generation is building their dreams on their own terms."</p><div class="flip-sign">mmaadd institute</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">gbenga sanni</div><div class="flip-title">africa ventures</div></div><div class="flip-back"><p class="flip-quote">"african founders are ready for real capital and real ownership."</p><div class="flip-sign">africa growth · birthright labs</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">janet etienne</div><div class="flip-title">market development</div></div><div class="flip-back"><div class="flip-role">market development</div><div class="flip-sign">birthright labs</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">jay soon</div><div class="flip-title">technology advisor</div></div><div class="flip-back"><div class="flip-role">board advisor</div><div class="flip-sign">birthright labs</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">jesse owens ii</div><div class="flip-title">technology + product</div></div><div class="flip-back"><div class="flip-role">tech, product, design</div><div class="flip-sign">birthright labs</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">john mwangi</div><div class="flip-title">advisor</div></div><div class="flip-back"><div class="flip-role">advisor</div><div class="flip-sign">birthright project</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">kalu balogun</div><div class="flip-title">cofounder</div></div><div class="flip-back"><p class="flip-quote">"founders are human before they are businesses."</p><div class="flip-sign">cofounder · birthright project</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">karem coronel</div><div class="flip-title">foundation</div></div><div class="flip-back"><div class="flip-role">foundations + community engagement</div><div class="flip-sign">birthright foundation</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">krista smitten</div><div class="flip-title">wellbeing engineer</div></div><div class="flip-back"><p class="flip-quote">"wellbeing is rarely just physical."</p><div class="flip-sign">happy sunday</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">max banjo</div><div class="flip-title">global partner / latam</div></div><div class="flip-back"><p class="flip-quote">"talent is everywhere; here, support meets it."</p><div class="flip-sign">founder / puente nova</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">melanie nasser</div><div class="flip-title">board advisor</div></div><div class="flip-back"><div class="flip-role">board advisor</div><div class="flip-sign">birthright labs</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">ola heavens</div><div class="flip-title">global partner / africa</div></div><div class="flip-back"><p class="flip-quote">"deliver meaningful gains in livelihood. that's the work."</p><div class="flip-sign">founder / awipa ng</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">sheila diba</div><div class="flip-title">co-creator</div></div><div class="flip-back"><div class="flip-role">co-creator</div><div class="flip-sign">54siblings · mmaadd</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">shereka evans</div><div class="flip-title">creative director · the mmaadd</div></div><div class="flip-back"><div class="flip-role">designer · co-creator · creative director</div><div class="flip-sign">mmaadd institute</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">sherry seetram</div><div class="flip-title">board advisor</div></div><div class="flip-back"><div class="flip-role">board advisor</div><div class="flip-sign">birthright labs</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">tolu odunuga</div><div class="flip-title">director</div></div><div class="flip-back"><p class="flip-quote">"talent should open every door — that's the world we're building."</p><div class="flip-sign">cofounder + director</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">tosin salami</div><div class="flip-title">co-creator</div></div><div class="flip-back"><div class="flip-role">co-creator</div><div class="flip-sign">birthright project</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">u / y edebiri</div><div class="flip-title">ventures</div></div><div class="flip-back"><div class="flip-role">venture advisor</div><div class="flip-sign">birthright labs</div></div></div></div>
+      <div class="flip" tabindex="0"><div class="flip-inner"><div class="flip-front"><div class="flip-name">yinka omolade</div><div class="flip-title">global programs</div></div><div class="flip-back"><div class="flip-role">global programs</div><div class="flip-sign">birthright labs</div></div></div></div>
     </div>
 
     <div class="creed">
@@ -403,6 +403,14 @@ document.querySelectorAll('[data-reveal]').forEach(function(el){ro.observe(el)})
     elN.textContent=d.note;}
   btns.forEach(function(b){b.addEventListener('click',function(){sel(b.getAttribute('data-city'))})});
   sel('atlanta');
+})();
+
+// tap to flip on touch devices
+(function(){
+  if(!window.matchMedia('(hover: none)').matches) return;
+  document.querySelectorAll('.flip').forEach(function(c){
+    c.addEventListener('click',function(){c.classList.toggle('flipped')});
+  });
 })();
 </script>
 </body>
