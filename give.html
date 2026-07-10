@@ -134,6 +134,19 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
   .trust-label{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 }
 @media(max-width:560px){.give-grid{grid-template-columns:1fr 1fr}}
+
+/* stripe giving */
+.give-mode{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line-s);border-radius:999px;margin-bottom:14px}
+.give-mode button{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;background:none;border:0;color:var(--muted);border-radius:999px;padding:9px 16px;cursor:pointer;transition:all 150ms;min-height:38px}
+.give-mode button.active{background:var(--terra);color:var(--bg);font-weight:500}
+.amount-custom{display:none;margin-top:10px;max-width:220px}
+.amount-custom.show{display:block}
+.give-trust{font-size:0.62rem;color:var(--soft);line-height:1.7;margin-top:14px}
+.give-trust strong{color:var(--muted);font-weight:400}
+.give-thanks{border:1px solid rgba(198,122,74,0.4);border-left:3px solid var(--terra);border-radius:14px;padding:18px 20px;margin-bottom:22px;display:none}
+.give-thanks.show{display:block}
+.give-thanks-t{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ink);margin-bottom:5px}
+.give-thanks-p{font-size:0.74rem;color:var(--muted);line-height:1.7}
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -179,6 +192,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
       <button type="button" class="give-card" data-give="ideas" data-reveal style="--rd:240ms"><div class="give-num">way 05</div><div class="give-name">give <em>ideas</em></div><p class="give-desc">bring partnerships, local opportunities, or models we should explore.</p></button>
     </div>
 
+    <div class="give-thanks" id="give-thanks">
+      <div class="give-thanks-t serif">thank you.</div>
+      <p class="give-thanks-p">your gift is received. a receipt is on its way to your inbox. it goes straight into pilots, fellowships, tools, and community infrastructure.</p>
+    </div>
+
     <div class="form-wrap" data-reveal>
       <p class="form-helper" id="helper">tell us what you'd like to fund — pilots, fellowships, tools, or community infrastructure.</p>
       <form id="give-form" class="form">
@@ -196,6 +214,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
 
         <div class="field field-full" id="amount-field">
           <label>amount</label>
+          <div class="give-mode" role="group" aria-label="giving frequency">
+            <button type="button" id="mode-once" class="active" onclick="setMode(false)">give once</button>
+            <button type="button" id="mode-monthly" onclick="setMode(true)">give monthly</button>
+          </div>
           <div class="amounts" id="amounts">
             <button type="button" class="amount" data-amt="25">$25</button>
             <button type="button" class="amount" data-amt="60">$60</button>
@@ -207,6 +229,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
             <button type="button" class="amount" data-amt="other">other</button>
           </div>
           <input type="hidden" name="amount" id="amount-input">
+          <input class="amount-custom" id="amount-custom" type="number" min="5" max="100000" step="1" placeholder="enter an amount" inputmode="numeric">
+          <p class="give-trust">secure payment handled by <strong>stripe</strong>. the birthright project is a 501(c)(3) nonprofit &middot; ein 99&#8209;3166732 &middot; your gift is tax&#8209;deductible.</p>
         </div>
 
         <div class="field"><label for="gn">name</label><input id="gn" name="name" type="text" placeholder="your name" required></div>
@@ -281,37 +305,94 @@ function setType(type,scroll){
   if(select.value!==type && HELPERS[type]) select.value=type;
   helper.textContent=HELPERS[type]||HELPERS.money;
   amountField.style.display = (type==='money') ? 'flex' : 'none';
+  if(typeof updateButton==='function') updateButton();
   if(scroll) document.querySelector('.form-wrap').scrollIntoView({behavior:'smooth',block:'center'});
 }
 cards.forEach(function(c){c.addEventListener('click',function(){setType(c.getAttribute('data-give'),true)})});
 select.addEventListener('change',function(){setType(select.value,false)});
 
-// amounts
+// ── amounts ──
 var amtInput=document.getElementById('amount-input');
+var amtCustom=document.getElementById('amount-custom');
+var isMonthly=false;
+var chosen=null;
+
+function setMode(monthly){
+  isMonthly=monthly;
+  document.getElementById('mode-once').classList.toggle('active',!monthly);
+  document.getElementById('mode-monthly').classList.toggle('active',monthly);
+  updateButton();
+}
+function updateButton(){
+  var btn=document.querySelector('#give-form button[type="submit"]');
+  if(!btn) return;
+  var t=select.value;
+  if(t==='money'){ btn.textContent = isMonthly ? 'give monthly \u2192' : 'give securely \u2192'; }
+  else { btn.textContent='send contribution'; }
+}
 document.querySelectorAll('.amount').forEach(function(a){
   a.addEventListener('click',function(){
     document.querySelectorAll('.amount').forEach(function(x){x.classList.remove('active')});
     a.classList.add('active');
     var v=a.getAttribute('data-amt');
-    if(v==='other'){var c=prompt('enter an amount (usd)');amtInput.value=c||'';}
-    else amtInput.value=v;
+    if(v==='other'){ amtCustom.classList.add('show'); amtCustom.focus(); chosen=null; amtInput.value=''; }
+    else { amtCustom.classList.remove('show'); chosen=parseInt(v,10); amtInput.value=v; }
   });
 });
+amtCustom.addEventListener('input',function(){
+  var v=parseInt(amtCustom.value,10);
+  chosen=(v>0)?v:null; amtInput.value=chosen||'';
+});
 
-// deep links: /give#tech etc
-(function(){var h=(location.hash||'').replace('#','');if(HELPERS[h])setType(h,false);})();
+// ── stripe checkout for the money path ──
+async function goToStripe(status,btn,label){
+  var amount=chosen;
+  if(!amount||amount<5){ status.textContent='choose an amount (minimum $5).'; return; }
+  btn.disabled=true; btn.textContent='opening secure checkout...';
+  try{
+    var email=document.getElementById('ge').value.trim();
+    var r=await fetch('/api/checkout',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({amount:amount,recurring:isMonthly,email:email||undefined})
+    });
+    var d=await r.json();
+    if(r.ok&&d.url){ window.location.href=d.url; return; }
+    status.textContent=d.error||'could not start checkout. please try again.';
+  }catch(e){
+    status.textContent='network error. try again or email hello@thebirthrightproject.org';
+  }
+  btn.textContent=label; btn.disabled=false;
+}
 
-// form
+// ── deep links: /give#tech etc ──
+(function(){var h=(location.hash||'').replace('#','');if(HELPERS[h])setType(h,false);updateButton();})();
+
+// ── returning from a successful checkout ──
+(function(){
+  var p=new URLSearchParams(location.search);
+  if(p.get('given')==='1'){
+    document.getElementById('give-thanks').classList.add('show');
+    document.getElementById('give-thanks').scrollIntoView({behavior:'smooth',block:'center'});
+    try{ history.replaceState({},'',location.pathname); }catch(e){}
+  }
+})();
+
+// ── form: money \u2192 stripe, everything else \u2192 formspree ──
 var FORMSPREE='https://formspree.io/f/mwvdyplz';
 document.getElementById('give-form').addEventListener('submit',function(e){
   e.preventDefault();
   var form=e.target, status=document.getElementById('status');
   var btn=form.querySelector('button[type="submit"]');
   var label=btn.textContent;
-  btn.disabled=true; btn.textContent='sending...'; status.textContent='';
+  status.textContent='';
+
+  if(select.value==='money'){ goToStripe(status,btn,label); return; }
+
+  btn.disabled=true; btn.textContent='sending...';
   fetch(FORMSPREE,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
   .then(function(r){
-    if(r.ok){status.textContent="sent — we'll be in touch.";form.reset();setType('money',false);btn.textContent='sent ✓';}
+    if(r.ok){status.textContent="sent \u2014 we'll be in touch.";form.reset();setType('money',false);btn.textContent='sent \u2713';}
     else{status.textContent='something went wrong. try again or email hello@thebirthrightproject.org';btn.textContent=label;btn.disabled=false;}
   })
   .catch(function(){status.textContent='network error. try again or email us.';btn.textContent=label;btn.disabled=false;});
