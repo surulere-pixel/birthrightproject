@@ -456,78 +456,108 @@ html.intro-seen .hero .container > .btns{animation:none}
 <section class="hero">
   <div class="hero-photo" aria-hidden="true">
     <svg class="hero-sketch" viewBox="0 0 1469 979" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-      <!-- horizon -->
+      <!-- 1 · horizon + ground line -->
       <g class="sk sk-1">
-        <path pathLength="1" d="M0 128 H1672"/>
-        <path pathLength="1" d="M0 116 C 140 98, 280 124, 420 106 S 660 124, 800 104 S 1060 128, 1200 102 S 1460 126, 1672 108"/>
+        <path pathLength="1" d="M0 402 H1469"/>
+        <path pathLength="1" d="M0 392 C 120 380, 250 400, 380 386 S 620 402, 760 384 S 1010 404, 1160 382 S 1330 400, 1469 388"/>
       </g>
-      <!-- meridians + latitudes: the corridors -->
+
+      <!-- 2 · survey grid + perspective lines -->
       <g class="sk sk-2 grid">
-        <path pathLength="1" d="M836 132 L-160 941"/><path pathLength="1" d="M836 132 L180 941"/>
-        <path pathLength="1" d="M836 132 L500 941"/><path pathLength="1" d="M836 132 L836 941"/>
-        <path pathLength="1" d="M836 132 L1172 941"/><path pathLength="1" d="M836 132 L1492 941"/>
-        <path pathLength="1" d="M836 132 L1832 941"/>
-        <path pathLength="1" d="M0 246 H1672"/><path pathLength="1" d="M0 356 H1672"/>
-        <path pathLength="1" d="M0 496 H1672"/><path pathLength="1" d="M0 672 H1672"/>
-        <path pathLength="1" d="M0 872 H1672"/>
+        <path pathLength="1" d="M734 406 L-120 979"/><path pathLength="1" d="M734 406 L170 979"/>
+        <path pathLength="1" d="M734 406 L452 979"/><path pathLength="1" d="M734 406 L1016 979"/>
+        <path pathLength="1" d="M734 406 L1298 979"/><path pathLength="1" d="M734 406 L1590 979"/>
+        <path pathLength="1" d="M0 486 H1469"/><path pathLength="1" d="M0 578 H1469"/>
+        <path pathLength="1" d="M0 700 H1469"/><path pathLength="1" d="M0 856 H1469"/>
       </g>
-      <!-- regenerative loop -->
+
+      <!-- 3 · the road: kerbs + centre dashes running to the horizon -->
       <g class="sk sk-3">
-        <ellipse pathLength="1" cx="196" cy="560" rx="112" ry="76" transform="rotate(-12 196 560)"/>
-        <path pathLength="1" d="M132 522 L160 552 L120 592"/>
-        <path pathLength="1" d="M262 600 L232 570 L272 530"/>
+        <path pathLength="1" d="M596 979 L706 410"/>
+        <path pathLength="1" d="M884 979 L764 410"/>
+        <path pathLength="1" d="M740 979 L740 940 M740 900 L740 866 M739 830 L739 800 M738 768 L738 742 M737 712 L737 690 M736 662 L736 644 M735 618 L735 604 M735 580 L735 568 M734 548 L734 538 M734 520 L734 512 M734 496 L734 490 M734 476 L734 470 M734 458 L734 452"/>
       </g>
-      <!-- the platform: three lanes rising -->
+
+      <!-- 4 · solar array, stepping in perspective -->
       <g class="sk sk-4">
-        <path pathLength="1" d="M96 862 H612"/>
-        <path pathLength="1" d="M160 862 V712 h84 v150"/>
-        <path pathLength="1" d="M300 862 V636 h84 v226"/>
-        <path pathLength="1" d="M440 862 V548 h84 v314"/>
-        <path pathLength="1" d="M160 712 L202 676 L244 712 M300 636 L342 600 L384 636 M440 548 L482 512 L524 548"/>
+        <path pathLength="1" d="M56 640 L206 616 L232 664 L78 690 Z"/>
+        <path pathLength="1" d="M92 634 L118 682 M132 628 L158 676 M172 622 L198 670"/>
+        <path pathLength="1" d="M96 690 V724 M212 664 V698"/>
+        <path pathLength="1" d="M60 736 L240 706 L266 750 L84 782 Z"/>
+        <path pathLength="1" d="M100 730 L126 774 M148 722 L174 766 M196 714 L222 758"/>
+        <path pathLength="1" d="M104 782 V818 M250 750 V786"/>
       </g>
-      <!-- shared infrastructure: the standing frame -->
+
+      <!-- 5 · housing: the blocks going up -->
       <g class="sk sk-5">
-        <path pathLength="1" d="M636 318 L1044 296 L1044 344 L636 362 Z"/>
-        <path pathLength="1" d="M652 342 H1028 V466 H652 Z"/>
-        <path pathLength="1" d="M692 342 V466 M772 342 V466 M852 342 V466 M932 342 V466 M988 342 V466"/>
-        <path pathLength="1" d="M652 466 H1028"/>
+        <path pathLength="1" d="M1046 402 h96 v206 h-96 Z"/>
+        <path pathLength="1" d="M1046 402 l30 -34 h96 l-30 34"/>
+        <path pathLength="1" d="M1142 402 l30 -34 v206 l-30 34"/>
+        <path pathLength="1" d="M1066 428 h20 v22 h-20 Z M1102 428 h20 v22 h-20 Z M1066 476 h20 v22 h-20 Z M1102 476 h20 v22 h-20 Z M1066 524 h20 v22 h-20 Z M1102 524 h20 v22 h-20 Z"/>
+        <path pathLength="1" d="M1214 448 h84 v160 h-84 Z"/>
+        <path pathLength="1" d="M1232 470 h16 v20 h-16 Z M1264 470 h16 v20 h-16 Z M1232 512 h16 v20 h-16 Z M1264 512 h16 v20 h-16 Z"/>
+        <path pathLength="1" d="M1330 486 h72 v122 h-72 Z"/>
+        <path pathLength="1" d="M1346 506 h14 v18 h-14 Z M1374 506 h14 v18 h-14 Z"/>
+        <path pathLength="1" d="M1030 608 H1426"/>
       </g>
-      <!-- the diaspora span -->
+
+      <!-- 6 · rail: track, sleepers, a train coming through -->
       <g class="sk sk-6">
-        <path pathLength="1" d="M1210 384 L1672 336 L1672 398 L1210 446 Z"/>
-        <path pathLength="1" d="M1222 440 L1672 392 M1222 440 V692 M1672 392 V656"/>
-        <path pathLength="1" d="M1300 430 V682 M1392 421 V672 M1484 412 V662 M1580 402 V652"/>
+        <path pathLength="1" d="M0 806 H1469"/>
+        <path pathLength="1" d="M0 830 H1469"/>
+        <path pathLength="1" d="M40 806 V830 M120 806 V830 M200 806 V830 M280 806 V830 M360 806 V830 M440 806 V830 M520 806 V830 M600 806 V830 M680 806 V830 M760 806 V830 M840 806 V830 M920 806 V830 M1000 806 V830 M1080 806 V830 M1160 806 V830 M1240 806 V830 M1320 806 V830 M1400 806 V830"/>
+        <path pathLength="1" d="M232 806 v-72 h206 v72 Z"/>
+        <path pathLength="1" d="M438 806 v-58 l40 -14 v72 Z"/>
+        <path pathLength="1" d="M256 748 h44 v26 h-44 Z M318 748 h44 v26 h-44 Z M380 748 h34 v26 h-34 Z"/>
+        <path pathLength="1" d="M260 806 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0 M392 806 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0"/>
       </g>
-      <!-- the mast -->
+
+      <!-- 7 · power: pylon + lines -->
       <g class="sk sk-7">
-        <path pathLength="1" d="M1196 436 V60"/>
-        <path pathLength="1" d="M1180 436 V86 M1214 436 V86"/>
-        <path pathLength="1" d="M1180 400 L1214 368 M1214 400 L1180 368 M1180 336 L1214 304 M1214 336 L1180 304 M1180 272 L1214 240 M1214 272 L1180 240 M1180 208 L1214 176 M1214 208 L1180 176 M1180 144 L1214 112 M1214 144 L1180 112"/>
-        <path pathLength="1" d="M1168 60 H1226"/>
+        <path pathLength="1" d="M902 700 V296"/>
+        <path pathLength="1" d="M884 700 L902 296 M920 700 L902 296"/>
+        <path pathLength="1" d="M866 386 H938 M860 440 H944 M872 336 H932"/>
+        <path pathLength="1" d="M884 660 L920 620 M920 660 L884 620 M884 600 L920 560 M920 600 L884 560 M886 540 L918 504 M918 540 L886 504 M888 486 L916 456 M916 486 L888 456"/>
+        <path pathLength="1" d="M866 386 C 700 404, 540 396, 402 424"/>
+        <path pathLength="1" d="M938 386 C 1080 402, 1200 398, 1330 420"/>
+        <path pathLength="1" d="M860 440 C 700 460, 560 452, 420 478"/>
       </g>
-      <!-- the pulse -->
+
+      <!-- 8 · water tower + a bridge over the cut -->
       <g class="sk sk-8">
-        <path pathLength="1" d="M60 402 L128 402 L156 348 L186 456 L214 380 L244 420 L336 420"/>
-        <path pathLength="1" d="M986 214 L1146 204 L1146 232 L986 242 Z"/>
+        <path pathLength="1" d="M486 452 h84 v46 h-84 Z"/>
+        <path pathLength="1" d="M486 452 l16 -24 h52 l16 24"/>
+        <path pathLength="1" d="M500 498 L512 592 M556 498 L544 592 M512 592 H544"/>
+        <path pathLength="1" d="M504 536 L552 560 M552 536 L504 560"/>
+        <path pathLength="1" d="M980 700 H1240"/>
+        <path pathLength="1" d="M980 700 C 1044 646, 1176 646, 1240 700"/>
+        <path pathLength="1" d="M1012 700 V672 M1060 700 V656 M1110 700 V652 M1160 700 V656 M1208 700 V672"/>
       </g>
-      <!-- corridors: where value moves -->
+
+      <!-- 9 · trees + the plane's arc -->
       <g class="sk sk-9 paths">
-        <path pathLength="1" d="M836 150 C 812 336, 878 506, 838 676 S 762 862, 744 941"/>
-        <path pathLength="1" d="M838 506 C 950 544, 1060 596, 1150 696 S 1272 836, 1314 941"/>
-        <path pathLength="1" d="M838 596 C 692 632, 552 676, 432 756 S 232 886, 164 941"/>
+        <path pathLength="1" d="M116 590 v-44 M116 546 c -26 0 -34 -30 -6 -38 c 2 -26 42 -26 44 0 c 28 8 20 38 -6 38 Z"/>
+        <path pathLength="1" d="M300 574 v-40 M300 534 c -22 0 -30 -26 -5 -33 c 2 -22 36 -22 38 0 c 24 7 17 33 -5 33 Z"/>
+        <path pathLength="1" d="M646 570 v-38 M646 532 c -21 0 -28 -25 -5 -31 c 2 -21 34 -21 36 0 c 23 6 16 31 -5 31 Z"/>
+        <path pathLength="1" d="M1288 690 v-42 M1288 648 c -24 0 -32 -28 -6 -35 c 2 -24 40 -24 42 0 c 26 7 18 35 -6 35 Z"/>
+        <path pathLength="1" d="M120 236 C 340 176, 620 150, 902 176"/>
+        <path pathLength="1" d="M960 168 l52 -14 l-16 22 l30 6 l-34 16 l4 20 l-32 -22 l-24 8 l10 -22 Z"/>
       </g>
-      <!-- survey marks -->
+
+      <!-- 10 · survey marks -->
       <g class="sk sk-10 marks">
-        <path pathLength="1" d="M636 496 H1044 M636 486 V506 M1044 486 V506"/>
-        <path pathLength="1" d="M152 906 L152 852 M136 872 L152 852 L168 872"/>
-        <path pathLength="1" d="M136 932 H228 M136 924 V940 M182 924 V940 M228 924 V940"/>
+        <path pathLength="1" d="M1030 634 H1426 M1030 624 V644 M1426 624 V644"/>
+        <path pathLength="1" d="M60 898 L60 848 M46 866 L60 848 L74 866"/>
+        <path pathLength="1" d="M46 930 H136 M46 922 V940 M91 922 V940 M136 922 V940"/>
       </g>
+
       <g class="sk-label">
-        <text x="712" y="292" class="sk-t">SHARED INFRASTRUCTURE</text>
-        <text x="1290" y="500" class="sk-t">THE DIASPORA</text>
-        <text x="176" y="700" class="sk-t sk-t-s">THREE LANES</text>
-        <text x="136" y="962" class="sk-t sk-t-s">0    25m</text>
-        <text x="138" y="844" class="sk-t sk-t-s">N</text>
+        <text x="1046" y="352" class="sk-t">HOUSING</text>
+        <text x="60" y="596" class="sk-t">POWER</text>
+        <text x="232" y="716" class="sk-t sk-t-s">TRANSIT</text>
+        <text x="756" y="700" class="sk-t sk-t-s">ROADS</text>
+        <text x="46" y="962" class="sk-t sk-t-s">0    25m</text>
+        <text x="48" y="838" class="sk-t sk-t-s">N</text>
       </g>
     </svg>
     <img src="/hero.jpg"
