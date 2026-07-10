@@ -65,6 +65,19 @@ section:first-of-type{border-top:0}
 .give-name em{color:var(--terra);font-style:italic}
 .give-desc{font-size:0.7rem;color:var(--muted);line-height:1.65}
 
+/* hero 2-col — text left, ways-to-give right (fits without scrolling) */
+.hero{padding:clamp(22px,4vw,44px) 0 clamp(34px,5vw,60px)}
+.hero-grid{display:grid;grid-template-columns:0.82fr 1.18fr;gap:clamp(26px,4vw,54px);align-items:center}
+.hero-copy .h1{font-size:clamp(2.1rem,4.6vw,3.6rem);margin:10px 0 16px}
+.hero-copy .body{margin-bottom:0;max-width:44ch}
+.hero-ways .eyebrow{margin-bottom:14px}
+.hero-ways .give-grid{grid-template-columns:1fr 1fr;margin-top:0;gap:12px}
+.hero-ways .give-card{min-height:0;padding:14px 16px}
+.hero-ways .give-name{font-size:1.2rem;margin-bottom:6px}
+.hero-ways .give-desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hero-ways .give-card:last-child{grid-column:1 / -1}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:24px}.hero-copy .body{max-width:56ch}}
+
 /* form */
 .form-wrap{background:var(--panel);border:1px solid var(--line-s);border-radius:20px;padding:clamp(22px,4vw,40px);margin-top:clamp(24px,4vw,36px)}
 .form-helper{font-size:0.74rem;color:var(--terra);line-height:1.7;margin-bottom:22px;min-height:2.4em}
@@ -175,27 +188,32 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;o
 </div></nav>
 
 <!-- HERO -->
-<section>
-  <div class="container" data-reveal>
-    <div class="eyebrow"><div class="dot"></div>the oxygen fund</div>
-    <h1 class="h1">give what<br><em>you have.</em></h1>
-    <p class="body">money, tech, time, space, and ideas all move the work. every contribution builds infrastructure communities can own.</p>
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy" data-reveal>
+        <div class="eyebrow"><div class="dot"></div>the oxygen fund</div>
+        <h1 class="h1">give what<br><em>you have.</em></h1>
+        <p class="body">money, tech, time, space, and ideas all move the work. every contribution builds infrastructure communities can own.</p>
+      </div>
+      <div class="hero-ways" data-reveal>
+        <div class="eyebrow"><div class="dot"></div>choose a way to give</div>
+        <div class="give-grid" role="group" aria-label="ways to give">
+          <button type="button" class="give-card active" data-give="money" data-reveal style="--rd:0ms"><div class="give-num">way 01</div><div class="give-name">give <em>money</em></div><p class="give-desc">fund pilots, fellowships, tools, and local infrastructure.</p></button>
+          <button type="button" class="give-card" data-give="tech" data-reveal style="--rd:60ms"><div class="give-num">way 02</div><div class="give-name">give <em>tech</em></div><p class="give-desc">contribute devices, software access, credits, or technical support.</p></button>
+          <button type="button" class="give-card" data-give="time" data-reveal style="--rd:120ms"><div class="give-num">way 03</div><div class="give-name">give <em>time</em></div><p class="give-desc">mentor, advise, teach, review, or help build.</p></button>
+          <button type="button" class="give-card" data-give="space" data-reveal style="--rd:180ms"><div class="give-num">way 04</div><div class="give-name">give <em>space</em></div><p class="give-desc">offer rooms, studios, land, venues, or workspace.</p></button>
+          <button type="button" class="give-card" data-give="ideas" data-reveal style="--rd:240ms"><div class="give-num">way 05</div><div class="give-name">give <em>ideas</em></div><p class="give-desc">bring partnerships, local opportunities, or models we should explore.</p></button>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- WAYS + FORM -->
+<!-- FORM -->
 <section id="ways" data-reveal>
   <div class="container">
-    <div class="eyebrow"><div class="dot"></div>choose a way to give</div>
-    <h2 class="h2">five ways to <em>move the work.</em></h2>
-
-    <div class="give-grid" role="group" aria-label="ways to give">
-      <button type="button" class="give-card active" data-give="money" data-reveal style="--rd:0ms"><div class="give-num">way 01</div><div class="give-name">give <em>money</em></div><p class="give-desc">fund pilots, fellowships, tools, and local infrastructure.</p></button>
-      <button type="button" class="give-card" data-give="tech" data-reveal style="--rd:60ms"><div class="give-num">way 02</div><div class="give-name">give <em>tech</em></div><p class="give-desc">contribute devices, software access, credits, or technical support.</p></button>
-      <button type="button" class="give-card" data-give="time" data-reveal style="--rd:120ms"><div class="give-num">way 03</div><div class="give-name">give <em>time</em></div><p class="give-desc">mentor, advise, teach, review, or help build.</p></button>
-      <button type="button" class="give-card" data-give="space" data-reveal style="--rd:180ms"><div class="give-num">way 04</div><div class="give-name">give <em>space</em></div><p class="give-desc">offer rooms, studios, land, venues, or workspace.</p></button>
-      <button type="button" class="give-card" data-give="ideas" data-reveal style="--rd:240ms"><div class="give-num">way 05</div><div class="give-name">give <em>ideas</em></div><p class="give-desc">bring partnerships, local opportunities, or models we should explore.</p></button>
-    </div>
+    <div class="eyebrow"><div class="dot"></div>complete your gift</div>
 
     <div class="give-thanks" id="give-thanks">
       <div class="give-thanks-t serif">thank you.</div>
